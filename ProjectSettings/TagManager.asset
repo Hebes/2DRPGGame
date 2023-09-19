@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - _TagCanvas
+  - _TagUICamera
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - Player
+  - Enemy
+  - Sword
+  - Item
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 923826445
+    locked: 0
+  - name: Ground
+    uniqueID: 1608468179
+    locked: 0
+  - name: Checkpoint
+    uniqueID: 4186322795
+    locked: 0
+  - name: Item
+    uniqueID: 2591359733
+    locked: 0
+  - name: Enemy
+    uniqueID: 2017465849
+    locked: 0
+  - name: Player
+    uniqueID: 1338267669
+    locked: 0
+  - name: FX
+    uniqueID: 3842286561
+    locked: 0
