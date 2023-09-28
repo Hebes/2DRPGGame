@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 
@@ -28,7 +26,7 @@ namespace RPGGame
         //移动信息
         [Header("移动信息")]
         public float moveSpeed = 12f;           //移动速度
-        public float jumpForce = 7;             //跳跃的力
+        public float jumpForce = 14;             //跳跃的力
         public float swordReturnImpact;         //回剑冲击
         private float defaultMoveSpeed;         //默认移动速度
         private float defaultJumpForce;         //默认跳跃的力
@@ -38,11 +36,11 @@ namespace RPGGame
         public float dashSpeed = 25f;                 //冲刺速度
         public float dashDuration = .2f;              //冲刺持续时间
         private float defaultDashSpeed;         //默认冲刺速度
-        public float dashDir;                   //冲刺方向
+        [HideInInspector] public float dashDir;                   //冲刺方向
 
-        public SkillManager skill;
-        public GameObject sword;
-        public PlayerFX fx;
+        [HideInInspector]public SkillManager skill;
+        [HideInInspector] public GameObject sword;
+        [HideInInspector] public PlayerFX fx;
 
         //玩家状态
         public PlayerStateMachine stateMachine;     //状态管理类
@@ -88,13 +86,17 @@ namespace RPGGame
 
             fx = GetComponent<PlayerFX>();
 
-            skill = SkillManager.Instance;
-
             stateMachine.Initialize(idleState);//状态机初始化
 
             defaultMoveSpeed = moveSpeed;
             defaultJumpForce = jumpForce;
             defaultDashSpeed = dashSpeed;
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            skill = SkillManager.Instance;
         }
 
 
@@ -166,9 +168,11 @@ namespace RPGGame
         /// </summary>
         private void CheckForDashInput()
         {
-            if (IsWallDetected()) return;
-            if (skill.dash.dashUnlocked == false) return;
-            if (SkillManager.Instance.dash.CanUseSkill()==false)
+            if (IsWallDetected())
+                return;
+            if (skill.dash.dashUnlocked == false)
+                return;
+            if (SkillManager.Instance.dash.CanUseSkill() == false)
                 Debug.Log("技能没有冷却,无法使用技能");
             if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.Instance.dash.CanUseSkill())
             {
@@ -176,16 +180,12 @@ namespace RPGGame
                 if (dashDir == 0)
                     dashDir = facingDir;
                 stateMachine.ChangeState(dashState);
-                //只有输入才能触发冲刺
-                //if (dashDir != 0)
-                //    stateMachine.ChangeState(dashState);
             }
         }
 
         public override void Die()
         {
             base.Die();
-
             stateMachine.ChangeState(deadState);
         }
 

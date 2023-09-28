@@ -33,7 +33,11 @@ namespace RPGGame
 
 
 
-        private void FlipUI() => myTransform.Rotate(0, 180, 0);
+        private void FlipUI()
+        {
+            myTransform.Rotate(0, 180, 0);
+        }
+
         private void OnDisable()
         {
             entity.onFlipped -= FlipUI;

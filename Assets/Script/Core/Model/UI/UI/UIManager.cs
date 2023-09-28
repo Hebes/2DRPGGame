@@ -46,19 +46,19 @@ namespace Core
         //初始化
         private void InitRoot()
         {
-            AssetOperationHandle handle = YooAssetLoadExpsion.YooaddetLoadAsync<GameObject>(ConfigCore.Global);
-            GameObject gameObject = handle.InstantiateSync();
-            //实例化
-            CanvasTransfrom = gameObject.transform;
-            GameObject.DontDestroyOnLoad(CanvasTransfrom);
-            //获取子节点
-            Normal = GetUITypeTransform(EUIType.Normal);
-            Fixed = GetUITypeTransform(EUIType.Fixed);
-            PopUp = GetUITypeTransform(EUIType.PopUp);
-            Mobile = GetUITypeTransform(EUIType.Mobile);
-            Fade = GetUITypeTransform(EUIType.Fade);
-            UICamera = CanvasTransfrom.GetChildComponent<Camera>("UICamera");
-            MainCamera = CanvasTransfrom.GetChildComponent<Camera>("MainCamera");
+            //AssetOperationHandle handle = YooAssetLoadExpsion.YooaddetLoadAsync<GameObject>(ConfigCore.Global);
+            //GameObject gameObject = handle.InstantiateSync();
+            ////实例化
+            //CanvasTransfrom = gameObject.transform;
+            //GameObject.DontDestroyOnLoad(CanvasTransfrom);
+            ////获取子节点
+            //Normal = GetUITypeTransform(EUIType.Normal);
+            //Fixed = GetUITypeTransform(EUIType.Fixed);
+            //PopUp = GetUITypeTransform(EUIType.PopUp);
+            //Mobile = GetUITypeTransform(EUIType.Mobile);
+            //Fade = GetUITypeTransform(EUIType.Fade);
+            //UICamera = CanvasTransfrom.GetChildComponent<Camera>("UICamera");
+            //MainCamera = CanvasTransfrom.GetChildComponent<Camera>("MainCamera");
 
             #region 旧代码
             //AssetOperationHandle handle = YooAssetLoadExpsion.YooaddetLoadAsync("Global");

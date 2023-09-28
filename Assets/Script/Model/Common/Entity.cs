@@ -35,9 +35,9 @@ namespace RPGGame
         public Transform attackCheck;                                   //攻击检查
         public float attackCheckRadius = 0.8f;                          //攻击检测半径
         [SerializeField] protected Transform groundCheck;               //地面检测
-        [SerializeField] protected float groundCheckDistance = 0.15f;   //地面检测时间
+        [SerializeField] protected float groundCheckDistance = 0.15f;   //地面检测距离
         [SerializeField] protected Transform wallCheck;                 //墙壁检测
-        [SerializeField] protected float wallCheckDistance = 0.05f;     //墙壁检测时间
+        [SerializeField] protected float wallCheckDistance = 0.05f;     //墙壁检测距离
         [SerializeField] protected LayerMask whatIsGround;              //检测层级
 
         [HideInInspector] public int knockbackDir;
@@ -109,7 +109,8 @@ namespace RPGGame
         }
         public void SetVelocity(float _xVelocity, float _yVelocity)
         {
-            if (isKnocked) return;
+            if (isKnocked) 
+                return;
             rb.velocity = new Vector2(_xVelocity, _yVelocity);
             FlipController(_xVelocity);
         }
@@ -119,11 +120,17 @@ namespace RPGGame
         //碰撞
         public virtual bool IsGroundDetected()
         {
-            return Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
+            bool isGroundDetected = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
+            //if (isGroundDetected)
+            //    Debug.Log("检测到地面");
+            return isGroundDetected;
         }
         public virtual bool IsWallDetected()
         {
-            return Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
+            bool isWallDetected = Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
+            //if (isWallDetected)
+            //    Debug.Log("检测到墙");
+            return isWallDetected;
         }
         protected virtual void OnDrawGizmos()
         {
@@ -140,9 +147,7 @@ namespace RPGGame
             facingDir = facingDir * -1;
             facingRight = !facingRight;
             transform.Rotate(0, 180, 0);
-
-            if (onFlipped != null)
-                onFlipped();
+            onFlipped?.Invoke();
         }
         public virtual void FlipController(float _x)
         {

@@ -1,13 +1,28 @@
 ﻿using UnityEngine;
 
+
+/*--------脚本描述-----------
+
+电子邮箱：
+    1607388033@qq.com
+作者:
+    暗沉
+描述:
+    骷髅怪动画触发
+
+-----------------------*/
+
 namespace RPGGame
 {
-    /// <summary>
-    /// 骷髅怪动画触发
-    /// </summary>
     public class Enemy_SkeletonAnimationTriggers : MonoBehaviour
     {
-        private Enemy_Skeleton enemy => GetComponentInParent<Enemy_Skeleton>();
+        private Enemy_Skeleton enemy
+        {
+            get
+            {
+                return GetComponentInParent<Enemy_Skeleton>();
+            }
+        }
 
         private void AnimationTrigger()
         {
@@ -26,7 +41,7 @@ namespace RPGGame
                 if (hit.GetComponent<Player>() != null)
                 {
                     PlayerStats target = hit.GetComponent<PlayerStats>();
-                    //enemy.stats.DoDamage(target);
+                    enemy.stats.DoDamage(target);
                 }
             }
         }

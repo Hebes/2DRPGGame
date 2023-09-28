@@ -19,7 +19,7 @@ namespace ACFrameworkCore
     {
         public static string LogPath = $"{Application.dataPath}/LogOut";
 
-        [MenuItem("Tool/清空日志")]//#E
+        //[MenuItem("Tool/清空日志")]//#E
         public static void ClearLog()
         {
             if (!Directory.Exists(LogPath)) return;

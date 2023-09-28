@@ -8,7 +8,7 @@ namespace RPGGame
     /// </summary>
     public class SkeletonBattleState : EnemyState
     {
-        private Transform player = PlayerManager.Instance.player.transform;
+        private Transform player;
         private Enemy_Skeleton enemy;
         private int moveDir;
 
@@ -21,6 +21,7 @@ namespace RPGGame
         public override void Enter()
         {
             base.Enter();
+            player = PlayerManager.Instance.player.transform;
             if (player.GetComponent<PlayerStats>().isDead)
                 stateMachine.ChangeState(enemy.moveState);
         }

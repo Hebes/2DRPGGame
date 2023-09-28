@@ -1,8 +1,5 @@
 using Cysharp.Threading.Tasks;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 /*--------Ω≈±æ√Ë ˆ-----------
 
@@ -34,20 +31,20 @@ namespace Core
 
     public class InitGame
     {
-        public InitGame()
+        public void Start()
         {
-            SwitchInitGameProcess(EInitGameProcess.FSMInitCore);
+            SwitchInitGameProcess(EInitGameProcess.FSMInitCore).Forget();
         }
 
-        private void SwitchInitGameProcess(EInitGameProcess initGameProcess)
+        private async UniTaskVoid SwitchInitGameProcess(EInitGameProcess initGameProcess)
         {
             switch (initGameProcess)
             {
-                case EInitGameProcess.FSMInitCore: FSMInitCore().Forget(); break;
-                //case EInitGameProcess.FSMInitManagerCore: FSMInitManagerCore(); break;
-                //case EInitGameProcess.FSMInitModel: FSMInitModel(); break;
-                //case EInitGameProcess.FSMInitUI: FSMInitUI(); break;
-                //case EInitGameProcess.FSMEnterGame: FSMEnterGame().Forget(); break;
+                case EInitGameProcess.FSMInitCore: await FSMInitCore(); break;
+                    //case EInitGameProcess.FSMInitManagerCore: FSMInitManagerCore(); break;
+                    //case EInitGameProcess.FSMInitModel: FSMInitModel(); break;
+                    //case EInitGameProcess.FSMInitUI: FSMInitUI(); break;
+                    //case EInitGameProcess.FSMEnterGame: FSMEnterGame().Forget(); break;
             }
         }
 
