@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_SkillToolTip : UI_ToolTip
 {
-    [SerializeField] private Text skillText;
-    [SerializeField] private Text skillName;
-    [SerializeField] private Text skillCost;
+    [SerializeField] private TextMeshProUGUI skillText;
+    [SerializeField] private TextMeshProUGUI skillName;
+    [SerializeField] private TextMeshProUGUI skillCost;
     [SerializeField] private float defaultNameFontSize;
     
     public void ShowToolTip(string _skillDescprtion,string _skillName,int _price)

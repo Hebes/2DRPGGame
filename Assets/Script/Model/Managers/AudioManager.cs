@@ -18,6 +18,7 @@ namespace RPGGame
         private bool canPlaySFX;
         protected override void Awake()
         {
+            base.Awake();
             Invoke("AllowSFX", 1f);
         }
 
@@ -33,15 +34,15 @@ namespace RPGGame
         }
 
 
-
+        /// <summary>
+        /// ≤•∑≈“Ù–ß
+        /// </summary>
+        /// <param name="_sfxIndex"></param>
+        /// <param name="_source"></param>
         public void PlaySFX(int _sfxIndex, Transform _source)
         {
-            //if (sfx[_sfxIndex].isPlaying)
-            //    return;
-
             if (canPlaySFX == false)
                 return;
-
 
             if (_source != null && Vector2.Distance(PlayerManager.Instance.player.transform.position, _source.position) > sfxMinimumDistance)
                 return;
@@ -49,7 +50,6 @@ namespace RPGGame
 
             if (_sfxIndex < sfx.Length)
             {
-
                 sfx[_sfxIndex].pitch = Random.Range(.85f, 1.1f);
                 sfx[_sfxIndex].Play();
             }

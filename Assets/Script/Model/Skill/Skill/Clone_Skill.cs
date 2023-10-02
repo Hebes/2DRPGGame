@@ -16,7 +16,7 @@ using UnityEngine.UI;
 
 namespace RPGGame
 {
-    public class Clone_Skill : Skill
+    public class Clone_Skill : Skill 
     {
         [Header("¿ËÂ¡ÐÅÏ¢")]
         [SerializeField] private float attackMultiplier;

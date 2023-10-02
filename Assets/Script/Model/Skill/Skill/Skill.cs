@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 /*--------脚本描述-----------
@@ -16,7 +17,7 @@ namespace RPGGame
     /// <summary>
     /// 技能基类
     /// </summary>
-    public class Skill : MonoBehaviour
+    public class Skill : MonoBehaviour  
     {
         public float cooldown;      //冷却
         public float cooldownTimer; //冷却计时器
@@ -51,7 +52,7 @@ namespace RPGGame
                 return true;
             }
 
-            player.fx.CreatePopUpText("Cooldown");
+            ConfigEvent.EffectPopUpTextEvent.EventTrigger("Cooldown!", player.transform.position);
             return false;
         }
         public virtual void UseSkill()

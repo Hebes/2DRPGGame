@@ -15,7 +15,7 @@ using ExcelDataReader;
 
 -----------------------*/
 
-namespace ACFrameworkCore
+namespace ACEditor
 {
     public static class ExcelChangeHelper
     {

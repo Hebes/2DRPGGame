@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 /*--------脚本描述-----------
 
@@ -20,8 +15,7 @@ namespace RPGGame
 {
     public class ParallaxBackground : MonoBehaviour
     {
-
-        [SerializeField] private float parallaxEffect = 9;//视察效果9
+        [SerializeField] private float parallaxEffect = 1;//SkyBG1->1 CityBG2->0.9
 
         private float xPosition;
         private float length;
@@ -39,12 +33,10 @@ namespace RPGGame
 
             transform.position = new Vector3(xPosition + distanceToMove, transform.position.y);
 
-
             if (distanceMoved > xPosition + length)
                 xPosition = xPosition + length;
             else if (distanceMoved < xPosition - length)
                 xPosition = xPosition - length;
         }
     }
-
 }

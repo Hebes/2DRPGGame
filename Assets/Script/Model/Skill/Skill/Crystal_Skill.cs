@@ -7,7 +7,7 @@ namespace RPGGame
     /// <summary>
     /// Ë®¾§
     /// </summary>
-    public class Crystal_Skill : Skill
+    public class Crystal_Skill : Skill 
     {
         [SerializeField] private float crystalDuration;
         [SerializeField] private GameObject crystalPrefab;

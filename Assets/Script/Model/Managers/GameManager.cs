@@ -3,6 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+
+/*--------脚本描述-----------
+
+电子邮箱：
+    1607388033@qq.com
+作者:
+    暗沉
+描述:
+    游戏管理类
+
+-----------------------*/
+
 namespace RPGGame
 {
     public class GameManager : SinglentMono<GameManager>, ISaveManager
@@ -24,7 +37,6 @@ namespace RPGGame
         private void Start()
         {
             checkpoints = FindObjectsOfType<Checkpoint>();
-
             player = PlayerManager.Instance.player.transform;
         }
         private void Update()
@@ -39,7 +51,6 @@ namespace RPGGame
             SceneManager.LoadScene(scene.name);
         }
 
-        public void LoadData(GameData _data) => StartCoroutine(LoadWithDelay(_data));
 
         private void LoadCheckpoints(GameData _data)
         {
@@ -77,23 +88,6 @@ namespace RPGGame
             LoadLostCurrency(_data);
         }
 
-        public void SaveData(ref GameData _data)
-        {
-            _data.lostCurrencyAmount = lostCurrencyAmount;
-            _data.lostCurrencyX = player.position.x;
-            _data.lostCurrencyY = player.position.y;
-
-
-            if (FindClosestCheckpoint() != null)
-                _data.closestCheckpointId = FindClosestCheckpoint().id;
-
-            _data.checkpoints.Clear();
-
-            foreach (Checkpoint checkpoint in checkpoints)
-            {
-                _data.checkpoints.Add(checkpoint.id, checkpoint.activationStatus);
-            }
-        }
         private void LoadClosestCheckpoint(GameData _data)
         {
             if (_data.closestCheckpointId == null)
@@ -107,6 +101,39 @@ namespace RPGGame
                 if (closestCheckpointId == checkpoint.id)
                     player.position = checkpoint.transform.position;
             }
+        }
+
+
+        /// <summary>
+        /// 是否暂停游戏
+        /// </summary>
+        /// <param name="_pause"></param>
+        public void PauseGame(bool _pause)
+        {
+            Time.timeScale = _pause ? 0 : 1;
+        }
+
+
+        //保存或加载存档
+        public void LoadData(GameData _data)
+        {
+            StartCoroutine(LoadWithDelay(_data));
+        }
+
+        public void SaveData(ref GameData _data)
+        {
+            _data.lostCurrencyAmount = lostCurrencyAmount;
+            _data.lostCurrencyX = player.position.x;
+            _data.lostCurrencyY = player.position.y;
+
+
+            if (FindClosestCheckpoint() != null)
+                _data.closestCheckpointId = FindClosestCheckpoint().id;
+
+            _data.checkpoints.Clear();
+
+            foreach (Checkpoint checkpoint in checkpoints)
+                _data.checkpoints.Add(checkpoint.id, checkpoint.activationStatus);
         }
 
         private Checkpoint FindClosestCheckpoint()
@@ -126,15 +153,6 @@ namespace RPGGame
             }
 
             return closestCheckpoint;
-        }
-
-
-        public void PauseGame(bool _pause)
-        {
-            if (_pause)
-                Time.timeScale = 0;
-            else
-                Time.timeScale = 1;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Core;
+using System.Collections;
 using UnityEngine;
 
 
@@ -356,16 +357,16 @@ namespace RPGGame
         }
 
 
-        protected virtual void DecreaseHealthBy(int _damage)
+        protected virtual void DecreaseHealthBy(int damage)
         {
 
             if (isVulnerable)
-                _damage = Mathf.RoundToInt(_damage * 1.1f);
+                damage = Mathf.RoundToInt(damage * 1.1f);
 
-            currentHealth -= _damage;
+            currentHealth -= damage;
 
-            if (_damage > 0)
-                fx.CreatePopUpText(_damage.ToString());
+            if (damage > 0)
+                ConfigEvent.EffectPopUpTextEvent.EventTrigger(damage.ToString(),transform.position);
 
             if (onHealthChanged != null)
                 onHealthChanged();

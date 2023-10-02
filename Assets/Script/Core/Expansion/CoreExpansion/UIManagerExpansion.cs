@@ -15,15 +15,15 @@ namespace Core
     {
         public static T ShwoUIPanel<T>(this string uiFormName) where T : UIBase, new()
         {
-            return UIManager.Instance.ShwoUIPanel<T>(uiFormName);
+            return CroeUIManager.Instance.ShwoUIPanel<T>(uiFormName);
         }
         public static void CloseUIPanel(this string uiFormName)
         {
-            UIManager.Instance.CloseUIForms(uiFormName);
+            CroeUIManager.Instance.CloseUIForms(uiFormName);
         }
         public static T GetUIPanl<T>(this string uiFormName) where T : UIBase
         {
-            return UIManager.Instance.GetUIPanl<T>(uiFormName);
+            return CroeUIManager.Instance.GetUIPanl<T>(uiFormName);
         }
     }
 }

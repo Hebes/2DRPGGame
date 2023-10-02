@@ -8,7 +8,7 @@ namespace RPGGame
     /// <summary>
     /// ºÚ¶´
     /// </summary>
-    public class Blackhole_Skill : Skill
+    public class Blackhole_Skill : Skill 
     {
 
 

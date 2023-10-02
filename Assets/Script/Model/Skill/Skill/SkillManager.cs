@@ -16,6 +16,7 @@ namespace RPGGame
         [HideInInspector] public Parry_Skill parry;         //格挡  
         [HideInInspector] public Dodge_Skill dodge;         //闪避
 
+        
         protected override void Awake()
         {
             base.Awake();
@@ -26,6 +27,6 @@ namespace RPGGame
             crystal = GetComponent<Crystal_Skill>();
             parry = GetComponent<Parry_Skill>();
             dodge = GetComponent<Dodge_Skill>();
-        }
+        } 
     }
 }

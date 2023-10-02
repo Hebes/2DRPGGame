@@ -1,0 +1,30 @@
+{
+    "currency": 0,
+    "skillTree": {
+        "keys": [],
+        "values": []
+    },
+    "inventory": {
+        "keys": [],
+        "values": []
+    },
+    "equipmentId": [],
+    "checkpoints": {
+        "keys": [],
+        "values": []
+    },
+    "closestCheckpointId": "",
+    "lostCurrencyX": 21.59275245666504,
+    "lostCurrencyY": -2.6729111671447756,
+    "lostCurrencyAmount": 0,
+    "volumeSettings": {
+        "keys": [
+            "sfx",
+            "bgm"
+        ],
+        "values": [
+            1.0,
+            1.0
+        ]
+    }
+}

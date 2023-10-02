@@ -8,7 +8,7 @@ namespace RPGGame
     /// <summary>
     /// иа╠э
     /// </summary>
-    public class Dodge_Skill : Skill
+    public class Dodge_Skill : Skill 
     {
         [Header("Dodge")]
         [SerializeField] private UI_SkillTreeSlot unlockDodgeButton;

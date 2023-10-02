@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 namespace RPGGame
 {
     public class UI_CraftWindow : MonoBehaviour
     {
-        [SerializeField] private Text itemName;
-        [SerializeField] private Text itemDescription;
+        [SerializeField] private TextMeshProUGUI itemName;
+        [SerializeField] private TextMeshProUGUI itemDescription;
         [SerializeField] private Image itemIcon;
         [SerializeField] private Button craftButton;
 

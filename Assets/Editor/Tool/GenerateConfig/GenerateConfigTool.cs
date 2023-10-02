@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Text;
 using UnityEditor;
 using UnityEditorInternal;
-using UnityEngine;
 using Debug = UnityEngine.Debug;
 
 /*--------脚本描述-----------
@@ -23,18 +22,22 @@ using Debug = UnityEngine.Debug;
 
 namespace ACEditor
 {
+    public enum DataReadType
+    {
+        /// <summary> 普通带后缀 </summary>
+        CommonSuffixation,
+        /// <summary> 普通不带后缀 </summary>
+        CommonNoSuffix,
+        /// <summary> 全路径带后缀 </summary>
+        AllPathSuffixation,
+        /// <summary> 全路径不带后缀 </summary>
+        AllPathNoSuffix,
+    }
+
     public class GenerateConfigTool : EditorWindow
     {
-        private static string namespaceName = "ACFrameworkCore";    //命名空间
+        private static string namespaceName = "RPGGame";    //命名空间
 
-
-        private static string CommonPath = $"{Application.dataPath}\\";
-        private static string GenerateConfigPath = $"{Application.dataPath}/HotUpdate/GameMain/Config/Common/";
-
-
-        /// <summary>
-        /// 过滤关键词
-        /// </summary>
         private static string FilterKeyword(string str, params string[] filterSuffix)
         {
             foreach (string key in filterSuffix)
@@ -42,72 +45,22 @@ namespace ACEditor
             return str;
         }
 
-        /// <summary>
-        /// 生成配置文件(不带路径写入)
-        /// </summary>
-        /// <param name="path">需要获取的文件的路径</param>
-        /// <param name="creatPath">创建脚本的路径</param>
-        /// <param name="ConfigName">脚本名称</param>
-        /// <param name="filterSuffix">需要的文件的后缀</param>
-        private static void CreatConfig(string path, string creatPath, string ConfigName, params string[] filterSuffix)
+        public static void WriteData(string content, string creatFilePath)
         {
-            Debug.Log("执行不带路径写入!");
-            string className = $"{ConfigName}Config";//脚本名称
-
-            //寻找需要的文件
-            List<string> pathsList = new List<string>();
-            foreach (string key in filterSuffix)
-            {
-                string[] strings = Directory.GetFiles(path, $"*{key}", SearchOption.AllDirectories);
-                pathsList.AddRange(strings.ToList());
-            }
-            //拼接字符串
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"namespace {namespaceName}\r\n{{");
-            sb.AppendLine($"    public class {className}\r\n    {{");
-            foreach (string pathTemp in pathsList)
-            {
-                //文件名称(未过滤的)
-                string fileNameOld = Path.GetFileNameWithoutExtension(pathTemp);
-                //文件名称(过滤后的)
-                string fileNameNew = Path.GetFileNameWithoutExtension(pathTemp).
-                    Replace("@", "_").
-                    Replace("(", "").
-                    Replace(")", "").
-                    Replace("-", "_").
-                    Replace(" ", "");
-                //获取后缀
-                string extendedName = Path.GetExtension(pathTemp);
-                sb.AppendLine($"        public const string {fileNameNew}{ConfigName} = \"{fileNameOld}\";");
-            }
-            sb.AppendLine("    }\r\n}");
-
             //删除原来的文件
-            string classPath = $"{creatPath}/{className}.cs";
-            string classPathMeta = $"{creatPath}/{className}.{filterSuffix}.meta";
-
-            if (File.Exists(classPath))
+            if (File.Exists(creatFilePath))
             {
                 Debug.Log("文件存在开始删除!");
-                File.Delete(classPath);
-                File.Delete(classPathMeta);
+                File.Delete(creatFilePath);
                 Debug.Log("文件删除成功!");
             }
-            File.WriteAllText(classPath, sb.ToString());
+            File.WriteAllText(creatFilePath, content.ToString());
             Debug.Log("文件写入成功!");
             AssetDatabase.Refresh();
         }
 
-        /// <summary>
-        /// 生成配置文件(全路径写入)
-        /// </summary>
-        /// <param name="path">需要获取的文件的路径</param>
-        /// <param name="creatPath">创建脚本的路径</param>
-        /// <param name="ConfigName">脚本名称</param>
-        /// <param name="filterSuffix">需要的文件的后缀</param>
-        private static void CreatConfigAllPath(string path, string creatPath, string ConfigName, params string[] filterSuffix)
+        public static string ReadDataString(string path, string ConfigName, DataReadType dataReadType, params string[] filterSuffix)
         {
-            string className = $"{ConfigName}Config";//脚本名称
             //寻找需要的文件
             List<string> pathsList = new List<string>();
             foreach (string key in filterSuffix)
@@ -118,7 +71,7 @@ namespace ACEditor
             //拼接字符串
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"namespace {namespaceName}\r\n{{");
-            sb.AppendLine($"    public class {className}\r\n    {{");
+            sb.AppendLine($"    public class {ConfigName}\r\n    {{");
             foreach (string pathTemp in pathsList)
             {
                 //文件名称
@@ -130,66 +83,44 @@ namespace ACEditor
                     Replace(" ", "");
                 //文件路径
                 string extendedName = Path.GetExtension(pathTemp);//如不需要请直接添加上去,这个是获取拓展名称
-                //string assetsPath = pathTemp.Replace(extendedName, "").Replace(path, "").Replace("\\", "/");//文件路径
                 string assetsPath = pathTemp.Replace(path, "").Replace("\\", "/");//文件路径
-                sb.AppendLine($"        public const string {fileName}{ConfigName} = \"{assetsPath}\";");
+                string extendedNameTemp = FilterKeyword(extendedName, ".");
+                switch (dataReadType)
+                {
+                    case DataReadType.CommonSuffixation:
+                        sb.AppendLine($"        public const string {extendedNameTemp}{fileName} = \"{fileName}{extendedName}\";"); 
+                        break;
+                    case DataReadType.CommonNoSuffix:
+                        sb.AppendLine($"        public const string {extendedNameTemp}{fileName} = \"{fileName}\";");
+                        break;
+                    case DataReadType.AllPathSuffixation:
+                        sb.AppendLine($"        public const string {extendedNameTemp}{fileName} = \"{assetsPath}\";");
+                        break;
+                    case DataReadType.AllPathNoSuffix:
+                        sb.AppendLine($"        public const string {extendedNameTemp}{fileName} = \"{assetsPath.Replace(extendedName, "")}\";");
+                        break;
+                }
+
+                //文件路径
+
             }
             sb.AppendLine("    }\r\n}");
-            //删除原来的文件
-            string classPath = $"{creatPath}/{className}.cs";
-            string classPathMeta = $"{creatPath}/{className}.{filterSuffix}.meta";
-            if (File.Exists(classPath))
-            {
-                Debug.Log("文件存在开始删除!");
-                File.Delete(classPath);
-                File.Delete(classPathMeta);
-                Debug.Log("文件删除成功!");
-            }
-            File.WriteAllText(classPath, sb.ToString());
-            Debug.Log("文件写入成功!");
-            AssetDatabase.Refresh();
+            return sb.ToString();
         }
 
-
-
-        //配置文件
-        [MenuItem("Tool/GenerateConfig/生成Prefab配置文件")]
-        public static void GeneratePrefabConfig()
-        {
-            string path = $"{CommonPath}/Resources/";
-            string CreatPath = $"{CommonPath}/Scripts/GameModel/Config";
-            CreatConfigAllPath(path, CreatPath, "Prefab", ".prefab");
-        }
-        [MenuItem("Tool/GenerateConfig/生成UIPanel配置文件")]
-        public static void GenerateUIPanelConfig()
-        {
-            //WriteData("UIPanel", string.Empty, ".prefab");
-        }
-        [MenuItem("Tool/GenerateConfig/生成Scenes配置文件")]
-        public static void GenerateScenesConfig()
-        {
-            string path = $"{CommonPath}/Scenes/";
-            string CreatPath = $"{CommonPath}/Scripts/GameModel/Config";
-            CreatConfigAllPath(path, CreatPath, "Scenes", ".unity");
-        }
-        [MenuItem("Tool/GenerateConfig/生成Tag配置文件")]
-        public static void GenerateTagConfig()
+        public static string ReadTagData()
         {
             string[] tags = InternalEditorUtility.tags;
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("namespace ACFrameworkCore\r\n{");
             sb.AppendLine("    public class ConfigTag\r\n    {");
             foreach (string s in tags)
-                sb.AppendLine($"        public const string {s}Tag = \"{s}\";");
+                sb.AppendLine($"        public const string Tag{s} = \"{s}\";");
             sb.AppendLine("    }\r\n}");
-            string classPath = $"{GenerateConfigPath}ConfigTag.cs";
-            if (File.Exists(classPath))
-                File.Delete(classPath);
-            File.WriteAllText(classPath, sb.ToString());
-            AssetDatabase.Refresh();
+            return sb.ToString();
         }
-        [MenuItem("Tool/GenerateConfig/生成Layer配置文件")]
-        public static void GenerateLayerConfig()
+
+        public static string ReadLayerData()
         {
             var tags = InternalEditorUtility.layers;
 
@@ -203,18 +134,10 @@ namespace ACEditor
                 sb.AppendLine($"        public const string Layer{tempstr.Replace(" ", "").Trim()} = \"{tempstr}\";");
             }
             sb.AppendLine("    }\r\n}");
-            string classPath = $"{GenerateConfigPath}ConfigLayer.cs";
-            if (File.Exists(classPath))
-            {
-                Debug.Log("文件存在开始删除!");
-                File.Delete(classPath);
-            }
-
-            File.WriteAllText(classPath, sb.ToString());
-            AssetDatabase.Refresh();
+            return sb.ToString();
         }
-        [MenuItem("Tool/GenerateConfig/生成SortingLayer配置文件")]
-        public static void GenerateSortingLayerConfig()
+
+        public static string ReadSortingLayerData()
         {
             Type internalEditorUtilityType = typeof(InternalEditorUtility);
             PropertyInfo sortingLayersProperty = internalEditorUtilityType.GetProperty("sortingLayerNames", BindingFlags.Static | BindingFlags.NonPublic);
@@ -231,40 +154,7 @@ namespace ACEditor
                 sb.AppendLine($"        public const string SortingLayer{tempstr.Replace(" ", "").Trim()} = \"{tempstr}\";");
             }
             sb.AppendLine("    }\r\n}");
-            string classPath = $"{GenerateConfigPath}ConfigSortingLayer.cs";
-            if (File.Exists(classPath))
-            {
-                Debug.Log("文件存在开始删除!");
-                File.Delete(classPath);
-            }
-
-            File.WriteAllText(classPath, sb.ToString());
-            AssetDatabase.Refresh();
-        }
-        [MenuItem("Tool/GenerateConfig/生成bytes配置文件")]
-        public static void GeneratebytesConfig()
-        {
-            //WriteData("ConfigData", string.Empty, ".bytes");
-        }
-        [MenuItem("Tool/GenerateConfig/生成Sprites配置文件")]
-        public static void GenerateSpritesConfig()
-        {
-            //WriteData("Sprites", string.Empty, ".png");
-        }
-        [MenuItem("Tool/GenerateConfig/生成Animations配置文件")]
-        public static void GenerateAnimationsConfig()
-        {
-            //WriteData("Animations", string.Empty, ".overrideController");
-        }
-        [MenuItem("Tool/GenerateConfig/生成Effects配置文件")]
-        public static void GenerateEffectsConfig()
-        {
-            //WriteData("Effects", string.Empty, ".prefab");
-        }
-        [MenuItem("Tool/GenerateConfig/生成Sound配置文件")]
-        public static void GenerateSoundConfig()
-        {
-            //WriteData("Sound", string.Empty, ".wav", ".ogg");
+            return sb.ToString();
         }
     }
 }

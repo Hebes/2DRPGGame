@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 namespace RPGGame
 {
     public class UI_ItemTooltip : UI_ToolTip
     {
-        [SerializeField] private Text itemNameText;
-        [SerializeField] private Text itemTypeText;
-        [SerializeField] private Text itemDescription;
+        [SerializeField] private TextMeshProUGUI itemNameText;
+        [SerializeField] private TextMeshProUGUI itemTypeText;
+        [SerializeField] private TextMeshProUGUI itemDescription;
 
         [SerializeField] private int defaultFontSize = 32;
 

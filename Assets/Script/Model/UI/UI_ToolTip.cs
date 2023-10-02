@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
- 
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,7 +32,7 @@ public class UI_ToolTip : MonoBehaviour
         transform.position = new Vector2(mousePosition.x + newXoffset, mousePosition.y + newYoffset);
     }
 
-    public void AdjustFontSize(Text _text)
+    public void AdjustFontSize(TextMeshProUGUI _text)
     {
         if (_text.text.Length > 12)
             _text.fontSize = (int)(_text.fontSize * .8f);

@@ -1,4 +1,5 @@
 
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +21,7 @@ namespace RPGGame
 
 
         [Header("Souls info")]
-        [SerializeField] private Text currentSouls;
+        [SerializeField] private TextMeshProUGUI currentSouls;
         [SerializeField] private float soulsAmount;
         [SerializeField] private float increaseRate = 100;
 

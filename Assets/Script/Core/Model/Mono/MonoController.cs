@@ -11,7 +11,6 @@ namespace Core
 
         private void Awake()
         {
-            //Debug.Log("脚本挂载了");
             Debug.Log("脚本挂载了");
             AwakeEvent?.Invoke();
         }

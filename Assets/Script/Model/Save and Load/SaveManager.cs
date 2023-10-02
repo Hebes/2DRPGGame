@@ -63,9 +63,7 @@ namespace RPGGame
         {
 
             foreach (ISaveManager saveManager in saveManagers)
-            {
                 saveManager.SaveData(ref gameData);
-            }
 
             dataHandler.Save(gameData);
         }

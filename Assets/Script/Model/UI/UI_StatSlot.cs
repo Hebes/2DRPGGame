@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,11 +12,16 @@ namespace RPGGame
 
         [SerializeField] private string statName;
         [SerializeField] private EStatType statType;
-        [SerializeField] private Text statValueText;
-        [SerializeField] private Text statNameText;
+        [SerializeField] private TextMeshProUGUI statValueText;
+        [SerializeField] private TextMeshProUGUI statNameText;
 
         [TextArea]
         [SerializeField] private string statDescription;
+
+        private void Awake()
+        {
+           
+        }
 
         private void OnValidate()
         {
@@ -28,7 +34,6 @@ namespace RPGGame
         void Start()
         {
             UpdateStatValueUI();
-
             ui = GetComponentInParent<UI>();
         }
 

@@ -14,7 +14,7 @@ using UnityEngine;
 
 -----------------------*/
 
-namespace ACFrameworkCore
+namespace ACEditor
 {
     public class ClassData
     {

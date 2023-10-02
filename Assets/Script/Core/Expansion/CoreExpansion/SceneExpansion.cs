@@ -1,7 +1,4 @@
 ﻿using Cysharp.Threading.Tasks;
-using System;
-using UnityEngine.SceneManagement;
-using YooAsset;
 
 /*--------脚本描述-----------
 				
@@ -18,19 +15,17 @@ namespace Core
 {
     public static class SceneExpansion
     {
-        
-        public static async UniTask<SceneOperationHandle> LoadSceneAsyncUnitask(this string SceneName, 
-            LoadSceneMode loadSceneMode = LoadSceneMode.Single, bool suspendLoad = false, int priority = 100)
+        public static async UniTask LoadSceneAsync(this string sceneName, ELoadSceneModel loadSceneModel = ELoadSceneModel.Additive)
         {
-            return await ACSceneManager.Instance.LoadSceneAsync(SceneName, loadSceneMode, suspendLoad, priority);
+            await CoreSceneManager.Instance.LoadSceneAsync(sceneName, loadSceneModel);
         }
-        public static  void UnloadAsync(this string scnenName)
+        public static async UniTask UnloadSceneAsync(this string sceneName)
         {
-            ACSceneManager.Instance.UnloadAsync(scnenName);
+            await CoreSceneManager.Instance.UnloadSceneAsync(sceneName);
         }
-        public static void SetActivateScene(this string scnenName)
+        public static async UniTask ChangeSceneAsync(this string oldSceneName, string newSceneName, ELoadSceneModel loadSceneModel = ELoadSceneModel.Additive)
         {
-            ACSceneManager.Instance.SetActivateScene(scnenName);
+            await CoreSceneManager.Instance.ChangeSceneAsync(oldSceneName, newSceneName, loadSceneModel);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace RPGGame
     /// <summary>
     /// ¸ñµ²
     /// </summary>
-    public class Parry_Skill : Skill
+    public class Parry_Skill : Skill 
     {
 
         [Header("Parry")]

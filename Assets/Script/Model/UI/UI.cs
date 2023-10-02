@@ -28,7 +28,6 @@ namespace RPGGame
 
         private void Awake()
         {
-
             SwitchTo(skillTreeUI); // we need this to assign events on skill tree slots before we asssign events on skill scripts
             fadeScreen.gameObject.SetActive(true);
         }
@@ -65,7 +64,6 @@ namespace RPGGame
             for (int i = 0; i < transform.childCount; i++)
             {
                 bool fadeScreen = transform.GetChild(i).GetComponent<UI_FadeScreen>() != null; // we need this to keep fade screen game object active
-
 
                 if (fadeScreen == false)
                     transform.GetChild(i).gameObject.SetActive(false);
@@ -127,7 +125,10 @@ namespace RPGGame
 
         }
 
-        public void RestartGameButton() => GameManager.Instance.RestartScene();
+        public void RestartGameButton()
+        {
+            GameManager.Instance.RestartScene();
+        }
 
         public void LoadData(GameData _data)
         {

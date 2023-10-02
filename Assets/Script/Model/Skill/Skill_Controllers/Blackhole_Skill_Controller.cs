@@ -80,6 +80,10 @@ namespace RPGGame
             }
         }
 
+
+        /// <summary>
+        /// ÊÍ·Å¿ËÂ¡¹¥»÷
+        /// </summary>
         private void ReleaseCloneAttack()
         {
             if (targets.Count <= 0)
@@ -92,9 +96,7 @@ namespace RPGGame
             if (playerCanDisapear)
             {
                 playerCanDisapear = false;
-
                 PlayerManager.Instance.player.fx.MakeTransprent(true);
-
             }
         }
 

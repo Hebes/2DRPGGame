@@ -17,11 +17,12 @@ namespace RPGGame
 {
     public class MainSceneManager : SinglentMono<MainSceneManager>
     {
-        public GameObject mainCam;//摄像机
+        public Camera mainCam;//主摄像机
 
         protected override void Awake()
         {
             base.Awake();
+            mainCam = Camera.main;
         }
     }
 }

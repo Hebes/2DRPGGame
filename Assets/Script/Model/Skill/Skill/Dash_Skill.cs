@@ -17,7 +17,7 @@ namespace RPGGame
     /// <summary>
     /// ³å´Ì¼¼ÄÜ
     /// </summary>
-    public class Dash_Skill : Skill
+    public class Dash_Skill : Skill 
     {
         [Header("³å´Ì")]
         [SerializeField] private UI_SkillTreeSlot dashUnlockButton;

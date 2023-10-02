@@ -1,3 +1,4 @@
+using Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,7 +32,7 @@ namespace RPGGame
             if (!Inventory.Instance.CanAddItem() && itemData.itemType == ItemType.Equipment)
             {
                 rb.velocity = new Vector2(0, 7);
-                PlayerManager.Instance.player.fx.CreatePopUpText("Inventory is full");
+                ConfigEvent.EffectPopUpTextEvent.EventTrigger("Inventory is full", PlayerManager.Instance.player.transform);
                 return;
             }
 

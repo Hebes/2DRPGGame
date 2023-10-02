@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
@@ -19,7 +18,7 @@ using UnityEngine;
 -----------------------*/
 
 
-namespace ACFrameworkCore
+namespace ACEditor
 {
     /// <summary>
     /// 每行类型

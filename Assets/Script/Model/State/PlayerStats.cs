@@ -32,6 +32,10 @@ namespace RPGGame
             GetComponent<PlayerItemDrop>()?.GenerateDrop();
         }
 
+        /// <summary>
+        /// 减少生命值
+        /// </summary>
+        /// <param name="_damage"></param>
         protected override void DecreaseHealthBy(int _damage)
         {
             base.DecreaseHealthBy(_damage);

@@ -2,18 +2,22 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Unity.VisualScripting;
+using TMPro;
+
 namespace RPGGame
 {
     public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] protected Image itemImage;
-        [SerializeField] protected Text itemText;
+        [SerializeField] protected TextMeshProUGUI itemText;
 
         protected UI ui;
         public InventoryItem item;
 
+
         protected virtual void Start()
         {
+            itemText = GetComponentInChildren<TextMeshProUGUI>();
             ui = GetComponentInParent<UI>();
         }
 

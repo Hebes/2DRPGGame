@@ -16,7 +16,7 @@ using UnityEngine;
 
 -----------------------*/
 
-namespace ACFrameworkCore
+namespace ACEditor
 {
     public static class BinaryData
     {

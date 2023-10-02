@@ -1,30 +1,36 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+
+/*--------脚本描述-----------
+
+电子邮箱：
+    1607388033@qq.com
+作者:
+    暗沉
+描述:
+    实体特效
+
+-----------------------*/
 
 namespace RPGGame
 {
     public class EntityFX : MonoBehaviour
     {
-        protected Player player;
         protected SpriteRenderer sr;
 
-        [Header("弹出文本特效")]
-        [SerializeField] private GameObject popUpTextPrefab;
-
-
         [Header("动画特效")]
-        [SerializeField] private float flashDuration;
-        [SerializeField] private Material hitMat;
+        [SerializeField] private float flashDuration;           //闪光时间
+        [SerializeField] private Material hitMat;               //伤害材质
         private Material originalMat;
 
 
-        [Header("Ailment colors")]
+        [Header("疾病的颜色效果")]
         [SerializeField] private Color[] igniteColor;
         [SerializeField] private Color[] chillColor;
         [SerializeField] private Color[] shockColor;
 
-        [Header("Ailment particles")]
+        [Header("疾病的粒子")]
         [SerializeField] private ParticleSystem igniteFx;
         [SerializeField] private ParticleSystem chillFx;
         [SerializeField] private ParticleSystem shockFx;
@@ -34,37 +40,18 @@ namespace RPGGame
         [SerializeField] private GameObject criticalHitFx;
 
 
+
         protected virtual void Start()
         {
             sr = GetComponentInChildren<SpriteRenderer>();
-            player = PlayerManager.Instance.player;
             originalMat = sr.material;
         }
 
 
-        public void CreatePopUpText(string _text)
-        {
-            float randomX = Random.Range(-1, 1);
-            float randomY = Random.Range(1.5f, 3);
-
-            Vector3 positionOffset = new Vector3(randomX, randomY, 0);
-
-            GameObject newText = Instantiate(popUpTextPrefab, transform.position + positionOffset, Quaternion.identity);
-
-            newText.GetComponent<Text>().text = _text;
-        }
-
-
-
-
         public void MakeTransprent(bool _transprent)
         {
-            if (_transprent)
-                sr.color = Color.clear;
-            else
-                sr.color = Color.white;
+            sr.color = _transprent ? Color.clear : Color.white;
         }
-
 
         private IEnumerator FlashFX()
         {
