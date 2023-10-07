@@ -1,39 +1,63 @@
-using System.Collections;
-using System.Collections.Generic;
+using Core;
 using UnityEngine;
-using UnityEngine.UI;
+
+/*--------脚本描述-----------
+
+电子邮箱：
+    1607388033@qq.com
+作者:
+    暗沉
+描述:
+    黑洞
+
+-----------------------*/
 
 namespace RPGGame
 {
-    /// <summary>
-    /// 黑洞
-    /// </summary>
-    public class Blackhole_Skill : Skill 
+    public class Blackhole_Skill : Skill
     {
+        public bool blackholeUnlocked;          //黑洞是否解锁
+        private int amountOfAttacks;            //攻击数量
+        private float cloneCooldown;            //克隆的冷却时间
+        private float blackholeDuration;        //黑洞持续时间
+
+        private GameObject blackHolePrefab;     //黑洞预制体
+        private float maxSize;                  //最大尺寸
+        private float growSpeed;                //增长速度
+        private float shrinkSpeed;              //减少的速度
 
 
-        [SerializeField] private UI_SkillTreeSlot blackHoleUnlockButton;
-        public bool blackholeUnlocked;// { get; private set; }
-        [SerializeField] private int amountOfAttacks;
-        [SerializeField] private float cloneCooldown;
-        [SerializeField] private float blackholeDuration;
-        [Space]
-        [SerializeField] private GameObject blackHolePrefab;
-        [SerializeField] private float maxSize;
-        [SerializeField] private float growSpeed;
-        [SerializeField] private float shrinkSpeed;
+        private Blackhole_Skill_Controller currentBlackhole;    //当前的黑洞
 
-
-        Blackhole_Skill_Controller currentBlackhole;
-
-
-
-        private void UnlockBlackhole()
+        /// <summary>
+        /// 初始化技能
+        /// </summary>
+        public override void Awake()
         {
-            if (blackHoleUnlockButton.unlocked)
-                blackholeUnlocked = true;
-
+            base.Awake();
+            cooldown = 60f;
+            amountOfAttacks = 15;
+            cloneCooldown = 0.35f;
+            blackholeDuration = 3f;
+            blackHolePrefab = LoadResExtension.Load<GameObject>(ConfigPrefab.prefabBlackhole);
+            maxSize = 15f;
+            growSpeed = 3f;
+            shrinkSpeed = 6f;
         }
+
+        public override void CheckUnlock()
+        {
+            base.CheckUnlock();
+            //TODO 检查技能解锁 比如图标变亮
+            //UnLockSkill(string.Empty);
+        }
+
+        public override void UnLockSkill(string skillName)
+        {
+            base.UnLockSkill(skillName);
+            blackholeUnlocked = true;
+        }
+
         public override bool CanUseSkill()
         {
             return base.CanUseSkill();
@@ -43,37 +67,26 @@ namespace RPGGame
         {
             base.UseSkill();
 
-
-
-            GameObject newBlackHole = Instantiate(blackHolePrefab, player.transform.position, Quaternion.identity);
-
+            GameObject newBlackHole = GameObject.Instantiate(blackHolePrefab, Player.Instance.transform.position, Quaternion.identity);
             currentBlackhole = newBlackHole.GetComponent<Blackhole_Skill_Controller>();
-
             currentBlackhole.SetupBlackhole(maxSize, growSpeed, shrinkSpeed, amountOfAttacks, cloneCooldown, blackholeDuration);
 
-
-            AudioManager.Instance.PlaySFX(18, player.transform);
-            AudioManager.Instance.PlaySFX(19, player.transform);
-        }
-
-        protected override void Start()
-        {
-            base.Start();
-
-            blackHoleUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockBlackhole);
-        }
-
-        protected override void Update()
-        {
-            base.Update();
+            //设置音效
+            ModelAudioManager.Instance.PlaySFX(18, Player.Instance.transform);
+            ModelAudioManager.Instance.PlaySFX(19, Player.Instance.transform);
         }
 
 
+
+
+        /// <summary>
+        /// 技能完成
+        /// </summary>
+        /// <returns></returns>
         public bool SkillCompleted()
         {
             if (!currentBlackhole)
                 return false;
-
 
             if (currentBlackhole.playerCanExitState)
             {
@@ -85,16 +98,13 @@ namespace RPGGame
             return false;
         }
 
+        /// <summary>
+        /// 获取黑洞尺寸
+        /// </summary>
+        /// <returns></returns>
         public float GetBlackholeRadius()
         {
             return maxSize / 2;
-        }
-
-        protected override void CheckUnlock()
-        {
-            base.CheckUnlock();
-
-            UnlockBlackhole();
         }
     }
 }

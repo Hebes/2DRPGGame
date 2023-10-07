@@ -45,7 +45,7 @@ namespace RPGGame
         public void ActivateCheckpoint()
         {
             if (activationStatus == false)
-                AudioManager.Instance.PlaySFX(4, transform);
+                ModelAudioManager.Instance.PlaySFX(4, transform);
 
 
             activationStatus = true;

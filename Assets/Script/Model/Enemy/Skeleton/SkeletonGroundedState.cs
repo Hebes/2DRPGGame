@@ -15,7 +15,7 @@ namespace RPGGame
         public override void Enter()
         {
             base.Enter();
-            player = PlayerManager.Instance.player.transform;
+            player = ModelPlayerManager.Instance.player.transform;
         }
 
         public override void Exit()

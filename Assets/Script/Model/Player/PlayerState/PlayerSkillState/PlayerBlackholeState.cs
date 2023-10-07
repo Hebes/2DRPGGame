@@ -1,12 +1,4 @@
-﻿using Codice.Client.BaseCommands;
-using RPGGame;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEditorInternal;
-using UnityEngine;
+﻿using UnityEngine;
 
 /*--------脚本描述-----------
 
@@ -69,12 +61,12 @@ namespace RPGGame
 
                 if (!skillUsed)
                 {
-                    if (player.skill.blackhole.CanUseSkill())
+                    if (player.skill.GetSkill<Blackhole_Skill>().CanUseSkill())
                         skillUsed = true;
                 }
             }
 
-            if (player.skill.blackhole.SkillCompleted())
+            if (player.skill.GetSkill<Blackhole_Skill>().SkillCompleted())
                 stateMachine.ChangeState(player.airState);
         }
     }

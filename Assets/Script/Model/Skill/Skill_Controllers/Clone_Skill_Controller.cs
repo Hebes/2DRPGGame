@@ -108,7 +108,7 @@ namespace RPGGame
 
                 playerStats.CloneDoDamage(enemyStats, attackMultiplier);
 
-                if (player.skill.clone.canApplyOnHitEffect)
+                if (player.skill.GetSkill<Clone_Skill>().canApplyOnHitEffect)
                 {
                     ItemData_Equipment weaponData = Inventory.Instance.GetEquipment(EquipmentType.Weapon);
 
@@ -120,7 +120,7 @@ namespace RPGGame
                 {
                     if (Random.Range(0, 100) < chanceToDuplicate)
                     {
-                        SkillManager.Instance.clone.CreateClone(hit.transform, new Vector3(.5f * facingDir, 0));
+                        ModelSkillManager.Instance.GetSkill<Clone_Skill>().CreateClone(hit.transform, new Vector3(.5f * facingDir, 0));
                     }
                 }
             }

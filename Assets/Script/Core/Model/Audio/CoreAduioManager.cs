@@ -23,7 +23,7 @@ namespace Core
         public AudioSource bkMusic;                         //背景音乐组件
         private float soundValue = 1;                       //音效大小
         private List<AudioSource> soundList;                //音效列表
-        private Dictionary<string, AudioClip> AudioClipDic; //音效列表
+        //private Dictionary<string, AudioClip> AudioClipDic; //音效列表
 
         public void ICroeInit()
         {

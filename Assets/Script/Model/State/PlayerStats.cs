@@ -26,8 +26,8 @@ namespace RPGGame
             base.Die();
             player.Die();
 
-            GameManager.Instance.lostCurrencyAmount = PlayerManager.Instance.currency;
-            PlayerManager.Instance.currency = 0;
+            GameManager.Instance.lostCurrencyAmount = ModelDataManager.Instance.currency;
+            ModelDataManager.Instance.currency = 0;
 
             GetComponent<PlayerItemDrop>()?.GenerateDrop();
         }
@@ -50,7 +50,7 @@ namespace RPGGame
 
 
                 int randomSound = Random.Range(34, 35);
-                AudioManager.Instance.PlaySFX(randomSound, null);
+                ModelAudioManager.Instance.PlaySFX(randomSound, null);
 
             }
 
@@ -62,7 +62,7 @@ namespace RPGGame
 
         public override void OnEvasion()
         {
-            player.skill.dodge.CreateMirageOnDodge();
+            player.skill.GetSkill<Dodge_Skill>().CreateMirageOnDodge();
         }
 
         public void CloneDoDamage(CharacterStats _targetStats, float _multiplier)

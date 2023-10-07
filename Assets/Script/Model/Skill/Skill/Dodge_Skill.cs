@@ -1,59 +1,64 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
+
+/*--------Ω≈±æ√Ë ˆ-----------
+
+µÁ◊”” œ‰£∫
+    1607388033@qq.com
+◊˜’ﬂ:
+    ∞µ≥¡
+√Ë ˆ:
+    …¡±‹
+
+-----------------------*/
+
 namespace RPGGame
 {
-    /// <summary>
-    /// …¡±‹
-    /// </summary>
-    public class Dodge_Skill : Skill 
+    public class Dodge_Skill : Skill
     {
-        [Header("Dodge")]
-        [SerializeField] private UI_SkillTreeSlot unlockDodgeButton;
-        [SerializeField] private int evasionAmount;
+        //…¡±‹
+        private int evasionAmount;
         public bool dodgeUnlocked;
 
-        [Header("Mirage dodge")]
-        [SerializeField] private UI_SkillTreeSlot unlockMirageDodge;
+        //…¡±‹ª√”∞
         public bool dodgeMirageUnlocked;
 
-
-        protected override void Start()
+        public override void Awake()
         {
-            base.Start();
-
-            unlockDodgeButton.GetComponent<Button>().onClick.AddListener(UnlockDodge);
-            unlockMirageDodge.GetComponent<Button>().onClick.AddListener(UnlockMirageDodge);
+            base.Awake();
+            cooldown = 0;
+            evasionAmount = 10;
         }
-
-        protected override void CheckUnlock()
+        public override void UnLockSkill(string skillName)
         {
-            UnlockDodge();
-            UnlockMirageDodge();
-        }
-
-        private void UnlockDodge()
-        {
-            if (unlockDodgeButton.unlocked && !dodgeUnlocked)
+            base.UnLockSkill(skillName);
+            switch (skillName)
             {
-                player.stats.evasion.AddModifier(evasionAmount);
-                Inventory.Instance.UpdateStatsUI();
-                dodgeUnlocked = true;
+                case ConfigSkill.SkillDodge:
+                    if (!dodgeUnlocked)
+                    {
+                        Player.Instance.stats.evasion.AddModifier(evasionAmount);
+                        Inventory.Instance.UpdateStatsUI();
+                        dodgeUnlocked = true;
+                    }
+                    break;
+                case ConfigSkill.SkillMirageDodge:
+                    dodgeMirageUnlocked = true;
+                    break;
             }
         }
 
-        private void UnlockMirageDodge()
+        public override void CheckUnlock()
         {
-            if (unlockMirageDodge.unlocked)
-                dodgeMirageUnlocked = true;
+            base.CheckUnlock();
+            //UnlockDodge();
+            //UnlockMirageDodge();
         }
+
 
         public void CreateMirageOnDodge()
         {
             if (dodgeMirageUnlocked)
-                SkillManager.Instance.clone.CreateClone(player.transform, new Vector3(2 * player.facingDir, 0));
+                ModelSkillManager.Instance.GetSkill<Clone_Skill>().CreateClone(Player.Instance.transform, new Vector3(2 * Player.Instance.facingDir, 0));
         }
     }
 }

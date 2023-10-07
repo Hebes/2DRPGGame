@@ -32,11 +32,11 @@ namespace RPGGame
             if (!Inventory.Instance.CanAddItem() && itemData.itemType == ItemType.Equipment)
             {
                 rb.velocity = new Vector2(0, 7);
-                ConfigEvent.EffectPopUpTextEvent.EventTrigger("Inventory is full", PlayerManager.Instance.player.transform);
+                ConfigEvent.EventEffectPopUpText.EventTrigger("Inventory is full", ModelPlayerManager.Instance.player.transform);
                 return;
             }
 
-            AudioManager.Instance.PlaySFX(9, transform);
+            ModelAudioManager.Instance.PlaySFX(9, transform);
             Inventory.Instance.AddItem(itemData);
             Destroy(gameObject);
         }

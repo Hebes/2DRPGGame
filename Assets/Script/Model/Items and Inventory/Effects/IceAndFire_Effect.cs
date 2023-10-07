@@ -11,7 +11,7 @@ namespace RPGGame
 
         public override void ExecuteEffect(Transform _respawnPosition)
         {
-            Player player = PlayerManager.Instance.player;
+            Player player = ModelPlayerManager.Instance.player;
 
             bool thirdAttack = player.primaryAttack.comboCounter == 2;
 

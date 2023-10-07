@@ -1,24 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
- 
+using Core;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_StatToolTip : UI_ToolTip
+/*--------脚本描述-----------
+
+电子邮箱：
+    1607388033@qq.com
+作者:
+    暗沉
+描述:
+    I统计工具提示
+
+-----------------------*/
+
+namespace RPGGame
 {
-    [SerializeField] private Text description;
-    
-    public void ShowStatToolTip( string _text)
+    public class UI_StatToolTip : UI_ToolTip
     {
-        description.text = _text;
-        AdjustPosition();
+        [SerializeField] private Text description;
 
-        gameObject.SetActive(true);
-    }
+        private void Awake()
+        {
+            ConfigEvent.EventStatToolTipShow.AddEventListener<string>(ShowStatToolTip);
+            ConfigEvent.EventStatToolTipClose.AddEventListener(HideStatToolTip);
+            gameObject.SetActive(false);
+        }
+        public void ShowStatToolTip(string _text)
+        {
+            description.text = _text;
+            AdjustPosition();
 
-    public void HideStatToolTip()
-    {
-        description.text = "";
-        gameObject.SetActive(false);
+            gameObject.SetActive(true);
+        }
+
+        public void HideStatToolTip()
+        {
+            description.text = "";
+            gameObject.SetActive(false);
+        }
     }
 }

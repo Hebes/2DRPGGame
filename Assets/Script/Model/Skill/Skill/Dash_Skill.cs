@@ -14,31 +14,38 @@ using UnityEngine.UI;
 
 namespace RPGGame
 {
-    /// <summary>
-    /// 冲刺技能
-    /// </summary>
-    public class Dash_Skill : Skill 
+    public class Dash_Skill : Skill
     {
-        [Header("冲刺")]
-        [SerializeField] private UI_SkillTreeSlot dashUnlockButton;
-        public bool dashUnlocked { get; private set; }
+        //冲刺
+        public bool dashUnlocked;
 
-        [Header("冲刺的预制体")]
-        [SerializeField] private UI_SkillTreeSlot cloneOnDashUnlockButton;
-        public bool cloneOnDashUnlocked { get; private set; }
+        //冲刺的预制体
+        public bool cloneOnDashUnlocked;
 
-        [Header("到达的预制体")]
-        [SerializeField] private UI_SkillTreeSlot cloneOnArrivalUnlockButton;
-        public bool cloneOnArrivalUnlocked { get; private set; }
+        //到达的预制体
+        public bool cloneOnArrivalUnlocked;
 
-
-        protected override void Start()
+        public override void Awake()
         {
-            base.Start();
+            base.Awake();
+            cooldown = 60;
+        }
 
-            dashUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockDash);
-            cloneOnDashUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockCloneOnDash);
-            cloneOnArrivalUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockCloneOnArrival);
+        public override void UnLockSkill(string skillName)
+        {
+            base.UnLockSkill(skillName);
+            switch (skillName)
+            {
+                case ConfigSkill.SkillDash:
+                    dashUnlocked = true;
+                    break;
+                case ConfigSkill.SkillCloneOnDash:
+                    cloneOnDashUnlocked = true;
+                    break;
+                case ConfigSkill.SkillCloneOnArrival:
+                    cloneOnArrivalUnlocked = true;
+                    break;
+            }
         }
 
         /// <summary>
@@ -52,38 +59,12 @@ namespace RPGGame
         /// <summary>
         /// 检查解锁
         /// </summary>
-        protected override void CheckUnlock()
+        public override void CheckUnlock()
         {
-            UnlockDash();
-            UnlockCloneOnDash();
-            UnlockCloneOnArrival();
-        }
-
-        /// <summary>
-        /// 解锁冲刺
-        /// </summary>
-        private void UnlockDash()
-        {
-            if (dashUnlockButton.unlocked)
-                dashUnlocked = true;
-        }
-
-        /// <summary>
-        /// 在冲刺上解锁克隆
-        /// </summary>
-        private void UnlockCloneOnDash()
-        {
-            if (cloneOnDashUnlockButton.unlocked)
-                cloneOnDashUnlocked = true;
-        }
-
-        /// <summary>
-        /// 到达后解锁克隆
-        /// </summary>
-        private void UnlockCloneOnArrival()
-        {
-            if (cloneOnArrivalUnlockButton.unlocked)
-                cloneOnArrivalUnlocked = true;
+            base.CheckUnlock();
+            //UnlockDash();
+            //UnlockCloneOnDash();
+            //UnlockCloneOnArrival();
         }
 
         /// <summary>
@@ -92,7 +73,7 @@ namespace RPGGame
         public void CloneOnDash()
         {
             if (cloneOnDashUnlocked)
-                SkillManager.Instance.clone.CreateClone(player.transform, Vector3.zero);
+                ModelSkillManager.Instance.GetSkill<Clone_Skill>().CreateClone(Player.Instance.transform, Vector3.zero);
         }
 
         /// <summary>
@@ -101,7 +82,7 @@ namespace RPGGame
         public void CloneOnArrival()
         {
             if (cloneOnArrivalUnlocked)
-                SkillManager.Instance.clone.CreateClone(player.transform, Vector3.zero);
+                ModelSkillManager.Instance.GetSkill<Clone_Skill>().CreateClone(Player.Instance.transform, Vector3.zero);
         }
     }
 }

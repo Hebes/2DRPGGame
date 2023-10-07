@@ -1,15 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
+using Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
+
+
+/*--------脚本描述-----------
+
+电子邮箱：
+    1607388033@qq.com
+作者:
+    暗沉
+描述:
+    状态格子
+
+-----------------------*/
+
 namespace RPGGame
 {
     public class UI_StatSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        private UI ui;
-
         [SerializeField] private string statName;
         [SerializeField] private EStatType statType;
         [SerializeField] private TextMeshProUGUI statValueText;
@@ -18,14 +27,10 @@ namespace RPGGame
         [TextArea]
         [SerializeField] private string statDescription;
 
-        private void Awake()
-        {
-           
-        }
-
+       
         private void OnValidate()
         {
-            gameObject.name = "Stat - " + statName;
+            gameObject.name = "状态 - " + statName;
 
 
             if (statNameText != null)
@@ -34,12 +39,11 @@ namespace RPGGame
         void Start()
         {
             UpdateStatValueUI();
-            ui = GetComponentInParent<UI>();
         }
 
         public void UpdateStatValueUI()
         {
-            PlayerStats playerStats = PlayerManager.Instance.player.GetComponent<PlayerStats>();
+            PlayerStats playerStats = ModelPlayerManager.Instance.player.GetComponent<PlayerStats>();
 
             if (playerStats != null)
             {
@@ -60,14 +64,17 @@ namespace RPGGame
             }
         }
 
+
+        
+        //鼠标事件
         public void OnPointerEnter(PointerEventData eventData)
         {
-            ui.statToolTip.ShowStatToolTip(statDescription);
+            ConfigEvent.EventStatToolTipShow.EventTrigger(statDescription);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            ui.statToolTip.HideStatToolTip();
+            ConfigEvent.EventStatToolTipClose.EventTrigger();
         }
     }
 }

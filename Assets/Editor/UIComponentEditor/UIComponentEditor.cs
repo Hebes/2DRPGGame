@@ -334,7 +334,7 @@ namespace Core
         {
             StringBuilder sb = new StringBuilder();
             //自己填写需要的代码
-            sb.AppendLine($"ACUIComponent UIComponent = GetComponent<UIComponent>();");
+            sb.AppendLine($"UIComponent UIComponent = GetComponent<UIComponent>();");
             UnityEngine.Debug.Log(sb.ToString());
             Copy(sb.ToString());
 
@@ -385,10 +385,14 @@ namespace Core
                 //    if (component != null)
                 //        sb.AppendLine($"{gameObjectProperty.objectReferenceValue.name}{eTUITool_ClassName} = aCUIManager.GetComponent<{eTUITool_ClassName}>(\"{gameObjectProperty.objectReferenceValue.name}\");");
                 //}
-
                 if (type == typeof(GameObject))
                 {
-                    sb.AppendLine($"{gameObjectProperty.objectReferenceValue.name} = UIComponent.Get<{eTUITool_ClassName}>(\"{gameObjectProperty.objectReferenceValue.name}\");");
+                    //去除不必要的
+                    string name = gameObjectProperty.objectReferenceValue.name.
+                        Replace("-", "_").
+                        Replace(" ", "").
+                        Replace("\"", "");
+                    sb.AppendLine($"{name} = UIComponent.Get<{eTUITool_ClassName}>(\"{gameObjectProperty.objectReferenceValue.name}\");");
                 }
                 else
                 {

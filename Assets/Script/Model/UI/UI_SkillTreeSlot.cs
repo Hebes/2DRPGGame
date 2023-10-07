@@ -1,14 +1,25 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
+using Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Debug = Core.Debug;
+
+
+/*--------脚本描述-----------
+
+电子邮箱：
+    1607388033@qq.com
+作者:
+    暗沉
+描述:
+    单个技能的
+
+-----------------------*/
+
 namespace RPGGame
 {
     public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISaveManager
     {
-        private UI ui;
         private Image skillImage;
 
         [SerializeField] private int skillCost;
@@ -36,24 +47,21 @@ namespace RPGGame
         private void Start()
         {
             skillImage = GetComponent<Image>();
-            ui = GetComponentInParent<UI>();
-
             skillImage.color = lockedSkillColor;
-
             if (unlocked)
                 skillImage.color = Color.white;
         }
 
         public void UnlockSkillSlot()
         {
-            if (PlayerManager.Instance.HaveEnoughMoney(skillCost) == false)
+            if (ModelDataManager.Instance.HaveEnoughMoney(skillCost) == false)
                 return;
 
             for (int i = 0; i < shouldBeUnlocked.Length; i++)
             {
                 if (shouldBeUnlocked[i].unlocked == false)
                 {
-                    Debug.Log("Cannot unlock skill");
+                    Debug.Log("无法解锁技能");
                     return;
                 }
             }
@@ -63,7 +71,7 @@ namespace RPGGame
             {
                 if (shouldBeLocked[i].unlocked == true)
                 {
-                    Debug.Log("Cannot unlock skill");
+                    Debug.Log("无法解锁技能");
                     return;
                 }
             }
@@ -71,14 +79,26 @@ namespace RPGGame
             unlocked = true;
             skillImage.color = Color.white;
         }
+
+
+
+        //鼠标事件
+        /// <summary>
+        /// 鼠标进入事件
+        /// </summary>
+        /// <param name="eventData"></param>
         public void OnPointerEnter(PointerEventData eventData)
         {
-            ui.skillToolTip.ShowToolTip(skillDescription, skillName, skillCost);
+            ConfigEvent.EventSkillToolTipShow.EventTrigger(skillDescription, skillName, skillCost);
         }
 
+        /// <summary>
+        /// 鼠标退出事件
+        /// </summary>
+        /// <param name="eventData"></param>
         public void OnPointerExit(PointerEventData eventData)
         {
-            ui.skillToolTip.HideToolTip();
+            ConfigEvent.EventSkillToolTipClose.EventTrigger();
         }
 
         public void LoadData(GameData _data)

@@ -21,7 +21,7 @@ namespace RPGGame
         public override void Enter()
         {
             base.Enter();
-            player = PlayerManager.Instance.player.transform;
+            player = ModelPlayerManager.Instance.player.transform;
             if (player.GetComponent<PlayerStats>().isDead)
                 stateMachine.ChangeState(enemy.moveState);
         }

@@ -1,33 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
+using Core;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class UI_SkillToolTip : UI_ToolTip
+
+/*--------脚本描述-----------
+
+电子邮箱：
+    1607388033@qq.com
+作者:
+    暗沉
+描述:
+    技能介绍面板
+
+-----------------------*/
+
+
+namespace RPGGame
 {
-    [SerializeField] private TextMeshProUGUI skillText;
-    [SerializeField] private TextMeshProUGUI skillName;
-    [SerializeField] private TextMeshProUGUI skillCost;
-    [SerializeField] private float defaultNameFontSize;
-    
-    public void ShowToolTip(string _skillDescprtion,string _skillName,int _price)
+    public class UI_SkillToolTip : UI_ToolTip
     {
-        skillName.text = _skillName;
-        skillText.text = _skillDescprtion;
-        skillCost.text = "Cost: " + _price;
+        [SerializeField] private TextMeshProUGUI skillText; //技能描述
+        [SerializeField] private TextMeshProUGUI skillName; //技能名称
+        [SerializeField] private TextMeshProUGUI skillCost; //技能花费
+        [SerializeField] private float defaultNameFontSize; //默认名称字体大小
 
-        AdjustPosition();
+        private void Awake()
+        {
+            ConfigEvent.EventSkillToolTipShow.AddEventListener<string, string, int>(ShowToolTip);
+            ConfigEvent.EventSkillToolTipClose.AddEventListener(HideToolTip);
+            gameObject.SetActive(false);
+        }
 
-        AdjustFontSize(skillName);
 
-        gameObject.SetActive(true);
+        public void ShowToolTip(string _skillDescprtion, string _skillName, int _price)
+        {
+            gameObject.SetActive(true);
+
+            skillName.text = _skillName;            
+            skillText.text = _skillDescprtion;
+            skillCost.text = $"花费 : {_price}";
+
+            AdjustPosition();
+            AdjustFontSize(skillName);
+        }
+
+        public void HideToolTip()
+        {
+            skillName.fontSize = (int)defaultNameFontSize;
+            gameObject.SetActive(false);
+        }
     }
-
-    public void HideToolTip()
-    {
-        skillName.fontSize = (int)defaultNameFontSize;
-        gameObject.SetActive(false);
-    }
- 
 }

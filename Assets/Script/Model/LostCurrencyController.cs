@@ -12,7 +12,7 @@ namespace RPGGame
             if (collision.GetComponent<Player>() != null)
             {
                 Debug.Log("Picked up currency");
-                PlayerManager.Instance.currency += currency;
+                ModelDataManager.Instance.currency += currency;
                 Destroy(this.gameObject);
             }
         }

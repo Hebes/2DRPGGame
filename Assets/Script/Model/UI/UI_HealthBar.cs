@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 using UnityEngine.UI;
 namespace RPGGame
@@ -5,43 +6,46 @@ namespace RPGGame
     public class UI_HealthBar : MonoBehaviour
     {
         private Entity entity;
-        private CharacterStats myStats;
         private RectTransform myTransform;
         private Slider slider;
 
-
+        private void Awake()
+        {
+            ConfigEvent.EventUIPanelPlayerHealth.AddEventListener<CharacterStats>(UpdateHealthUI);
+            ConfigEvent.EventPlayerFlipUI.AddEventListener(FlipUI);
+        }
         private void Start()
         {
             myTransform = GetComponent<RectTransform>();
             entity = GetComponentInParent<Entity>();
             slider = GetComponentInChildren<Slider>();
-            myStats = GetComponentInParent<CharacterStats>();
-
-
-            entity.onFlipped += FlipUI;
-            myStats.onHealthChanged += UpdateHealthUI;
-
-            UpdateHealthUI();
+            UpdateHealthUI(ModelPlayerManager.Instance.player.playerStats);
         }
 
-        private void UpdateHealthUI()
+        private void OnDisable()
+        {
+            ConfigEvent.EventPlayerFlipUI.RemoveEventListener(FlipUI);
+            ConfigEvent.EventUIPanelPlayerHealth.RemoveEventListener<CharacterStats>(UpdateHealthUI);
+        }
+
+
+
+        /// <summary>
+        /// 更新玩家生命
+        /// </summary>
+        /// <param name="myStats">玩家</param>
+        private void UpdateHealthUI(CharacterStats myStats)
         {
             slider.maxValue = myStats.GetMaxHealthValue();
             slider.value = myStats.currentHealth;
         }
 
-
-
-
+        /// <summary>
+        /// 角色朝向另一个方向
+        /// </summary>
         private void FlipUI()
         {
             myTransform.Rotate(0, 180, 0);
-        }
-
-        private void OnDisable()
-        {
-            entity.onFlipped -= FlipUI;
-            myStats.onHealthChanged -= UpdateHealthUI;
         }
     }
 }

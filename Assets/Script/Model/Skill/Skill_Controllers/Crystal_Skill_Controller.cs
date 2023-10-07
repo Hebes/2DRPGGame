@@ -33,7 +33,7 @@ namespace RPGGame
 
         public void ChooseRandomEnemy()
         {
-            float radius = SkillManager.Instance.blackhole.GetBlackholeRadius();
+            float radius = ModelSkillManager.Instance.GetSkill<Blackhole_Skill>().GetBlackholeRadius();
 
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius, whatIsEnemy);
 

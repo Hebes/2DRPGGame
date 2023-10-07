@@ -13,7 +13,7 @@ namespace RPGGame
 
         public override void ExecuteEffect(Transform _enemyPosition)
         {
-            stats = PlayerManager.Instance.player.GetComponent<PlayerStats>();
+            stats = ModelPlayerManager.Instance.player.GetComponent<PlayerStats>();
             stats.IncreaseStatBy(buffAmount, buffDuration, stats.GetStat(buffType));
         }
     }

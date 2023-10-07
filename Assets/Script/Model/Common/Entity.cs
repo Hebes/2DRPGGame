@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Core;
+using System.Collections;
 using UnityEngine;
 
 
@@ -43,7 +44,6 @@ namespace RPGGame
         [HideInInspector] public int knockbackDir;
         [HideInInspector] public int facingDir = 1;                     //面对的方向
         protected bool facingRight = true;
-        public System.Action onFlipped;
 
         //生命周期
         protected virtual void Awake()
@@ -101,7 +101,9 @@ namespace RPGGame
 
 
 
-        //移动
+        /// <summary>
+        /// 移动
+        /// </summary>
         public void SetZeroVelocity()
         {
             if (isKnocked) return;//如果被击退的话，直接跳过
@@ -147,7 +149,7 @@ namespace RPGGame
             facingDir = facingDir * -1;
             facingRight = !facingRight;
             transform.Rotate(0, 180, 0);
-            onFlipped?.Invoke();
+            ConfigEvent.EventPlayerFlipUI.EventTrigger();
         }
         public virtual void FlipController(float _x)
         {

@@ -35,20 +35,21 @@ namespace RPGGame
         {
             base.Update();
 
-            if (Input.GetKeyDown(KeyCode.R) && player.skill.blackhole.blackholeUnlocked)
+            Blackhole_Skill blackhole_Skill =  player.skill.GetSkill<Blackhole_Skill>();
+            if (Input.GetKeyDown(KeyCode.R) && blackhole_Skill.blackholeUnlocked)
             {
-                if (player.skill.blackhole.cooldownTimer > 0)
+                if (blackhole_Skill.cooldownTimer > 0)
                 {
-                    ConfigEvent.EffectPopUpTextEvent.EventTrigger("Cooldown!", player.transform.position);
+                    ConfigEvent.EventEffectPopUpText.EventTrigger("Cooldown!", player.transform.position);
                     return;
                 }
                 stateMachine.ChangeState(player.blackHole);
             }
 
-            if (Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword() && player.skill.sword.swordUnlocked)
+            if (Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword() && player.skill.GetSkill<Sword_Skill>().swordUnlocked)
                 stateMachine.ChangeState(player.aimSowrd);
 
-            if (Input.GetKeyDown(KeyCode.Q) && player.skill.parry.parryUnlocked)
+            if (Input.GetKeyDown(KeyCode.Q) && player.skill.GetSkill<Parry_Skill>().parryUnlocked)
                 stateMachine.ChangeState(player.counterAttack);
 
             //攻击

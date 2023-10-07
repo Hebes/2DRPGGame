@@ -73,7 +73,7 @@ namespace RPGGame
             base.Die();
             enemy.Die();
 
-            PlayerManager.Instance.currency += soulsDropAmount.GetValue();
+            ModelDataManager.Instance.currency += soulsDropAmount.GetValue();
             myDropSystem.GenerateDrop();
 
 

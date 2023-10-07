@@ -12,7 +12,7 @@ namespace RPGGame
 
         public override void ExecuteEffect(Transform _enemyPosition)
         {
-            PlayerStats playerStats = PlayerManager.Instance.player.GetComponent<PlayerStats>();
+            PlayerStats playerStats = ModelPlayerManager.Instance.player.GetComponent<PlayerStats>();
 
             int healAmount = Mathf.RoundToInt(playerStats.GetMaxHealthValue() * healPercent);
 

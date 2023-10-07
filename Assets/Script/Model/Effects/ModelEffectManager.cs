@@ -29,7 +29,7 @@ namespace RPGGame
             popUpTextPrefab = await ConfigPrefab.prefabPopUpText.LoadAsync<GameObject>();
             //prefabDustFX = await ConfigPrefab.prefabDustFX.LoadAsync<GameObject>();
             //事件监听
-            ConfigEvent.EffectPopUpTextEvent.AddEventListener<string, Vector3>(EffectPopUpTextEvent);
+            ConfigEvent.EventEffectPopUpText.AddEventListener<string, Vector3>(EffectPopUpTextEvent);
         }
 
         /// <summary>

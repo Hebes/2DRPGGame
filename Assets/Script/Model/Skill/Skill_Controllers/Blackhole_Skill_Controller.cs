@@ -1,6 +1,17 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+/*--------脚本描述-----------
+
+电子邮箱：
+    1607388033@qq.com
+作者:
+    暗沉
+描述:
+    黑洞技能控制器
+
+-----------------------*/
+
 namespace RPGGame
 {
     public class Blackhole_Skill_Controller : MonoBehaviour
@@ -26,7 +37,7 @@ namespace RPGGame
         private List<Transform> targets = new List<Transform>();
         private List<GameObject> createdHotKey = new List<GameObject>();
 
-        public bool playerCanExitState { get; private set; }
+        public bool playerCanExitState { get; private set; }//玩家可以退出状态
 
         public void SetupBlackhole(float _maxSize, float _growSpeed, float _shrinkSpeed, int _amountOfAttacks, float _cloneAttackCooldown, float _blackholeDuration)
         {
@@ -39,7 +50,7 @@ namespace RPGGame
             blackholeTimer = _blackholeDuration;
 
 
-            if (SkillManager.Instance.clone.crystalInseadOfClone)
+            if (ModelSkillManager.Instance.GetSkill<Clone_Skill>().crystalInseadOfClone)
                 playerCanDisapear = false;
         }
 
@@ -96,7 +107,7 @@ namespace RPGGame
             if (playerCanDisapear)
             {
                 playerCanDisapear = false;
-                PlayerManager.Instance.player.fx.MakeTransprent(true);
+                ModelPlayerManager.Instance.player.fx.MakeTransprent(true);
             }
         }
 
@@ -115,14 +126,14 @@ namespace RPGGame
                 else
                     xOffset = -2;
 
-                if (SkillManager.Instance.clone.crystalInseadOfClone)
+                if (ModelSkillManager.Instance.GetSkill<Clone_Skill>().crystalInseadOfClone)
                 {
-                    SkillManager.Instance.crystal.CreateCrystal();
-                    SkillManager.Instance.crystal.CurrentCrystalChooseRandomTarget();
+                    ModelSkillManager.Instance.GetSkill<Crystal_Skill>().CreateCrystal();
+                    ModelSkillManager.Instance.GetSkill<Crystal_Skill>().CurrentCrystalChooseRandomTarget();
                 }
                 else
                 {
-                    SkillManager.Instance.clone.CreateClone(targets[randomIndex], new Vector3(xOffset, 0));
+                    ModelSkillManager.Instance.GetSkill<Clone_Skill>().CreateClone(targets[randomIndex], new Vector3(xOffset, 0));
                 }
 
                 amountOfAttacks--;
@@ -174,7 +185,7 @@ namespace RPGGame
         {
             if (keyCodeList.Count <= 0)
             {
-                Debug.LogWarning("Not enough hot keys in a key code list!");
+                Debug.LogWarning("在键代码列表中没有足够的热键!");
                 return;
             }
 

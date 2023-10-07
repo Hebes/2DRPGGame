@@ -272,6 +272,29 @@ namespace Core
             await (eventDic[name] as EventInfoUniTask<T, K>).TriggerUniTask(t, k);
         }
 
+
+        public void AddEventListenerUniTask<T, K, V>(string name, EventInfoUniTask<T, K, V>.ActionUniTaskEvent action)
+        {
+            try
+            {
+                if (eventDic.ContainsKey(name))
+                    (eventDic[name] as EventInfoUniTask<T, K, V>).actionUniTaskEvent += action;
+                else
+                    eventDic.Add(name, new EventInfoUniTask<T, K, V>(action));
+            }
+            catch (Exception e)
+            {
+                Debug.Error($"监听的参数异常请检查{e}");
+                throw e;
+            }
+        }
+        public async UniTask EventTriggerUniTask<T, K, V>(string name, T t, K k, V v)
+        {
+            if (!eventDic.ContainsKey(name)) return;
+            //如果显示空指针异常,请检查监听的参数和触发的参数是否一致
+            await (eventDic[name] as EventInfoUniTask<T, K, V>).TriggerUniTask(t, k, v);
+        }
+
         //清理
         public void Clear()
         {

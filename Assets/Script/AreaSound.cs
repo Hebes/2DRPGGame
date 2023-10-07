@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 
@@ -21,14 +22,15 @@ namespace RPGGame
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.GetComponent<Player>() != null)
-                AudioManager.Instance.PlaySFX(areaSoundIndex, null);
+            //if (collision.GetComponent<Player>() != null)
+            //    ConfigEvent.PlayAudioSourceEvent.EventTriggerUniTask()
+            //    ModelAudioManager.Instance.PlaySFX(areaSoundIndex, null);
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.GetComponent<Player>() != null)
-                AudioManager.Instance.StopSFXWithTime(areaSoundIndex);
+            //if (collision.GetComponent<Player>() != null)
+            //    ModelAudioManager.Instance.StopSFXWithTime(areaSoundIndex);
         }
     }
 }

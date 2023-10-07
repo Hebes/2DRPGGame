@@ -32,8 +32,8 @@ namespace RPGGame
         public override void Enter()
         {
             base.Enter();
-            //TODO 后续取消注释
-            //GameObject.Find("Canvas").GetComponent<UI>().SwitchOnEndScreen();
+            //玩家死亡触发
+            ModelUIManager.Instance.SwitchOnEndScreen().Forget();
         }
 
         public override void Exit()
@@ -44,7 +44,6 @@ namespace RPGGame
         public override void Update()
         {
             base.Update();
-
             player.SetZeroVelocity();
         }
     }

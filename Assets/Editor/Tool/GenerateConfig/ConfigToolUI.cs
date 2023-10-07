@@ -27,23 +27,23 @@ namespace ACEditor
             Repaint();
 
             EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button("生成Prefab数据预览"))
-            {
-                content = GenerateConfigTool.ReadDataString(LoadPath, "ConfigPrefab", DataReadType.CommonSuffixation, ".prefab");
-            }
+            //if (GUILayout.Button("生成Prefab数据预览"))
+            //{
+            //    content = GenerateConfigTool.ReadDataString(LoadPath, "ConfigPrefab", DataReadType.CommonSuffixation, ".prefab");
+            //}
             if (GUILayout.Button("生成Prefab数据预览(全路径)"))
             {
-                content = GenerateConfigTool.ReadDataString(LoadPath, "ConfigPrefab", DataReadType.AllPathSuffixation, ".prefab");
+                content = GenerateConfigTool.ReadDataString(LoadPath, "ConfigPrefab", DataReadType.AllPathNoSuffix, ".prefab");
             }
-            if (GUILayout.Button("生成Prefab数据文件"))
-            {
-                content = GenerateConfigTool.ReadDataString(LoadPath, "ConfigPrefab", DataReadType.CommonSuffixation, ".prefab");
-                string creatFilePath = $"{CreatPath}/ConfigPrefab.cs";
-                GenerateConfigTool.WriteData(content, creatFilePath);
-            }
+            //if (GUILayout.Button("生成Prefab数据文件"))
+            //{
+            //    content = GenerateConfigTool.ReadDataString(LoadPath, "ConfigPrefab", DataReadType.CommonSuffixation, ".prefab");
+            //    string creatFilePath = $"{CreatPath}/ConfigPrefab.cs";
+            //    GenerateConfigTool.WriteData(content, creatFilePath);
+            //}
             if (GUILayout.Button("生成Prefab数据文件(全路径)"))
             {
-                content = GenerateConfigTool.ReadDataString(LoadPath, "ConfigPrefab", DataReadType.AllPathSuffixation, ".prefab");
+                content = GenerateConfigTool.ReadDataString(LoadPath, "ConfigPrefab", DataReadType.AllPathNoSuffix, ".prefab");
                 string creatFilePath = $"{CreatPath}/ConfigPrefab.cs";
                 GenerateConfigTool.WriteData(content, creatFilePath);
             }
@@ -120,6 +120,22 @@ namespace ACEditor
                 string LoadPath = $"{CommonPath}/Scenes/";
                 content = GenerateConfigTool.ReadDataString(LoadPath, "ConfigScenes", DataReadType.CommonSuffixation, ".unity");
                 string creatFilePath = $"{CreatPath}/ConfigScenes.cs";
+                GenerateConfigTool.WriteData(content, creatFilePath);
+            }
+            EditorGUILayout.EndHorizontal();
+
+
+            EditorGUILayout.BeginHorizontal();
+            if (GUILayout.Button("生成Audio数据预览"))
+            {
+                string LoadPath = $"{CommonPath}/Resources/";
+                content = GenerateConfigTool.ReadDataString(LoadPath, "ConfigAudio", DataReadType.AllPathNoSuffix, ".mp3", ".wav");
+            }
+            if (GUILayout.Button("生成Audio数据文件"))
+            {
+                string LoadPath = $"{CommonPath}/Resources/";
+                content = GenerateConfigTool.ReadDataString(LoadPath, "ConfigAudio", DataReadType.AllPathNoSuffix, ".mp3", ".wav");
+                string creatFilePath = $"{CreatPath}/ConfigAudio.cs";
                 GenerateConfigTool.WriteData(content, creatFilePath);
             }
             EditorGUILayout.EndHorizontal();

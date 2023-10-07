@@ -27,6 +27,10 @@ namespace Core
         {
             return CoreLoadResManager.Instance.LoadSub<T>(location, ResName);
         }
+        public static T[] LoadAll<T>(string AssetPath) where T : UnityEngine.Object
+        {
+            return CoreLoadResManager.Instance.LoadAll<T>(AssetPath);
+        }
 
         //资源释放
         public static void UnloadAssets()

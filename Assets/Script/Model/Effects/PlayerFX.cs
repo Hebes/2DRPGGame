@@ -50,7 +50,7 @@ namespace RPGGame
         /// <param name="_shakePower"></param>
         public void ScreenShake(Vector3 _shakePower)
         {
-            screenShake.m_DefaultVelocity = new Vector3(_shakePower.x * PlayerManager.Instance.player.facingDir, _shakePower.y) * shakeMultiplier;
+            screenShake.m_DefaultVelocity = new Vector3(_shakePower.x * ModelPlayerManager.Instance.player.facingDir, _shakePower.y) * shakeMultiplier;
             screenShake.GenerateImpulse();
         }
 

@@ -1,7 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Core;
 using UnityEngine.EventSystems;
+
+
+/*--------脚本描述-----------
+
+电子邮箱：
+    1607388033@qq.com
+作者:
+    暗沉
+描述:
+    装备格子
+
+-----------------------*/
+
 namespace RPGGame
 {
     public class UI_EquipmentSlot : UI_ItemSlot
@@ -10,7 +21,7 @@ namespace RPGGame
 
         private void OnValidate()
         {
-            gameObject.name = "Equipment slot - " + slotType.ToString();
+            gameObject.name = "装备格子 - " + slotType.ToString();
         }
 
         public override void OnPointerDown(PointerEventData eventData)
@@ -21,7 +32,7 @@ namespace RPGGame
             Inventory.Instance.UnequipItem(item.data as ItemData_Equipment);
             Inventory.Instance.AddItem(item.data as ItemData_Equipment);
 
-            ui.itemToolTip.HideToolTip();
+            ConfigEvent.EventItemTooltipClose.EventTrigger();
 
             CleanUpSlot();
         }

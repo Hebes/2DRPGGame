@@ -37,7 +37,7 @@ namespace RPGGame
         private void Start()
         {
             checkpoints = FindObjectsOfType<Checkpoint>();
-            player = PlayerManager.Instance.player.transform;
+            player = ModelPlayerManager.Instance.player.transform;
         }
         private void Update()
         {

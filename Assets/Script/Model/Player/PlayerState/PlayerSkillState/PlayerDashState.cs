@@ -34,7 +34,7 @@ namespace RPGGame
         {
             base.Enter();
 
-            player.skill.dash.CloneOnDash();
+            player.skill.GetSkill<Dash_Skill>().CloneOnDash();
             stateTimer = player.dashDuration;
 
             player.stats.MakeInvincible(true);
@@ -45,7 +45,7 @@ namespace RPGGame
         {
             base.Exit();
 
-            player.skill.dash.CloneOnArrival();
+            player.skill.GetSkill<Dash_Skill>().CloneOnArrival();
             player.SetVelocity(0, rb.velocity.y);
 
             player.stats.MakeInvincible(false);

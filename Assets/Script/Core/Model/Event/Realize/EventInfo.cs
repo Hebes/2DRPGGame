@@ -111,7 +111,7 @@ namespace Core
     }
     public class EventInfoUniTask<T, K> : IEventInfo
     {
-        public delegate UniTask ActionUniTaskEvent(T t,K k);
+        public delegate UniTask ActionUniTaskEvent(T t, K k);
         public event ActionUniTaskEvent actionUniTaskEvent;
         public EventInfoUniTask(ActionUniTaskEvent actionUniTaskEvent)
         {
@@ -121,6 +121,21 @@ namespace Core
         {
             Delegate[] actionUniTaskEventDelegate = actionUniTaskEvent.GetInvocationList();
             await UniTask.WhenAll(Array.ConvertAll(actionUniTaskEventDelegate, del => ((ActionUniTaskEvent)del)(obj1, obj2)));
+        }
+    }
+
+    public class EventInfoUniTask<T, K, V> : IEventInfo
+    {
+        public delegate UniTask ActionUniTaskEvent(T t, K k, V v);
+        public event ActionUniTaskEvent actionUniTaskEvent;
+        public EventInfoUniTask(ActionUniTaskEvent actionUniTaskEvent)
+        {
+            this.actionUniTaskEvent += actionUniTaskEvent;
+        }
+        public async UniTask TriggerUniTask(T obj1, K obj2, V obj3)
+        {
+            Delegate[] actionUniTaskEventDelegate = actionUniTaskEvent.GetInvocationList();
+            await UniTask.WhenAll(Array.ConvertAll(actionUniTaskEventDelegate, del => ((ActionUniTaskEvent)del)(obj1, obj2, obj3)));
         }
     }
 }

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-/*--------脚本描述-----------
+﻿/*--------脚本描述-----------
 
 电子邮箱：
 	1607388033@qq.com
@@ -21,6 +14,23 @@ namespace RPGGame
     public class ConfigEvent
     {
         //Effect
-        public const string EffectPopUpTextEvent = "文本弹出特效";
+        public const string EventEffectPopUpText = "文本弹出特效";
+
+        //音乐
+        public const string EventStopAudioSource = "停止音乐播放";
+        public const string EventPlayAudioSource = "开始音乐播放";
+
+        //UI面板
+        public const string EventUIPanelPlayerHealth = "玩家生命值";
+        public const string EventPlayerFlipUI = "玩家朝向";
+        public const string EventFadeUI = "过场UI渐变";
+        public const string EventSkillToolTipShow = "技能介绍显示";
+        public const string EventSkillToolTipClose = "技能介绍关闭";
+        public const string EventItemTooltipShow = "物品介绍显示";
+        public const string EventItemTooltipClose = "物品介绍关闭";
+        public const string EventStatToolTipShow = "状态格子介绍显示";
+        public const string EventStatToolTipClose = "状态格子介绍关闭";
+        public const string EventCraftWindow = "工艺窗口";
+
     }
 }

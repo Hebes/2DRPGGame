@@ -61,7 +61,7 @@ namespace RPGGame
 
         public void AddModifiers()
         {
-            PlayerStats playerStats = PlayerManager.Instance.player.GetComponent<PlayerStats>();
+            PlayerStats playerStats = ModelPlayerManager.Instance.player.GetComponent<PlayerStats>();
 
             playerStats.strength.AddModifier(strength);
             playerStats.agility.AddModifier(agility);
@@ -84,7 +84,7 @@ namespace RPGGame
 
         public void RemoveModifiers()
         {
-            PlayerStats playerStats = PlayerManager.Instance.player.GetComponent<PlayerStats>();
+            PlayerStats playerStats = ModelPlayerManager.Instance.player.GetComponent<PlayerStats>();
 
             playerStats.strength.RemoveModifier(strength);
             playerStats.agility.RemoveModifier(agility);

@@ -1,86 +1,137 @@
+using Core;
 using UnityEngine;
 using UnityEngine.UI;
+
+/*--------脚本描述-----------
+
+电子邮箱：
+    1607388033@qq.com
+作者:
+    暗沉
+描述:
+    剑技能
+
+-----------------------*/
 
 namespace RPGGame
 {
     public enum SwordType
     {
+        /// <summary> 普通 </summary>
         Regular,
+        /// <summary> 反弹 </summary>
         Bounce,
+        /// <summary> 穿刺 </summary>
         Pierce,
+        /// <summary> 旋转 </summary>
         Spin
     }
 
-    /// <summary>
-    /// 剑技能
-    /// </summary>
     public class Sword_Skill : Skill
     {
-        public SwordType swordType = SwordType.Regular;
+        public SwordType swordType = SwordType.Spin;
 
-        [Header("反弹的信息")]
-        [SerializeField] private UI_SkillTreeSlot bounceUnlockButton;
+        //反弹的信息
         [SerializeField] private int bounceAmount;
         [SerializeField] private float bounceGravity;
         [SerializeField] private float bounceSpeed;
 
-        [Header("Peirce info")]
-        [SerializeField] private UI_SkillTreeSlot pierceUnlockButton;
+        //刺穿
         [SerializeField] private int pierceAmount;
         [SerializeField] private float pierceGravity;
 
-        [Header("旋转信息")]
-        [SerializeField] private UI_SkillTreeSlot spinUnlockButton;
+        //旋转信息
         [SerializeField] private float hitCooldown = .35f;
         [SerializeField] private float maxTravelDistance = 7;
         [SerializeField] private float spinDuration = 2;
         [SerializeField] private float spinGravity = 1;
 
-        [Header("技能信息")]
-        [SerializeField] private UI_SkillTreeSlot swordUnlockButton;
-        public bool swordUnlocked { get; private set; }
-        [SerializeField] private GameObject swordPrefab;
-        [SerializeField] private Vector2 launchForce;
-        [SerializeField] private float swordGravity;
-        [SerializeField] private float freezeTimeDuration;
-        [SerializeField] private float returnSpeed;
+        //技能信息
+        public bool swordUnlocked;
+        private GameObject swordPrefab;
+        private Vector2 launchForce;
+        private float swordGravity;
+        private float freezeTimeDuration;
+        private float returnSpeed;
 
-        [Header("被动技能")]
-        [SerializeField] private UI_SkillTreeSlot timeStopUnlockButton;
-        public bool timeStopUnlocked { get; private set; }
-        [SerializeField] private UI_SkillTreeSlot vulnerableUnlockButton;
-        public bool vulnerableUnlocked { get; private set; }
+        //被动技能
+        public bool timeStopUnlocked;
+        public bool vulnerableUnlocked;
 
 
 
         private Vector2 finalDir;
 
-        [Header("瞄准点")]
-        [SerializeField] private int numberOfDots;
-        [SerializeField] private float spaceBeetwenDots;
-        [SerializeField] private GameObject dotPrefab;
-        [SerializeField] private Transform dotsParent;
+        //瞄准点
+        private int numberOfDots;
+        private float spaceBeetwenDots;
+        private GameObject dotPrefab;
+        private Transform dotsParent;
 
         private GameObject[] dots;
 
 
-
-        //生命周期
-        protected override void Start()
+        public override void Awake()
         {
-            base.Start();
+            base.Awake();
+
+            bounceAmount = 4;
+            bounceGravity = 1f;
+            bounceSpeed = 20f;
+
+            pierceAmount = 2;
+            pierceGravity = 1f;
+
+            hitCooldown = 0.1f;
+            maxTravelDistance = 7f;
+            spinDuration = 2f;
+            spinGravity = 1f;
+
+            swordPrefab = LoadResExtension.Load<GameObject>(ConfigPrefab.prefabSword);
+            launchForce = new Vector2(35f, 25f);
+            swordGravity = 5f;
+            freezeTimeDuration = 1.5f;
+            returnSpeed = 15f;
+
+            numberOfDots = 20;
+            spaceBeetwenDots = 0.07f;
+            dotPrefab = LoadResExtension.Load<GameObject>(ConfigPrefab.prefabAimDots);
+
+            dotsParent = new GameObject("DotsParent").transform;
 
             GenereateDots();
             SetupGraivty();
-
-            swordUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockSword);
-            bounceUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockBounceSword);
-            pierceUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockPierceSword);
-            spinUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockSpinSword);
-            timeStopUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockTimeStop);
-            vulnerableUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockVulnurable);
         }
-        protected override void Update()
+
+        public override void UnLockSkill(string skillName)
+        {
+            base.UnLockSkill(skillName);
+            switch (skillName)
+            {
+                case ConfigSkill.SkillSword:
+                    swordType = SwordType.Regular;
+                    swordUnlocked = true;
+                    break;
+                case ConfigSkill.SkillBounceSword:
+                    swordType = SwordType.Bounce;
+                    break;
+                case ConfigSkill.SkillSpinSword:
+                    swordType = SwordType.Spin;
+                    break;
+                case ConfigSkill.SkillPierceSword:
+                    swordType = SwordType.Pierce;
+                    break;
+                case ConfigSkill.SkillTimeStop:
+                    timeStopUnlocked = true;
+                    break;
+                case ConfigSkill.SkillVulnurable:
+                    vulnerableUnlocked = true;
+                    break;
+
+            }
+        }
+
+        public override void Update()
         {
             if (Input.GetKeyUp(KeyCode.Mouse1))
                 finalDir = new Vector2(AimDirection().normalized.x * launchForce.x, AimDirection().normalized.y * launchForce.y);
@@ -101,9 +152,10 @@ namespace RPGGame
             else if (swordType == SwordType.Spin)
                 swordGravity = spinGravity;
         }
+
         public void CreateSword()
         {
-            GameObject newSword = Instantiate(swordPrefab, player.transform.position, transform.rotation);
+            GameObject newSword = GameObject.Instantiate(swordPrefab, Player.Instance.transform.position, Quaternion.identity);
             Sword_Skill_Controller newSwordScript = newSword.GetComponent<Sword_Skill_Controller>();
             switch (swordType)
             {
@@ -121,72 +173,24 @@ namespace RPGGame
                 default:
                     break;
             }
-            newSwordScript.SetupSword(finalDir, swordGravity, player, freezeTimeDuration, returnSpeed);
-            player.AssignNewSword(newSword);
+            newSwordScript.SetupSword(finalDir, swordGravity, Player.Instance, freezeTimeDuration, returnSpeed);
+            Player.Instance.AssignNewSword(newSword);
             DotsActive(false);
         }
 
 
 
-        //解锁区域
 
-        protected override void CheckUnlock()
+        public override void CheckUnlock()
         {
-            UnlockSword();
-            UnlockBounceSword();
-            UnlockSpinSword();
-            UnlockPierceSword();
-            UnlockTimeStop();
-            UnlockVulnurable();
+            base.CheckUnlock();
         }
-        private void UnlockTimeStop()
-        {
-            if (timeStopUnlockButton.unlocked)
-                timeStopUnlocked = true;
-        }
-
-        private void UnlockVulnurable()
-        {
-
-            if (vulnerableUnlockButton.unlocked)
-                vulnerableUnlocked = true;
-        }
-
-        private void UnlockSword()
-        {
-            if (swordUnlockButton.unlocked)
-            {
-                swordType = SwordType.Regular;
-                swordUnlocked = true;
-            }
-        }
-
-        private void UnlockBounceSword()
-        {
-            if (bounceUnlockButton.unlocked)
-                swordType = SwordType.Bounce;
-        }
-
-        private void UnlockPierceSword()
-        {
-            if (pierceUnlockButton.unlocked)
-                swordType = SwordType.Pierce;
-        }
-
-        private void UnlockSpinSword()
-        {
-            if (spinUnlockButton.unlocked)
-                swordType = SwordType.Spin;
-        }
-
-
-
 
 
         //目标区域
         public Vector2 AimDirection()
         {
-            Vector2 playerPosition = player.transform.position;
+            Vector2 playerPosition = Player.Instance.transform.position;
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 direction = mousePosition - playerPosition;
 
@@ -206,14 +210,14 @@ namespace RPGGame
             dots = new GameObject[numberOfDots];
             for (int i = 0; i < numberOfDots; i++)
             {
-                dots[i] = Instantiate(dotPrefab, player.transform.position, Quaternion.identity, dotsParent);
+                dots[i] = GameObject.Instantiate(dotPrefab, Player.Instance.transform.position, Quaternion.identity, dotsParent);
                 dots[i].SetActive(false);
             }
         }
 
         private Vector2 DotsPosition(float t)
         {
-            Vector2 position = (Vector2)player.transform.position + new Vector2(
+            Vector2 position = (Vector2)Player.Instance.transform.position + new Vector2(
                 AimDirection().normalized.x * launchForce.x,
                 AimDirection().normalized.y * launchForce.y) * t + .5f * (Physics2D.gravity * swordGravity) * (t * t);
 

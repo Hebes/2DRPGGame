@@ -48,11 +48,11 @@ namespace RPGGame
                 if (hit.GetComponent<Enemy>().CanBeStunned() == false) continue;
                 stateTimer = 10; // 任何大于1的值
                 player.anim.SetBool("SuccessfulCounterAttack", true);
-                player.skill.parry.UseSkill(); // 用来恢复队友的生命值
+                player.skill.GetSkill<Parry_Skill>().UseSkill(); // 用来恢复队友的生命值
                 if (canCreateClone)
                 {
                     canCreateClone = false;
-                    player.skill.parry.MakeMirageOnParry(hit.transform);
+                    player.skill.GetSkill<Parry_Skill>().MakeMirageOnParry(hit.transform);
                 }
             }
 

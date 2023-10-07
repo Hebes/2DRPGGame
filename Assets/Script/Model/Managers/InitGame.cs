@@ -39,12 +39,12 @@ namespace RPGGame
             SwitchInitGameProcess(EInitGameProcess.FSMInitCore);
         }
 
-        private void SwitchInitGameProcess(EInitGameProcess initGameProcess) 
+        private void SwitchInitGameProcess(EInitGameProcess initGameProcess)
         {
             switch (initGameProcess)
             {
                 case EInitGameProcess.FSMInitCore: FSMInitCore().Forget(); break;
-                case EInitGameProcess.FSMInitManagerCore: FSMInitManagerCore(); break;
+                case EInitGameProcess.FSMInitManagerCore: FSMInitManagerCore().Forget(); break;
                 //case EInitGameProcess.FSMInitModel: FSMInitModel(); break;
                 //case EInitGameProcess.FSMInitUI: FSMInitUI(); break;
                 case EInitGameProcess.FSMEnterGame: FSMEnterGame().Forget(); break;
@@ -54,7 +54,12 @@ namespace RPGGame
         private async UniTask FSMInitManagerCore()
         {
             List<IModelInit> _initHs = new List<IModelInit>();
-            _initHs.Add(new ModelEffectManager());//特效管理
+            _initHs.Add(new ModelEffectManager());
+            _initHs.Add(new ModelAudioManager());
+            _initHs.Add(new ModelUIManager());
+            _initHs.Add(new SaveManager());
+            _initHs.Add(new ModelDataManager());
+            _initHs.Add(new ModelSkillManager());
 
             foreach (var init in _initHs)
                 await init.Init();
@@ -63,14 +68,31 @@ namespace RPGGame
 
         private async UniTask FSMEnterGame()
         {
-            Debug.Log("加载场景");
-            await ConfigScenes.unityMainScene.LoadSceneAsync(ELoadSceneModel.Single);
+            await UniTask.Yield();
+
+            //显示UI  TODO后续要修改到其他地方
+            //第一梯队生成的
+            ConfigPrefab.prefabUIPanel_DarkScreen.ShwoUIPanel<UIPanel_DarkScreen>();
+            //第二梯队生成的
+            ConfigPrefab.prefabUIPanel_RestartGame.ShwoUIPanel<UIPanel_RestartGame>();    //中心游戏
+            ConfigPrefab.prefabUIPanel_Character.ShwoUIPanel<UIPanel_Character>();        //角色
+            ConfigPrefab.prefabUIPanel_Options.ShwoUIPanel<UIPanel_Options>();            //设置
+            ConfigPrefab.prefabUIPanel_Craft.ShwoUIPanel<UIPanel_Craft>();                //工艺界面
+            ConfigPrefab.prefabUIPanel_MainMenu.ShwoUIPanel<UIPanel_MainMenu>();          //主菜单面板
+
+            ConfigPrefab.prefabUIPanel_DarkScreen.CloseUIPanel();
+            ConfigPrefab.prefabUIPanel_RestartGame.CloseUIPanel();    //中心游戏
+            ConfigPrefab.prefabUIPanel_Character.CloseUIPanel();        //角色
+            ConfigPrefab.prefabUIPanel_Options.CloseUIPanel();            //设置
+            ConfigPrefab.prefabUIPanel_Craft.CloseUIPanel();                //工艺界面
+            
         }
 
         private async UniTask FSMInitCore()
         {
             List<ICore> _initHs = new List<ICore>();
             _initHs.Add(new CoreDebugManager());//日志管理
+            _initHs.Add(new CoreMonoManager());//Mono管理
             _initHs.Add(new CoreEventManager());//事件管理
             _initHs.Add(new CoreDataManager());//事件管理
             _initHs.Add(new CoreLoadResManager());//加载管理
@@ -82,7 +104,7 @@ namespace RPGGame
                 init.ICroeInit();
                 await UniTask.Yield();
             }
-             SwitchInitGameProcess(EInitGameProcess.FSMInitManagerCore);
+            SwitchInitGameProcess(EInitGameProcess.FSMInitManagerCore);
         }
     }
 }

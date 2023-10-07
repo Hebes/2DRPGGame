@@ -1,7 +1,21 @@
-using Newtonsoft.Json.Converters;
+using Core;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Debug = Core.Debug;
+
+
+/*--------脚本描述-----------
+
+电子邮箱：
+    1607388033@qq.com
+作者:
+    暗沉
+描述:
+    物品管理系统
+
+-----------------------*/
+
 namespace RPGGame
 {
     public class Inventory : MonoBehaviour, ISaveManager
@@ -64,10 +78,10 @@ namespace RPGGame
             equipmentDictionary = new Dictionary<ItemData_Equipment, InventoryItem>();
 
 
-            inventoryItemSlot = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
-            stashItemSlot = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
-            equipmentSlot = equpmentSlotParent.GetComponentsInChildren<UI_EquipmentSlot>();
-            statSlot = statSlotParent.GetComponentsInChildren<UI_StatSlot>();
+            inventoryItemSlot = ConfigPrefab.prefabUIPanel_Character.GetUIPanl<UIPanel_Character>().inventory.GetComponentsInChildren<UI_ItemSlot>();
+            stashItemSlot = ConfigPrefab.prefabUIPanel_Craft.GetUIPanl<UIPanel_Craft>().stash.GetComponentsInChildren<UI_ItemSlot>();
+            equipmentSlot = ConfigPrefab.prefabUIPanel_Character.GetUIPanl<UIPanel_Character>().equipment.GetComponentsInChildren<UI_EquipmentSlot>();
+            statSlot = ConfigPrefab.prefabUIPanel_Character.GetUIPanl<UIPanel_Character>().stats.GetComponentsInChildren<UI_StatSlot>();
 
             AddStartingItems();
         }
@@ -270,7 +284,7 @@ namespace RPGGame
                 {
                     if (stashValue.stackSize < _requiredMaterials[i].stackSize)
                     {
-                        Debug.Log("Not enough materials");
+                        Debug.Log("材料不足");
                         return false;
                     }
                     else
@@ -281,7 +295,7 @@ namespace RPGGame
                 }
                 else
                 {
-                    Debug.Log("Materials not found");
+                    Debug.Log("未找到材料");
                     return false;
                 }
             }
@@ -293,7 +307,7 @@ namespace RPGGame
             }
 
             AddItem(_itemToCraft);
-            Debug.Log("Here is your item " + _itemToCraft.name);
+            Debug.Log("这是你的物品 " + _itemToCraft.name);
 
             return true;
         }
@@ -345,7 +359,7 @@ namespace RPGGame
                 return true;
             }
 
-            Debug.Log("Armor on cooldown");
+            Debug.Log("护甲冷却");
             return false;
         }
 
@@ -402,7 +416,7 @@ namespace RPGGame
 
 
 #if UNITY_EDITOR
-        [ContextMenu("Fill up item data base")]
+        [ContextMenu("填写项目数据库")]
         private void FillUpItemDataBase() => itemDataBase = new List<ItemData>(GetItemDataBase());
 
         private List<ItemData> GetItemDataBase()

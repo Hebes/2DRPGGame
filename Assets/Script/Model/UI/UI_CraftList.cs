@@ -1,3 +1,4 @@
+using Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -41,7 +42,7 @@ namespace RPGGame
         public void SetupDefaultCraftWindow()
         {
             if (craftEquipment[0] != null)
-                GetComponentInParent<UI>().craftWindow.SetupCraftWindow(craftEquipment[0]);
+                ConfigEvent.EventCraftWindow.EventTrigger(craftEquipment[0]);
         }
     }
 }

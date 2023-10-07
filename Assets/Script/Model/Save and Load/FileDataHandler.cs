@@ -53,36 +53,33 @@ namespace RPGGame
 
         public GameData Load()
         {
-            string fullPath = Path.Combine(dataDirPath, dataFileName);
+            //string fullPath = Path.Combine(dataDirPath, dataFileName);
             GameData loadData = null;
 
-            if (File.Exists(fullPath))
-            {
-                try
-                {
-                    string dataToLoad = "";
+            //if (File.Exists(fullPath))
+            //{
+            //    try
+            //    {
+            //        string dataToLoad = "";
 
-                    using (FileStream stream = new FileStream(fullPath, FileMode.Open))
-                    {
-                        using (StreamReader reader = new StreamReader(stream))
-                        {
-                            dataToLoad = reader.ReadToEnd();
-                        }
-                    }
+            //        using (FileStream stream = new FileStream(fullPath, FileMode.Open))
+            //        {
+            //            using (StreamReader reader = new StreamReader(stream))
+            //            {
+            //                dataToLoad = reader.ReadToEnd();
+            //            }
+            //        }
 
-                    if (encryptData)
-                        dataToLoad = EncryptDecrypt(dataToLoad);
+            //        if (encryptData)
+            //            dataToLoad = EncryptDecrypt(dataToLoad);
 
-                    loadData = JsonUtility.FromJson<GameData>(dataToLoad);
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError("Error on trying to load data from file:" + fullPath + "\n" + e);
-                }
-            }
-
-
-
+            //        loadData = JsonUtility.FromJson<GameData>(dataToLoad);
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        Debug.LogError("Error on trying to load data from file:" + fullPath + "\n" + e);
+            //    }
+            //}
 
             return loadData;
 
@@ -90,10 +87,11 @@ namespace RPGGame
 
         public void Delete()
         {
-            string fullPath = Path.Combine(dataDirPath, dataFileName);
+            //TODO ’‚¿Ô“™ª÷∏¥
+            //string fullPath = Path.Combine(dataDirPath, dataFileName);
 
-            if (File.Exists(fullPath))
-                File.Delete(fullPath);
+            //if (File.Exists(fullPath))
+            //    File.Delete(fullPath);
         }
 
         private string EncryptDecrypt(string _data)

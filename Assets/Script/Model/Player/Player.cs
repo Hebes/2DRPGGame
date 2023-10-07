@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Playables;
 
 
 /*--------脚本描述-----------
@@ -17,6 +18,7 @@ namespace RPGGame
 {
     public class Player : Entity
     {
+        public static Player Instance { get; private set; }
         //攻击配置
         [Header("攻击配置")]
         public Vector2[] attackMovement;            //攻击的细节
@@ -38,7 +40,7 @@ namespace RPGGame
         private float defaultDashSpeed;         //默认冲刺速度
         [HideInInspector] public float dashDir;                   //冲刺方向
 
-        [HideInInspector]public SkillManager skill;
+        [HideInInspector] public ModelSkillManager skill;
         [HideInInspector] public GameObject sword;
         [HideInInspector] public PlayerFX fx;
 
@@ -62,9 +64,16 @@ namespace RPGGame
         public PlayerDeadState deadState;               //死亡状态
 
 
+        public PlayerStats playerStats;                 //玩家数据
+
+
         protected override void Awake()
         {
             base.Awake();
+            Instance = this;
+            playerStats = GetComponent<PlayerStats>();
+
+
             stateMachine = new PlayerStateMachine();
 
             idleState = new PlayerIdleState(this, stateMachine, "Idle");
@@ -91,14 +100,10 @@ namespace RPGGame
             defaultMoveSpeed = moveSpeed;
             defaultJumpForce = jumpForce;
             defaultDashSpeed = dashSpeed;
-        }
 
-        protected override void Start()
-        {
-            base.Start();
-            skill = SkillManager.Instance;
+            skill = ModelSkillManager.Instance;
         }
-
+        
 
         protected override void Update()
         {
@@ -108,8 +113,8 @@ namespace RPGGame
 
             CheckForDashInput();
 
-            if (Input.GetKeyDown(KeyCode.F) && skill.crystal.crystalUnlocked)
-                skill.crystal.CanUseSkill();
+            if (Input.GetKeyDown(KeyCode.F) && skill.GetSkill<Crystal_Skill>().crystalUnlocked)
+                skill.GetSkill<Crystal_Skill>().CanUseSkill();
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
                 Inventory.Instance.UseFlask();
@@ -170,11 +175,11 @@ namespace RPGGame
         {
             if (IsWallDetected())
                 return;
-            if (skill.dash.dashUnlocked == false)
+            if (skill.GetSkill<Dash_Skill>().dashUnlocked == false)
                 return;
-            if (SkillManager.Instance.dash.CanUseSkill() == false)
+            if (skill.GetSkill<Dash_Skill>().CanUseSkill() == false)
                 Debug.Log("技能没有冷却,无法使用技能");
-            if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.Instance.dash.CanUseSkill())
+            if (Input.GetKeyDown(KeyCode.LeftShift) && skill.GetSkill<Dash_Skill>().CanUseSkill())
             {
                 dashDir = Input.GetAxisRaw("Horizontal");//冲刺的方向
                 if (dashDir == 0)

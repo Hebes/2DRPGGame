@@ -24,17 +24,17 @@ namespace RPGGame
         private EntityFX fx;
 
         [Header("主要属性")]
-        public Stat strength; // 1 point increase damage by 1 and crit.power by 1%
-        public Stat agility;  // 1 point increase evasion by 1% and crit.chance by 1%
-        public Stat intelligence; // 1 point increase magic damage by 1 and magic resistance by 3
-        public Stat vitality; // 1 point incredase health by 5 points
+        public Stat strength; // 增加1点伤害和暴击。功率降低1%
+        public Stat agility;  // 增加1点闪避和暴击。几率1%
+        public Stat intelligence; // 增加1点魔法伤害和31点魔法抗性。增加1点魔法伤害和3点魔法抗性
+        public Stat vitality; // 1点增加5点生命值
 
         [Header("攻击属性")]
         public Stat damage;
         public Stat critChance;
-        public Stat critPower;              // default value 150%
+        public Stat critPower;              // 暴击率 默认值150%
 
-        [Header("防御属性")]
+        [Header("最大生命值")]
         public Stat maxHealth;
         public Stat armor;
         public Stat evasion;
@@ -278,34 +278,34 @@ namespace RPGGame
 
         private void HitNearestTargetWithShockStrike()
         {
-            //Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 25);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 25);
 
-            //float closestDistance = Mathf.Infinity;
-            //Transform closestEnemy = null;
+            float closestDistance = Mathf.Infinity;
+            Transform closestEnemy = null;
 
-            //foreach (var hit in colliders)
-            //{
-            //    if (hit.GetComponent<Enemy>() != null && Vector2.Distance(transform.position, hit.transform.position) > 1)
-            //    {
-            //        float distanceToEnemy = Vector2.Distance(transform.position, hit.transform.position);
+            foreach (var hit in colliders)
+            {
+                if (hit.GetComponent<Enemy>() != null && Vector2.Distance(transform.position, hit.transform.position) > 1)
+                {
+                    float distanceToEnemy = Vector2.Distance(transform.position, hit.transform.position);
 
-            //        if (distanceToEnemy < closestDistance)
-            //        {
-            //            closestDistance = distanceToEnemy;
-            //            closestEnemy = hit.transform;
-            //        }
-            //    }
+                    if (distanceToEnemy < closestDistance)
+                    {
+                        closestDistance = distanceToEnemy;
+                        closestEnemy = hit.transform;
+                    }
+                }
 
-            //    if (closestEnemy == null)            // delete if you don't want shocked target to be hit by shock strike
-            //        closestEnemy = transform;
-            //}
+                if (closestEnemy == null)            // delete if you don't want shocked target to be hit by shock strike
+                    closestEnemy = transform;
+            }
 
 
-            //if (closestEnemy != null)
-            //{
-            //    GameObject newShockStrike = Instantiate(shockStrikePrefab, transform.position, Quaternion.identity);
-            //    newShockStrike.GetComponent<ShockStrike_Controller>().Setup(shockDamage, closestEnemy.GetComponent<CharacterStats>());
-            //}
+            if (closestEnemy != null)
+            {
+                GameObject newShockStrike = Instantiate(shockStrikePrefab, transform.position, Quaternion.identity);
+                newShockStrike.GetComponent<ShockStrike_Controller>().Setup(shockDamage, closestEnemy.GetComponent<CharacterStats>());
+            }
         }
         private void ApplyIgniteDamage()
         {
@@ -345,6 +345,10 @@ namespace RPGGame
         }
 
 
+        /// <summary>
+        /// 增加生命值
+        /// </summary>
+        /// <param name="_amount"></param>
         public virtual void IncreaseHealthBy(int _amount)
         {
             currentHealth += _amount;
@@ -352,24 +356,24 @@ namespace RPGGame
             if (currentHealth > GetMaxHealthValue())
                 currentHealth = GetMaxHealthValue();
 
-            if (onHealthChanged != null)
-                onHealthChanged();
+            ConfigEvent.EventUIPanelPlayerHealth.EventTrigger(this);
         }
 
-
+        /// <summary>
+        /// 减少生命值
+        /// </summary>
+        /// <param name="damage"></param>
         protected virtual void DecreaseHealthBy(int damage)
         {
-
             if (isVulnerable)
                 damage = Mathf.RoundToInt(damage * 1.1f);
 
             currentHealth -= damage;
 
             if (damage > 0)
-                ConfigEvent.EffectPopUpTextEvent.EventTrigger(damage.ToString(),transform.position);
+                ConfigEvent.EventEffectPopUpText.EventTrigger(damage.ToString(),transform.position);
 
-            if (onHealthChanged != null)
-                onHealthChanged();
+            ConfigEvent.EventUIPanelPlayerHealth.EventTrigger(this);
         }
 
         protected virtual void Die()
@@ -449,6 +453,10 @@ namespace RPGGame
             return Mathf.RoundToInt(critDamage);
         }
 
+        /// <summary>
+        /// 获取角色的最大生命值
+        /// </summary>
+        /// <returns></returns>
         public int GetMaxHealthValue()
         {
             return maxHealth.GetValue() + vitality.GetValue() * 5;

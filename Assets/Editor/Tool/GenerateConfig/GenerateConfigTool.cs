@@ -75,6 +75,7 @@ namespace ACEditor
             foreach (string pathTemp in pathsList)
             {
                 //文件名称
+                string oldFileName = Path.GetFileNameWithoutExtension(pathTemp);
                 string fileName = Path.GetFileNameWithoutExtension(pathTemp).
                     Replace("@", "_").
                     Replace("(", "").
@@ -88,10 +89,10 @@ namespace ACEditor
                 switch (dataReadType)
                 {
                     case DataReadType.CommonSuffixation:
-                        sb.AppendLine($"        public const string {extendedNameTemp}{fileName} = \"{fileName}{extendedName}\";"); 
+                        sb.AppendLine($"        public const string {extendedNameTemp}{fileName} = \"{oldFileName}{extendedName}\";"); 
                         break;
                     case DataReadType.CommonNoSuffix:
-                        sb.AppendLine($"        public const string {extendedNameTemp}{fileName} = \"{fileName}\";");
+                        sb.AppendLine($"        public const string {extendedNameTemp}{fileName} = \"{oldFileName}\";");
                         break;
                     case DataReadType.AllPathSuffixation:
                         sb.AppendLine($"        public const string {extendedNameTemp}{fileName} = \"{assetsPath}\";");

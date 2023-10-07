@@ -16,7 +16,6 @@ namespace Core
             Instance = this;
             monoTemp = new GameObject("Mono");
             monoController = monoTemp.AddComponent<MonoController>();
-            if (monoTemp.GetComponent(typeof(MonoController)) == null)
             GameObject.DontDestroyOnLoad(monoTemp);
             Debug.Log("初始化Mono完毕!");
         }
@@ -24,22 +23,31 @@ namespace Core
 
         private float m_Time = 0f;
 
-        public void OnAddAwakeEvent(UnityAction unityAction)
+        public void AwakeAddEvent(UnityAction unityAction)
         {
-            monoController.OnAddAwakeEvent(unityAction);
+            monoController.AwakeAddEvent(unityAction);
         }
-        public void OnRemoveAwakeEvent(UnityAction unityAction)
+        public void AwakeRemoveEvent(UnityAction unityAction)
         {
-            monoController.OnRemoveAwakeEvent(unityAction);
+            monoController.AwakeRemoveEvent(unityAction);
         }
 
-        public void OnAddUpdateEvent(UnityAction unityAction)
+        public void StartAddEvent(UnityAction unityAction)
         {
-            monoController.OnAddUpdateEvent(unityAction);
+            monoController.StartAddEvent(unityAction);
         }
-        public void OnRemoveUpdateEvent(UnityAction unityAction)
+        public void StartRemoveEvent(UnityAction unityAction)
         {
-            monoController.OnRemoveUpdateEvent(unityAction);
+            monoController.StartRemoveEvent(unityAction);
+        }
+
+        public void UpdateAddEvent(UnityAction unityAction)
+        {
+            monoController.UpdateAddEvent(unityAction);
+        }
+        public void UpdateRemoveEvent(UnityAction unityAction)
+        {
+            monoController.UpdateRemoveEvent(unityAction);
         }
 
         public void OnAddFixedUpdateEvent(UnityAction unityAction)

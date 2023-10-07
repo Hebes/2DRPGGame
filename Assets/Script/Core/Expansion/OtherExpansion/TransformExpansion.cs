@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 /*--------脚本描述-----------
@@ -15,6 +16,7 @@ namespace Core
 {
     public static class TransformExpansion
     {
+
         //获取子物体
         public static T AddChildComponent<T>(this GameObject gameObject, string childName) where T : Component
         {
@@ -58,6 +60,8 @@ namespace Core
            return gameObject.transform.GetChild(i).GetComponent<T>();
         }
 
+
+
         //清除子物体
         public static void ClearChild(this Transform transform, params int[] Number)
         {
@@ -78,6 +82,8 @@ namespace Core
 
         }
 
+
+
         //通过全路径获取组件
         public static T GetChildAllPath<T>(this Transform transform, string childPath) where T : UnityEngine.Object
         {
@@ -88,6 +94,8 @@ namespace Core
             return gameObject.transform.Find(childPath)?.GetComponent<T>();
         }
 
+
+
         //给子节点添加父对象
         public static void AddChildNodeToParentNode(Transform parents, Transform child)
         {
@@ -96,6 +104,8 @@ namespace Core
             child.localScale = Vector3.one;
             child.localEulerAngles = Vector3.zero;
         }
+
+
 
         //快捷获取
         public static Image GetImage(this GameObject gameObject)
@@ -106,6 +116,14 @@ namespace Core
         {
             return transform.GetComponent<Image>();
         }
+        public static Slider GetSlider(this GameObject gameObject)
+        {
+            return gameObject.GetComponent<Slider>();
+        }
+        public static Slider GetSlider(this Transform transform)
+        {
+            return transform.GetComponent<Slider>();
+        }
         public static Text GetText(this GameObject gameObject)
         {
             return gameObject.GetComponent<Text>();
@@ -114,14 +132,14 @@ namespace Core
         {
             return transform.GetComponent<Text>();
         }
-        //public static TextMeshProUGUI GetTextMeshPro(this GameObject gameObject)
-        //{
-        //    return gameObject.GetComponent<TextMeshProUGUI>();
-        //}
-        //public static TextMeshProUGUI GetTextMeshPro(this Transform transform)
-        //{
-        //    return transform.GetComponent<TextMeshProUGUI>();
-        //}
+        public static TextMeshProUGUI GetTextMeshPro(this GameObject gameObject)
+        {
+            return gameObject.GetComponent<TextMeshProUGUI>();
+        }
+        public static TextMeshProUGUI GetTextMeshPro(this Transform transform)
+        {
+            return transform.GetComponent<TextMeshProUGUI>();
+        }
         public static InputField GetInputField(this GameObject gameObject)
         {
             return gameObject.GetComponent<InputField>();
@@ -146,6 +164,8 @@ namespace Core
         {
             return transform.GetComponent<SpriteRenderer>();
         }
+
+
 
         //关闭显示
         public static void SetActive(this Image image,bool value)

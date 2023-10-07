@@ -1,8 +1,20 @@
-using UnityEngine.UI;
+using Core;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Unity.VisualScripting;
-using TMPro;
+using UnityEngine.UI;
+
+
+/*--------脚本描述-----------
+
+电子邮箱：
+    1607388033@qq.com
+作者:
+    暗沉
+描述:
+    物品提示
+
+-----------------------*/
 
 namespace RPGGame
 {
@@ -11,14 +23,12 @@ namespace RPGGame
         [SerializeField] protected Image itemImage;
         [SerializeField] protected TextMeshProUGUI itemText;
 
-        protected UI ui;
         public InventoryItem item;
 
 
         protected virtual void Start()
         {
             itemText = GetComponentInChildren<TextMeshProUGUI>();
-            ui = GetComponentInParent<UI>();
         }
 
         public void UpdateSlot(InventoryItem _newItem)
@@ -56,7 +66,7 @@ namespace RPGGame
             if (item == null)
                 return;
 
-            ui.itemToolTip.HideToolTip();
+            ConfigEvent.EventItemTooltipClose.EventTrigger();
 
             if (Input.GetKey(KeyCode.LeftControl))
             {
@@ -73,16 +83,14 @@ namespace RPGGame
         {
             if (item == null)
                 return;
-
-            ui.itemToolTip.ShowToolTip(item.data as ItemData_Equipment);
+            ConfigEvent.EventItemTooltipShow.EventTrigger(item.data as ItemData_Equipment);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             if (item == null)
                 return;
-
-            ui.itemToolTip.HideToolTip();
+            ConfigEvent.EventItemTooltipClose.EventTrigger();
         }
     }
 }

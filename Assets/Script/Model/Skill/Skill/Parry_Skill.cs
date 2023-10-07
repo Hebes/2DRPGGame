@@ -1,81 +1,85 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
+
+/*--------脚本描述-----------
+
+电子邮箱：
+    1607388033@qq.com
+作者:
+    暗沉
+描述:
+    格挡
+
+-----------------------*/
+
 namespace RPGGame
 {
-    /// <summary>
-    /// 格挡
-    /// </summary>
-    public class Parry_Skill : Skill 
+    public class Parry_Skill : Skill
     {
 
-        [Header("Parry")]
-        [SerializeField] private UI_SkillTreeSlot parryUnlockButton;
-        public bool parryUnlocked { get; private set; }
+        //格挡
+        public bool parryUnlocked;
 
-        [Header("Parry restore")]
-        [SerializeField] private UI_SkillTreeSlot restoreUnlockButton;
-        [Range(0f, 1f)]
-        [SerializeField] private float restoreHealthPerentage;
-        public bool restoreUnlocked { get; private set; }
+        //格挡恢复
+        private float restoreHealthPerentage;
+        public bool restoreUnlocked;
 
-        [Header("Parry with mirage")]
-        [SerializeField] private UI_SkillTreeSlot parryWithMirageUnlockButton;
-        public bool parryWithMirageUnlocked { get; private set; }
+        //格挡幻影
+        public bool parryWithMirageUnlocked;
 
+        public override void Awake()
+        {
+            base.Awake();
+            cooldown = 2;
+            restoreHealthPerentage = 0.2f;
+        }
+
+        public override void UnLockSkill(string skillName)
+        {
+            base.UnLockSkill(skillName);
+            switch (skillName)
+            {
+                case ConfigSkill.SkillParry:
+                    parryUnlocked = true;
+                    break;
+                case ConfigSkill.SkillParryRestore:
+                    restoreUnlocked = true;
+                    break;
+                case ConfigSkill.SkillParryWithMirage:
+                    parryWithMirageUnlocked = true;
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// 使用技能
+        /// </summary>
         public override void UseSkill()
         {
             base.UseSkill();
-
-
             if (restoreUnlocked)
             {
-                int restoreAmount = Mathf.RoundToInt(player.stats.GetMaxHealthValue() * restoreHealthPerentage);
-                player.stats.IncreaseHealthBy(restoreAmount);
+                int restoreAmount = Mathf.RoundToInt(Player.Instance.stats.GetMaxHealthValue() * restoreHealthPerentage);
+                Player.Instance.stats.IncreaseHealthBy(restoreAmount);
             }
-
         }
 
-        protected override void Start()
+
+        public override void CheckUnlock()
         {
-            base.Start();
-
-            parryUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockParry);
-            restoreUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockParryRestore);
-            parryWithMirageUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockParryWithMirage);
+            base.CheckUnlock();
+            //UnlockParry();
+            //UnlockParryRestore();
+            //UnlockParryWithMirage();
         }
 
-        protected override void CheckUnlock()
-        {
-            UnlockParry();
-            UnlockParryRestore();
-            UnlockParryWithMirage();
-        }
-        private void UnlockParry()
-        {
-            if (parryUnlockButton.unlocked)
-                parryUnlocked = true;
-        }
-
-        private void UnlockParryRestore()
-        {
-            if (restoreUnlockButton.unlocked)
-                restoreUnlocked = true;
-        }
-
-        private void UnlockParryWithMirage()
-        {
-            if (parryWithMirageUnlockButton.unlocked)
-                parryWithMirageUnlocked = true;
-        }
-
+        /// <summary>
+        /// 制造幻影
+        /// </summary>
+        /// <param name="_respawnTransform"></param>
         public void MakeMirageOnParry(Transform _respawnTransform)
         {
             if (parryWithMirageUnlocked)
-                SkillManager.Instance.clone.CreateCloneWithDelay(_respawnTransform);
+                ModelSkillManager.Instance.GetSkill<Clone_Skill>().CreateCloneWithDelay(_respawnTransform);
         }
-
     }
 }

@@ -37,62 +37,114 @@ namespace Core
             IsClearStack = isClearStack;
         }
 
-        //生命周期
+        /// <summary>
+        /// 初始化执行
+        /// </summary>
         public virtual void UIAwake()
         {
 
-        }       //初始化执行
+        }
+
+        /// <summary>
+        /// 更新 轮询执行
+        /// </summary>
         public virtual void UIUpdate()
         {
 
-        }      //轮询执行
+        }
+
+        /// <summary>
+        /// 开启
+        /// </summary>
         public virtual void UIOnEnable()
         {
             this.panelGameObject.SetActive(true);
             //设置模态窗体调用(必须是弹出窗体)
             if (type == EUIType.PopUp)
                 UIMaskMgr.Instance.SetMaskWindow(this.panelGameObject, lucenyType);
-        }    //开启执行
+        }
+
+        /// <summary>
+        /// 关闭
+        /// </summary>
         public virtual void UIOnDisable()
         {
             this.panelGameObject.SetActive(false);
             //取消模态窗体调用
             if (type == EUIType.PopUp)
                 UIMaskMgr.Instance.CancelMaskWindow();
-        }   //关闭执行
-        public virtual void UIOnDestroy() { }   //销毁执行
+        }
+
+        /// <summary>
+        /// 销毁
+        /// </summary>
+        public virtual void UIOnDestroy() { }
+
+        /// <summary>
+        /// 冻结
+        /// </summary>
         public virtual void Freeze()
         {
             this.panelGameObject.SetActive(true);
         }         //冻结状态（即：窗体显示在其他窗体下面）
 
+
+        /// <summary>
+        /// 判断UI面板是否开启
+        /// </summary>
+        /// <returns></returns>
+        public bool ChakckUIPanelOpen()
+        {
+            return panelGameObject.activeSelf;
+        }
+
+
         //面板操作
+        /// <summary>
+        /// 打开面板
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="uiFormName"></param>
         protected void OpenUIForm<T>(string uiFormName) where T : UIBase, new()
         {
             CroeUIManager.Instance.ShwoUIPanel<T>(uiFormName);
         }
+
+        /// <summary>
+        /// 获取面板
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="uiFormName"></param>
+        /// <returns></returns>
         protected T GetUIForm<T>(string uiFormName) where T : UIBase, new()
         {
-           return CroeUIManager.Instance.GetUIPanl<T>(uiFormName);
+            return CroeUIManager.Instance.GetUIPanl<T>(uiFormName);
         }
+
+        /// <summary>
+        /// 关闭面板
+        /// </summary>
         protected void CloseUIForm()
         {
-            //Debug.Log($"关闭的界面名称是:{UIName}");
             int intPosition = -1;
             string strUIFromName = UIName;  // GetType().ToString().Replace("Panel","");             //命名空间+类名 //处理后的UIFrom 名称
             intPosition = strUIFromName.IndexOf('.');
             if (intPosition != -1)
                 strUIFromName = strUIFromName.Substring(intPosition + 1);//剪切字符串中“.”之间的部分
-            //Debug.Log($"关闭的界面名称是:{strUIFromName}");
             CroeUIManager.Instance.CloseUIForms(strUIFromName);
         }
+
+        /// <summary>
+        /// 关闭其他面板
+        /// </summary>
+        /// <param name="uiFormName"></param>
         protected void CloseOtherUIForm(string uiFormName)
         {
             CroeUIManager.Instance.CloseUIForms(uiFormName);
         }
 
-        //事件推送
 
+        //事件推送
         protected void ButtonOnClickAddListener(string buttonName, EventTriggerListener.VoidDelegate delHandle)
         {
             GameObject goButton = this.panelGameObject.GetChild(buttonName);

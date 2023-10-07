@@ -115,6 +115,8 @@ namespace Core
         {
             await CoreEventManager.Instance.EventTriggerUniTask(eventName);
         }
+
+
         public static void AddEventListenerUniTask<T>(this string eventName, EventInfoUniTask<T>.ActionUniTaskEvent action)
         {
             CoreEventManager.Instance.AddEventListenerUniTask<T>(eventName, action);
@@ -127,6 +129,8 @@ namespace Core
         {
             await CoreEventManager.Instance.EventTriggerUniTask<T>(eventName, info);
         }
+
+
         public static void AddEventListenerUniTask<T, K>(this string eventName, EventInfoUniTask<T, K>.ActionUniTaskEvent action)
         {
             CoreEventManager.Instance.AddEventListenerUniTask<T, K>(eventName, action);
@@ -134,6 +138,16 @@ namespace Core
         public static async UniTask EventTriggerUniTask<T, K>(this string eventName, T t, K k)
         {
             await CoreEventManager.Instance.EventTriggerUniTask<T, K>(eventName, t, k);
+        }
+
+
+        public static void AddEventListenerUniTask<T, K,V>(this string eventName, EventInfoUniTask<T, K, V>.ActionUniTaskEvent action)
+        {
+            CoreEventManager.Instance.AddEventListenerUniTask<T, K, V>(eventName, action);
+        }
+        public static async UniTask EventTriggerUniTask<T, K, V>(this string eventName, T t, K k, V v)
+        {
+            await CoreEventManager.Instance.EventTriggerUniTask<T, K, V>(eventName, t, k,v);
         }
 
         //清理

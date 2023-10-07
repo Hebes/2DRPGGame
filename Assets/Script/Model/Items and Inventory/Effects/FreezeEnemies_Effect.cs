@@ -12,7 +12,7 @@ namespace RPGGame
 
         public override void ExecuteEffect(Transform _transform)
         {
-            PlayerStats playerStats = PlayerManager.Instance.player.GetComponent<PlayerStats>();
+            PlayerStats playerStats = ModelPlayerManager.Instance.player.GetComponent<PlayerStats>();
 
             if (playerStats.currentHealth > playerStats.GetMaxHealthValue() * .1f)
                 return;

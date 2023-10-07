@@ -1,106 +1,104 @@
+using Core;
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
+/*--------脚本描述-----------
+
+电子邮箱：
+    1607388033@qq.com
+作者:
+    暗沉
+描述:
+    水晶
+
+-----------------------*/
+
 namespace RPGGame
 {
-    /// <summary>
-    /// 水晶
-    /// </summary>
-    public class Crystal_Skill : Skill 
+    public class Crystal_Skill : Skill
     {
-        [SerializeField] private float crystalDuration;
-        [SerializeField] private GameObject crystalPrefab;
+        private float crystalDuration;
+        private GameObject crystalPrefab;
         private GameObject currentCrystal;
 
-        [Header("Crystal mirage")]
-        [SerializeField] private UI_SkillTreeSlot unlockCloneInstaedButton;
-        [SerializeField] private bool cloneInsteadOfCrystal;
+        //水晶海市蜃楼
+        private bool cloneInsteadOfCrystal;
 
-        [Header("Crystal simple")]
-        [SerializeField] private UI_SkillTreeSlot unlockCrystalButton;
-        public bool crystalUnlocked { get; private set; }
+        //简单水晶
+        public bool crystalUnlocked;
 
-        [Header("Explosive crystal")]
-        [SerializeField] private UI_SkillTreeSlot unlockExplosiveButton;
-        [SerializeField] private float explisoveCooldown;
-        [SerializeField] private bool canExplode;
+        //炸药晶体
+        private float explisoveCooldown;
+        private bool canExplode;
 
 
-        [Header("Moving crystal")]
-        [SerializeField] private UI_SkillTreeSlot unlockMovingCrystalButton;
-        [SerializeField] private bool canMoveToEnemy;
-        [SerializeField] private float moveSpeed;
+        //移动水晶
+        private bool canMoveToEnemy;
+        private float moveSpeed;
 
 
-        [Header("Multi stacking crystal")]
-        [SerializeField] private UI_SkillTreeSlot unlockMultiStackButton;
-        [SerializeField] private bool canUseMultiStacks;
-        [SerializeField] private int amountOfStacks;
-        [SerializeField] private float multiStackCooldown;
-        [SerializeField] private float useTimeWondow;
-        [SerializeField] private List<GameObject> crystalLeft = new List<GameObject>();
+        //多个晶体
+        private bool canUseMultiStacks;
+        private int amountOfStacks;
+        private float multiStackCooldown;
+        private float useTimeWondow;        //使用时间窗口
+        private List<GameObject> crystalLeft;
 
-        protected override void Start()
+
+        public override void Awake()
         {
-            base.Start();
+            base.Awake();
 
-            unlockCrystalButton.GetComponent<Button>().onClick.AddListener(UnlockCrystal);
-            unlockCloneInstaedButton.GetComponent<Button>().onClick.AddListener(UnlockCrystalMirage);
-            unlockExplosiveButton.GetComponent<Button>().onClick.AddListener(UnlockExplosiveCrystal);
-            unlockMovingCrystalButton.GetComponent<Button>().onClick.AddListener(UnlockMovingCrystal);
-            unlockMultiStackButton.GetComponent<Button>().onClick.AddListener(UnlockMultiStack);
+            cooldown = 0f;
+            crystalDuration = 1.5f;
 
+            crystalPrefab = LoadResExtension.Load<GameObject>(ConfigPrefab.prefabCrystal);
+            explisoveCooldown = 3.5f;
+
+            moveSpeed = 4f;
+
+            amountOfStacks = 3;
+            multiStackCooldown = 4f;
+            useTimeWondow = 2.5f;
+            crystalLeft = new List<GameObject>();
+            crystalLeft.Add(crystalPrefab);
+            crystalLeft.Add(crystalPrefab);
+            crystalLeft.Add(crystalPrefab);
         }
 
 
-        // here we unlock crystal skills
-        #region Unlock skill region
 
-        protected override void CheckUnlock()
+        public override void CheckUnlock()
         {
-            UnlockCrystal();
-            UnlockCrystalMirage();
-            UnlockExplosiveCrystal();
-            UnlockMovingCrystal();
-            UnlockMultiStack();
-
 
         }
-        private void UnlockCrystal()
-        {
-            if (unlockCrystalButton.unlocked)
-                crystalUnlocked = true;
-        }
 
-        private void UnlockCrystalMirage()
+        public override void UnLockSkill(string skillName)
         {
-            if (unlockCloneInstaedButton.unlocked)
-                cloneInsteadOfCrystal = true;
-        }
+            base.UnLockSkill(skillName);
 
-        private void UnlockExplosiveCrystal()
-        {
-            if (unlockExplosiveButton.unlocked)
+            switch (skillName)
             {
-                canExplode = true;
-                cooldown = explisoveCooldown;
+                case ConfigSkill.SkillCrystal:
+                    crystalUnlocked = true;
+                    break;
+                case ConfigSkill.SkillCrystalMirage:
+                    cloneInsteadOfCrystal = true;
+                    break;
+                case ConfigSkill.SkillExplosiveCrystal:
+                    canExplode = true;
+                    cooldown = explisoveCooldown;
+                    break;
+                case ConfigSkill.SkillMovingCrystal:
+                    canMoveToEnemy = true;
+                    break;
+                case ConfigSkill.SkillMultiStack:
+                    canUseMultiStacks = true;
+                    break;
             }
         }
-
-        private void UnlockMovingCrystal()
-        {
-            if (unlockMovingCrystalButton.unlocked)
-                canMoveToEnemy = true;
-        }
-
-        private void UnlockMultiStack()
-        {
-            if (unlockMovingCrystalButton.unlocked)
-                canUseMultiStacks = true;
-        }
-
-        #endregion     // here we unlock crystal skills
 
         public override void UseSkill()
         {
@@ -112,21 +110,20 @@ namespace RPGGame
             if (currentCrystal == null)
             {
                 CreateCrystal();
-
             }
             else
             {
                 if (canMoveToEnemy)
                     return;
 
-                Vector2 playerPos = player.transform.position;
-                player.transform.position = currentCrystal.transform.position;
+                Vector2 playerPos = Player.Instance.transform.position;
+                Player.Instance.transform.position = currentCrystal.transform.position;
                 currentCrystal.transform.position = playerPos;
 
                 if (cloneInsteadOfCrystal)
                 {
-                    SkillManager.Instance.clone.CreateClone(currentCrystal.transform, Vector3.zero);
-                    Destroy(currentCrystal);
+                    ModelSkillManager.Instance.GetSkill<Clone_Skill>().CreateClone(currentCrystal.transform, Vector3.zero);
+                    GameObject.Destroy(currentCrystal);
                 }
                 else
                 {
@@ -135,15 +132,35 @@ namespace RPGGame
             }
         }
 
+        /// <summary>
+        /// 创建水晶
+        /// </summary>
         public void CreateCrystal()
         {
-            currentCrystal = Instantiate(crystalPrefab, player.transform.position, Quaternion.identity);
+            currentCrystal = GameObject.Instantiate(crystalPrefab, Player.Instance.transform.position, Quaternion.identity);
             Crystal_Skill_Controller currentCystalScript = currentCrystal.GetComponent<Crystal_Skill_Controller>();
 
-            currentCystalScript.SetupCrystal(crystalDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(currentCrystal.transform), player);
+            currentCystalScript.SetupCrystal(
+                crystalDuration, 
+                canExplode, 
+                canMoveToEnemy, 
+                moveSpeed, 
+                FindClosestEnemy(currentCrystal.transform), 
+                Player.Instance);
         }
 
-        public void CurrentCrystalChooseRandomTarget() => currentCrystal.GetComponent<Crystal_Skill_Controller>().ChooseRandomEnemy();
+        /// <summary>
+        /// 当前水晶选择随机目标
+        /// </summary>
+        public void CurrentCrystalChooseRandomTarget()
+        {
+            currentCrystal.GetComponent<Crystal_Skill_Controller>().ChooseRandomEnemy();
+        }
+
+        /// <summary>
+        /// 能否使用多个水晶
+        /// </summary>
+        /// <returns></returns>
         private bool CanUseMultiCrystal()
         {
             if (canUseMultiStacks)
@@ -151,49 +168,48 @@ namespace RPGGame
                 if (crystalLeft.Count > 0)
                 {
                     if (crystalLeft.Count == amountOfStacks)
-                        Invoke("ResetAbility", useTimeWondow);
+                        ResetAbility().Forget();
 
                     cooldown = 0;
                     GameObject crystalToSpawn = crystalLeft[crystalLeft.Count - 1];
-                    GameObject newCrystal = Instantiate(crystalToSpawn, player.transform.position, Quaternion.identity);
+                    GameObject newCrystal = GameObject.Instantiate(crystalToSpawn, Player.Instance.transform.position, Quaternion.identity);
 
                     crystalLeft.Remove(crystalToSpawn);
 
                     newCrystal.GetComponent<Crystal_Skill_Controller>().
-                        SetupCrystal(crystalDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(newCrystal.transform), player);
+                        SetupCrystal(crystalDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(newCrystal.transform), Player.Instance);
 
                     if (crystalLeft.Count <= 0)
                     {
                         cooldown = multiStackCooldown;
                         RefilCrystal();
                     }
-
-
                     return true;
-
                 }
             }
-
-
             return false;
         }
 
+        /// <summary>
+        /// 再填充水晶
+        /// </summary>
         private void RefilCrystal()
         {
             int amountToAdd = amountOfStacks - crystalLeft.Count;
             for (int i = 0; i < amountToAdd; i++)
-            {
                 crystalLeft.Add(crystalPrefab);
-            }
         }
 
-        private void ResetAbility()
+        /// <summary>
+        /// 复位
+        /// </summary>
+        /// <returns></returns>
+        private async UniTask ResetAbility()
         {
+            await UniTask.Delay(TimeSpan.FromSeconds(useTimeWondow), false);
             if (cooldownTimer > 0)
                 return;
-
             cooldownTimer = multiStackCooldown;
-
             RefilCrystal();
         }
     }

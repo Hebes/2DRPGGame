@@ -256,10 +256,10 @@ namespace RPGGame
 
             player.stats.DoDamage(enemyStats);
 
-            if (player.skill.sword.timeStopUnlocked)
+            if (player.skill.GetSkill<Sword_Skill>().timeStopUnlocked)
                 enemy.FreezeTimeFor(freezeTimeDuration);
 
-            if (player.skill.sword.vulnerableUnlocked)
+            if (player.skill.GetSkill<Sword_Skill>().vulnerableUnlocked)
                 enemyStats.MakeVulnerableFor(freezeTimeDuration);
 
 
