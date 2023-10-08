@@ -15,9 +15,9 @@ using UnityEngine;
 
 namespace Core
 {
-    public class CoreAduioManager : ICore
+    public class CoreAduio : ICore
     {
-        public static CoreAduioManager Instance;
+        public static CoreAduio Instance;
         private GameObject soundObj = null;                 //音效依附对象
         private float bkValue = 1;                          //背景音乐大小
         public AudioSource bkMusic;                         //背景音乐组件

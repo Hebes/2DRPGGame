@@ -127,7 +127,6 @@ namespace Core
             t.UIName = uiFormName;
             t.UIAwake();
             CoreMonoManager.Instance.UpdateAddEvent(t.UIUpdate);
-            //uiPanelInstantiate.SetActive(false);
 
             //设置父物体
             switch (t.type)
@@ -234,7 +233,6 @@ namespace Core
         {
             if (_StaCurrentUIForms.Count >= 2)
             {
-
                 UIBase topUIForms = _StaCurrentUIForms.Pop();//出栈处理
                 topUIForms.UIOnDisable();//做隐藏处理
                 UIBase nextUIForms = _StaCurrentUIForms.Peek();//出栈后，下一个窗体做“重新显示”处理。

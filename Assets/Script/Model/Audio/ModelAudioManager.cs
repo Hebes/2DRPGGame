@@ -26,7 +26,7 @@ namespace RPGGame
         SFX,
     }
 
-    public class ModelAudioManager : IModelInit// SinglentMono<AudioManager>
+    public class ModelAudioManager : IModelInit
     {
         public static ModelAudioManager Instance;
         private AudioSource sfx;
