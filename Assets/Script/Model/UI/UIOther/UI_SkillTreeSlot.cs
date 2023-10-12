@@ -1,4 +1,5 @@
 using Core;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -22,40 +23,51 @@ namespace RPGGame
     {
         private Image skillImage;
 
-        [SerializeField] private int skillCost;
-        [SerializeField] private string skillName;
+        public int skillID;
+
+
+        [Header("下面数据仅仅用来观看")]
+        [SerializeField] private Color lockedSkillColor = new Color(0, 0, 0, 0);//未解锁的颜色
+        public bool unlocked;
+        [SerializeField] private int skillCost;     //技能消耗
+        [SerializeField] private string skillName;  //技能名称
         [TextArea]
         [SerializeField] private string skillDescription;
-        [SerializeField] private Color lockedSkillColor;
-
-
-        public bool unlocked;
-
         [SerializeField] private UI_SkillTreeSlot[] shouldBeUnlocked;
         [SerializeField] private UI_SkillTreeSlot[] shouldBeLocked;
 
-        private void OnValidate()
-        {
-            gameObject.name = "SkillTreeSlot_UI - " + skillName;
-        }
-
         private void Awake()
         {
-            GetComponent<Button>().onClick.AddListener(() => UnlockSkillSlot());
-        }
-
-        private void Start()
-        {
+            //获取组件
             skillImage = GetComponent<Image>();
+            //设置数据
+            SkillInfo skillInfoData = ModelSkill.Instance.GetSkillInfoOne(skillID);
+            skillCost = skillInfoData.skillCost;
+            skillName = skillInfoData.name;
+            skillDescription = skillInfoData.skillDescription;
+            //设置初始化状态
             skillImage.color = lockedSkillColor;
             if (unlocked)
                 skillImage.color = Color.white;
+
+            transform.AddEventTriggerListener(EventTriggerType.PointerClick, UnlockSkillSlot);
         }
 
-        public void UnlockSkillSlot()
+
+        /// <summary>
+        /// 解锁技能
+        /// </summary>
+        /// <param name="data"></param>
+        private void UnlockSkillSlot(PointerEventData data)
         {
+            //判断钱是否足够
             if (ModelData.Instance.HaveEnoughMoney(skillCost) == false)
+            {
+                Debug.Log("钱不够,不能解锁技能");
                 return;
+            }
+
+            //判断前面的技能是否解锁
 
             for (int i = 0; i < shouldBeUnlocked.Length; i++)
             {
@@ -66,7 +78,7 @@ namespace RPGGame
                 }
             }
 
-
+            //判断是否只能解锁一个（另一个解锁，这个技能就不能解锁，技能二选一）
             for (int i = 0; i < shouldBeLocked.Length; i++)
             {
                 if (shouldBeLocked[i].unlocked == true)
@@ -79,7 +91,6 @@ namespace RPGGame
             unlocked = true;
             skillImage.color = Color.white;
         }
-
 
 
         //鼠标事件

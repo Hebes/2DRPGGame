@@ -15,7 +15,7 @@ using UnityEngine.EventSystems;
 
 namespace Core
 {
-    public static  class EventTriggerExpansion
+    public static class EventTriggerExpansion
     {
         /// <summary>
         /// 为EventTrigger的事件类型绑定Action方法
@@ -30,6 +30,7 @@ namespace Core
             entry.callback.AddListener(data => listenedAction.Invoke((PointerEventData)data));
             trigger.triggers.Add(entry);
         }
+
         /// <summary>
         /// 添加EventTrigger组件
         /// </summary>

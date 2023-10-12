@@ -12,7 +12,7 @@ using UnityEngine.EventSystems;
 
 -----------------------*/
 
-namespace RPGGame
+namespace RPGGame 
 {
     public class UI_CraftSlot : UI_ItemSlot
     {

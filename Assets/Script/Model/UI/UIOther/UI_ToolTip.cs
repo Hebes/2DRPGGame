@@ -41,7 +41,7 @@ namespace RPGGame
                 newXoffset = xOffset;
 
             if (mousePosition.y > yLimit)
-                newYoffset = -yOffset;
+                newYoffset = -yOffset; 
             else
                 newYoffset = yOffset;
 

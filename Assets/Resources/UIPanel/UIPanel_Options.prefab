@@ -114,7 +114,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7242880342271272770}
   - component: {fileID: 5068002221813999713}
-  - component: {fileID: 2589309820855035800}
   m_Layer: 5
   m_Name: BGM_Volume
   m_TagString: Untagged
@@ -195,35 +194,7 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2589309820855035800}
-        m_TargetAssemblyTypeName: UI_VolumeSlider, Assembly-CSharp
-        m_MethodName: SliderValue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2589309820855035800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348941965207316447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64514d96b047f7848ba444dfc1973e4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 5068002221813999713}
-  parametr: bgm
-  audioMixer: {fileID: 24100000, guid: 4570c0dd7c9761847827a94b712b7f32, type: 2}
-  multiplier: 25
+      m_Calls: []
 --- !u!1 &420788063704928502
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +617,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1231402670007119588}
   - component: {fileID: 8676456284481810113}
-  - component: {fileID: 9087860187174935385}
   m_Layer: 5
   m_Name: SFX_Volume
   m_TagString: Untagged
@@ -727,35 +697,7 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9087860187174935385}
-        m_TargetAssemblyTypeName: UI_VolumeSlider, Assembly-CSharp
-        m_MethodName: SliderValue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &9087860187174935385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1208413011710980408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64514d96b047f7848ba444dfc1973e4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 8676456284481810113}
-  parametr: sfx
-  audioMixer: {fileID: 24100000, guid: 4570c0dd7c9761847827a94b712b7f32, type: 2}
-  multiplier: 25
+      m_Calls: []
 --- !u!1 &1276055168306768105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,7 +1557,6 @@ GameObject:
   - component: {fileID: 818152709869410889}
   - component: {fileID: 6522010246711124905}
   - component: {fileID: 8567106444303215916}
-  - component: {fileID: 7045839381063245804}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -1685,18 +1626,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7045839381063245804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6242260819423295899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b5ea9c65c380634ba797079d97947a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6275018390440203739
 GameObject:
   m_ObjectHideFlags: 0

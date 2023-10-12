@@ -23,7 +23,7 @@ namespace ACEditor
         /// <summary>
         /// 放置要生成的二进制文件的路径
         /// </summary>
-        private static readonly string BYTE_PATH = $"{Application.dataPath}/AssetsPackage/ConfigData/Binary";
+        private static readonly string BYTE_PATH = $"{Application.dataPath}/Resources/Binary";
 
         /// <summary>
         /// 创建二进制文件

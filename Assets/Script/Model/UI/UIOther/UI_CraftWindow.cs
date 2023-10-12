@@ -16,7 +16,7 @@ using Debug = Core.Debug;
 
 -----------------------*/
 
-namespace RPGGame
+namespace RPGGame 
 {
     /// <summary>
     /// 设置工艺窗口

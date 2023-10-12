@@ -1,9 +1,8 @@
 using Core;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
+
 namespace RPGGame
 {
     public class UI_CraftList : MonoBehaviour, IPointerDownHandler

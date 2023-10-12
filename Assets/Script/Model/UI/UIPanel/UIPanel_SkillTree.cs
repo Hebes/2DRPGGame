@@ -24,35 +24,36 @@ namespace RPGGame
             InitUIBase(EUIType.PopUp, EUIMode.HideOther, EUILucenyType.ImPenetrable, false);
 
             UIComponent UIComponent = panelGameObject.GetComponent<UIComponent>();
-            GameObject SkillTreeSlot_UI_Parrywithamirage = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Parry with a mirage");
-            GameObject SkillTreeSlot_UI_Restorewithparry = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Restore with parry");
-            GameObject SkillTreeSlot_UI_Parry = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Parry");
-            GameObject SkillTreeSlot_UI_Dash_ActuallyhereIam = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Dash - Actually here I am");
-            GameObject SkillTreeSlot_UI_Dash_HereIam = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Dash - Here I am");
-            GameObject SkillTreeSlot_UI_Dash = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Dash");
-            GameObject SkillTreeSlot_UI_Dodgemirage = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Dodge mirage");
-            GameObject SkillTreeSlot_UI_Dodge = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Dodge");
-            GameObject SkillTreeSlot_UI_Multipledistruction = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Multiple distruction");
-            GameObject SkillTreeSlot_UI_Controlleddestruction = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Controlled destruction");
-            GameObject SkillTreeSlot_UI_Explosion = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Explosion");
-            GameObject SkillTreeSlot_UI_Mirageblink = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Mirage blink");
-            GameObject SkillTreeSlot_UI_Crystal = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Crystal");
-            GameObject SkillTreeSlot_UI_Blackhole = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Blackhole");
-            GameObject SkillTreeSlot_UI_Crystalmirage = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Crystal mirage");
-            GameObject SkillTreeSlot_UI_Multiplemirage = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Multiple mirage");
-            GameObject SkillTreeSlot_UI_Aggresivemirage = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Aggresive mirage");
-            GameObject SkillTreeSlot_UI_Timemirage = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Time mirage");
-            GameObject SkillTreeSlot_UI_Chainsawsword = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Chain saw sword");
-            GameObject SkillTreeSlot_UI_Bulletsword = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Bullet sword");
-            GameObject SkillTreeSlot_UI_Bouncysword = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Bouncy sword");
-            GameObject SkillTreeSlot_UI_Vulnerability = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Vulnerability");
-            GameObject SkillTreeSlot_UI_Timestop = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Time stop");
-            GameObject SkillTreeSlot_UI_SwordThrow = UIComponent.Get<GameObject>("SkillTreeSlot_UI - Sword Throw");
-            GameObject T_SkillToolTip = UIComponent.Get<GameObject>("T_SkillToolTip");
-            GameObject T_Options = UIComponent.Get<GameObject>("T_Options");
-            GameObject T_Craft = UIComponent.Get<GameObject>("T_Craft");
-            GameObject T_Skilltree = UIComponent.Get<GameObject>("T_Skilltree");
             GameObject T_Character = UIComponent.Get<GameObject>("T_Character");
+            GameObject T_Skilltree = UIComponent.Get<GameObject>("T_Skilltree");
+            GameObject T_Craft = UIComponent.Get<GameObject>("T_Craft");
+            GameObject T_Options = UIComponent.Get<GameObject>("T_Options");
+            GameObject T_SwordThrow = UIComponent.Get<GameObject>("T_SwordThrow");
+            GameObject T_Timestop = UIComponent.Get<GameObject>("T_Timestop");
+            GameObject T_Vulnerability = UIComponent.Get<GameObject>("T_Vulnerability");
+            GameObject T_Bouncysword = UIComponent.Get<GameObject>("T_Bouncysword");
+            GameObject T_Bulletsword = UIComponent.Get<GameObject>("T_Bulletsword");
+            GameObject T_Chainsawsword = UIComponent.Get<GameObject>("T_Chainsawsword");
+            GameObject T_Timemirage = UIComponent.Get<GameObject>("T_Timemirage");
+            GameObject T_Aggresivemirage = UIComponent.Get<GameObject>("T_Aggresivemirage");
+            GameObject T_Multiplemirage = UIComponent.Get<GameObject>("T_Multiplemirage");
+            GameObject T_Crystalmirage = UIComponent.Get<GameObject>("T_Crystalmirage");
+            GameObject T_Blackhole = UIComponent.Get<GameObject>("T_Blackhole");
+            GameObject T_Crystal = UIComponent.Get<GameObject>("T_Crystal");
+            GameObject T_Mirageblink = UIComponent.Get<GameObject>("T_Mirageblink");
+            GameObject T_Explosion = UIComponent.Get<GameObject>("T_Explosion");
+            GameObject T_Controlleddestruction = UIComponent.Get<GameObject>("T_Controlleddestruction");
+            GameObject T_Multipledistruction = UIComponent.Get<GameObject>("T_Multipledistruction");
+            GameObject T_Dodge = UIComponent.Get<GameObject>("T_Dodge");
+            GameObject T_Dodgemirage = UIComponent.Get<GameObject>("T_Dodgemirage");
+            GameObject T_Dash = UIComponent.Get<GameObject>("T_Dash");
+            GameObject T_DashHereIam = UIComponent.Get<GameObject>("T_DashHereIam");
+            GameObject T_DashActuallyhereIam = UIComponent.Get<GameObject>("T_DashActuallyhereIam");
+            GameObject T_Parry = UIComponent.Get<GameObject>("T_Parry");
+            GameObject T_Restorewithparry = UIComponent.Get<GameObject>("T_Restorewithparry");
+            GameObject T_Parrywithamirage = UIComponent.Get<GameObject>("T_Parrywithamirage");
+            GameObject T_SkillToolTip = UIComponent.Get<GameObject>("T_SkillToolTip");
+
 
 
             //按钮监听
@@ -64,20 +65,20 @@ namespace RPGGame
             //这里解锁技能
 
             //Blackhole_Skill
-            ButtonOnClickAddListener(SkillTreeSlot_UI_Blackhole.name, Blackhole);               //黑洞
+            ButtonOnClickAddListener(T_Blackhole.name, Blackhole);               //黑洞
 
             //Clone_Skill
-            ButtonOnClickAddListener(SkillTreeSlot_UI_Timemirage.name, Timemirage);             //时间克隆
-            ButtonOnClickAddListener(SkillTreeSlot_UI_Aggresivemirage.name, Aggresivemirage);   //攻击克隆
-            ButtonOnClickAddListener(SkillTreeSlot_UI_Multiplemirage.name, Multiplemirage);   //攻击克隆
-            ButtonOnClickAddListener(SkillTreeSlot_UI_Crystalmirage.name, Crystalmirage);   //水晶克隆
+            //ButtonOnClickAddListener(SkillTreeSlot_UI_Timemirage.name, Timemirage);             //时间克隆
+            //ButtonOnClickAddListener(SkillTreeSlot_UI_Aggresivemirage.name, Aggresivemirage);   //攻击克隆
+            //ButtonOnClickAddListener(SkillTreeSlot_UI_Multiplemirage.name, Multiplemirage);   //攻击克隆
+            //ButtonOnClickAddListener(SkillTreeSlot_UI_Crystalmirage.name, Crystalmirage);   //水晶克隆
 
-            //Crystal_Skill
-            ButtonOnClickAddListener(SkillTreeSlot_UI_Mirageblink.name, Mirageblink);
-            ButtonOnClickAddListener(SkillTreeSlot_UI_Crystal.name, Crystal);
-            ButtonOnClickAddListener(SkillTreeSlot_UI_Explosion.name, Explosion);
-            ButtonOnClickAddListener(SkillTreeSlot_UI_Controlleddestruction.name, Controlleddestruction);
-            ButtonOnClickAddListener(SkillTreeSlot_UI_Multipledistruction.name, Multipledistruction);
+            ////Crystal_Skill
+            //ButtonOnClickAddListener(SkillTreeSlot_UI_Mirageblink.name, Mirageblink);
+            //ButtonOnClickAddListener(SkillTreeSlot_UI_Crystal.name, Crystal);
+            //ButtonOnClickAddListener(SkillTreeSlot_UI_Explosion.name, Explosion);
+            //ButtonOnClickAddListener(SkillTreeSlot_UI_Controlleddestruction.name, Controlleddestruction);
+            //ButtonOnClickAddListener(SkillTreeSlot_UI_Multipledistruction.name, Multipledistruction);
 
             //TODO 需要取消注释
             ////Dash_Skill

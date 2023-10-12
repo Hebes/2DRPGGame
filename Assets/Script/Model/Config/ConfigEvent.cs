@@ -32,5 +32,7 @@ namespace RPGGame
         public const string EventStatToolTipClose = "状态格子介绍关闭";
         public const string EventCraftWindow = "工艺窗口";
 
+        //技能
+        public const string SkillUnLock = "技能解锁";
     }
 }

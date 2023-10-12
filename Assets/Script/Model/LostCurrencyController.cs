@@ -1,5 +1,15 @@
-﻿using RPGGame;
-using UnityEngine;
+﻿using UnityEngine;
+
+/*--------脚本描述-----------
+
+电子邮箱：
+    1607388033@qq.com
+作者:
+    暗沉
+描述:
+    拾取货币
+
+-----------------------*/
 
 namespace RPGGame
 {
@@ -11,7 +21,7 @@ namespace RPGGame
         {
             if (collision.GetComponent<Player>() != null)
             {
-                Debug.Log("Picked up currency");
+                Debug.Log("捡到货币了");
                 ModelData.Instance.currency += currency;
                 Destroy(this.gameObject);
             }

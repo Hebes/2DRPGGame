@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 using YooAsset;
 
 /*--------脚本描述-----------
@@ -26,16 +27,6 @@ namespace Core
             Debug.Log("数据初始化完毕");
         }
 
-        //初始化数据
-        public void InitData<T>(string fileName) where T : IData
-        {
-            RawFileOperationHandle handle = YooAssetLoadExpsion.YooaddetLoadRawFileAsync(fileName);
-            byte[] fileData = handle.GetRawFileData();
-            List<IData> itemDetailsList = BinaryAnalysis.GetData<T>(fileData);
-            if (bytesDataDic.ContainsKey(typeof(T).FullName))
-                bytesDataDic[typeof(T).FullName] = itemDetailsList;
-            bytesDataDic.Add(typeof(T).FullName, itemDetailsList);
-        }
         public void InitData<T>() where T : IData
         {
             RawFileOperationHandle handle = YooAssetLoadExpsion.YooaddetLoadRawFileAsync(typeof(T).FullName);
@@ -46,8 +37,22 @@ namespace Core
             bytesDataDic.Add(typeof(T).FullName, itemDetailsList);
         }
 
+        public void InitData<T>(string filePath) where T : IData
+        {
+            byte[] fileData = CoreLoadRes.Instance.Load<TextAsset>(filePath).bytes;
+            List<IData> itemDetailsList = BinaryAnalysis.GetData<T>(fileData);
+            if (bytesDataDic.ContainsKey(typeof(T).FullName))
+                bytesDataDic[typeof(T).FullName] = itemDetailsList;
+            bytesDataDic.Add(typeof(T).FullName, itemDetailsList);
+        }
 
-        //获取数据
+
+        /// <summary>
+        /// 获取一条数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public T GetDataOne<T>(int id) where T : class, IData
         {
             if (!bytesDataDic.ContainsKey(typeof(T).FullName))
@@ -59,6 +64,12 @@ namespace Core
             IData data = bytesDataDic[typeof(T).FullName].Find(data => { return data.GetId() == id; });
             return data == null ? null : data as T;
         }
+
+        /// <summary>
+        /// 获取数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public List<IData> GetDataList<T>() where T : class, IData
         {
             if (!bytesDataDic.ContainsKey(typeof(T).FullName))
@@ -71,6 +82,11 @@ namespace Core
             return dataListTemp;
         }
 
+        /// <summary>
+        /// 获取数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public List<T> GetDataListAsT<T>() where T : class, IData
         {
             List<T> dataListTemp = new List<T>();
@@ -82,6 +98,15 @@ namespace Core
             foreach (IData item in bytesDataDic[typeof(T).FullName])
                 dataListTemp.Add(item as T);
             return dataListTemp;
+        }
+
+        /// <summary>
+        /// 删除数据
+        /// </summary>
+        public void RemoveData(string dataKey)
+        {
+            if (bytesDataDic.TryGetValue(dataKey, out List<IData> datas))
+                bytesDataDic[dataKey] = null;
         }
     }
 }

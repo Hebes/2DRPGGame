@@ -18,7 +18,7 @@ namespace ACEditor
 {
     public class ClassData
     {
-        private static string DATA_CLASS_PATH = $"{Application.dataPath}/HotUpdate/GameMain/Config/ExcelClass/";//Assets/HotUpdate/GameMain/Config
+        private static string DATA_CLASS_PATH = $"{Application.dataPath}/Script/Model/Data/ExcelData";//Assets/HotUpdate/GameMain/Config
 
         /// <summary>
         /// 通过Excel数据生成脚本文件

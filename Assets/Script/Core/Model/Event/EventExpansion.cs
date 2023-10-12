@@ -16,7 +16,7 @@ namespace Core
 {
     public static class EventExpansion
     {
-        #region 等待
+        #region 普通
         public static void EventAdd(this string eventName, EventInfoCommon.CommonEvent action)
         {
             CoreEvent.Instance.EventAdd(eventName, action);

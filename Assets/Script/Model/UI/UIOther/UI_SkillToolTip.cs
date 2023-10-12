@@ -42,7 +42,7 @@ namespace RPGGame
 
             AdjustPosition();
             AdjustFontSize(skillName);
-        }
+        } 
 
         public void HideToolTip()
         {

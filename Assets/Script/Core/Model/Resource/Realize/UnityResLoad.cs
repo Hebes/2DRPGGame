@@ -9,7 +9,7 @@ namespace Core
         {
             T t = Resources.Load<T>(AssetName);
             if (t == null)
-                Debug.Error($"资源为空{AssetName}");
+                Debug.Error($"资源为空:{AssetName}");
             return t;
         }
         public async UniTask<T> LoadAsync<T>(string AssetName) where T : UnityEngine.Object

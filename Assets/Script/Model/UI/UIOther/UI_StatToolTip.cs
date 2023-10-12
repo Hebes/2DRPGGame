@@ -1,4 +1,5 @@
 using Core;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,7 @@ namespace RPGGame
 {
     public class UI_StatToolTip : UI_ToolTip
     {
-        [SerializeField] private Text description;
+        [SerializeField] private TextMeshProUGUI description;
 
         private void Awake()
         {
@@ -36,7 +37,7 @@ namespace RPGGame
         public void HideStatToolTip()
         {
             description.text = "";
-            gameObject.SetActive(false);
+            gameObject.SetActive(false); 
         }
     }
 }

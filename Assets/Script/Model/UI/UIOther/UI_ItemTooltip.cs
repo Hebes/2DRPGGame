@@ -36,7 +36,7 @@ namespace RPGGame
         {
             gameObject.SetActive(true);
 
-            if (item == null)
+            if (item == null) 
                 return;
 
             itemNameText.text = item.itemName;

@@ -35,7 +35,7 @@ namespace ACEditor
         /// <summary>
         /// excel文件存放的路径
         /// </summary>
-        public static string EXCEL_PATH = Application.dataPath + "/Editor/Excels/";
+        public static string EXCEL_PATH = Application.dataPath + "/Editor/Tool/Excels/Excels";
 
         //[MenuItem("Tool/字节测试")]
         //public static void TestByte()

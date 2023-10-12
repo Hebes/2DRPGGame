@@ -16,7 +16,7 @@ using UnityEngine.UI;
 
 -----------------------*/
 
-namespace RPGGame
+namespace RPGGame 
 {
     public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
     {
@@ -29,12 +29,13 @@ namespace RPGGame
         protected virtual void Start()
         {
             itemText = GetComponentInChildren<TextMeshProUGUI>();
+            itemImage= GetComponent<Image>();
         }
 
         public void UpdateSlot(InventoryItem _newItem)
         {
             item = _newItem;
-
+             
             itemImage.color = Color.white;
 
             if (item != null)

@@ -378,7 +378,6 @@ GameObject:
   - component: {fileID: 1028532363688937406}
   - component: {fileID: 5966633798104913209}
   - component: {fileID: 1603025752365687779}
-  - component: {fileID: 581936202918192130}
   m_Layer: 5
   m_Name: T_Skilltree
   m_TagString: Untagged
@@ -444,50 +443,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &581936202918192130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 572660943204337492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1603025752365687779}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &604577326069216974
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,11 +453,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4808822716764556360}
   - component: {fileID: 5440032922620974265}
-  - component: {fileID: 9199336195256266486}
   - component: {fileID: 4318627744210630613}
   - component: {fileID: 5300717708604484210}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Parry
+  m_Name: T_Parry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -535,25 +489,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604577326069216974}
   m_CullTransparentMesh: 1
---- !u!114 &9199336195256266486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604577326069216974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Parry
-  skillDescription: You can parry attack to avoid damage.
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked: []
-  shouldBeLocked: []
 --- !u!114 &4318627744210630613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,11 +573,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4295107164301791635}
   - component: {fileID: 8373056086888635831}
-  - component: {fileID: 7987256595925538511}
   - component: {fileID: 3334667631366268944}
   - component: {fileID: 6241370004133811969}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Aggresive mirage
+  m_Name: T_Aggresivemirage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -675,29 +609,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728406365796616821}
   m_CullTransparentMesh: 1
---- !u!114 &7987256595925538511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728406365796616821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Aggresive mirage
-  skillDescription: 'Your mirage has 80% of your damage.
-
-    Your mirage can apply
-    on hit effects.'
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 547701907538000345}
-  shouldBeLocked: []
 --- !u!114 &3334667631366268944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -782,11 +693,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5458499514681456385}
   - component: {fileID: 7004419527009790956}
-  - component: {fileID: 3301473107397003272}
   - component: {fileID: 6702726670460627747}
   - component: {fileID: 5737785305917035425}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy sword
+  m_Name: T_Bouncysword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -819,31 +729,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216620411797731191}
   m_CullTransparentMesh: 1
---- !u!114 &3301473107397003272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216620411797731191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 500
-  skillName: Bouncy sword
-  skillDescription: 'Sword can boucne beetwen targets.
-
-    [Only one sword upgrade
-    can be choose]'
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 2847295612812500684}
-  shouldBeLocked:
-  - {fileID: 6518531716347003701}
-  - {fileID: 75498707940573015}
 --- !u!114 &6702726670460627747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,7 +814,6 @@ GameObject:
   - component: {fileID: 1226087213112547776}
   - component: {fileID: 5314852895213685996}
   - component: {fileID: 745370880219625615}
-  - component: {fileID: 1569383422019183568}
   m_Layer: 5
   m_Name: T_Options
   m_TagString: Untagged
@@ -995,50 +879,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1569383422019183568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1394846112272777183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 745370880219625615}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1661853919135154631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,11 +889,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5984098891933564029}
   - component: {fileID: 2719962826596804814}
-  - component: {fileID: 3226421119959706843}
   - component: {fileID: 6023964706616655582}
   - component: {fileID: 7302969719145219776}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Multiple distruction
+  m_Name: T_Multipledistruction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1086,26 +925,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661853919135154631}
   m_CullTransparentMesh: 1
---- !u!114 &3226421119959706843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1661853919135154631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Multiple distruction
-  skillDescription: You can create up to 3 crystal at a time.
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 7232180493510269731}
-  shouldBeLocked: []
 --- !u!114 &6023964706616655582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1190,11 +1009,10 @@ GameObject:
   m_Component:
   - component: {fileID: 842357559557194864}
   - component: {fileID: 1191050679489510010}
-  - component: {fileID: 6518531716347003701}
   - component: {fileID: 1901933514584676648}
   - component: {fileID: 789661841780259202}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bullet sword
+  m_Name: T_Bulletsword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1227,31 +1045,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704620908266698954}
   m_CullTransparentMesh: 1
---- !u!114 &6518531716347003701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704620908266698954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Bullet sword
-  skillDescription: 'Sword can peirce targets.
-
-    [Only one sword upgrade can be
-    choose]'
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 2847295612812500684}
-  shouldBeLocked:
-  - {fileID: 3301473107397003272}
-  - {fileID: 75498707940573015}
 --- !u!114 &1901933514584676648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,11 +1129,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6851122183731652783}
   - component: {fileID: 1125427834566531962}
-  - component: {fileID: 7232180493510269731}
   - component: {fileID: 3370434735360465185}
   - component: {fileID: 6482252073219732660}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Controlled destruction
+  m_Name: T_Controlleddestruction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1373,29 +1165,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980396279755353728}
   m_CullTransparentMesh: 1
---- !u!114 &7232180493510269731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980396279755353728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Controlled destruction
-  skillDescription: 'Crystal moves towards the enemy.
-
-    You can no longer teleport
-    to crystal.'
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 7514915610514629457}
-  shouldBeLocked: []
 --- !u!114 &3370434735360465185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1537,8 +1306,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 84bdc42b70bb5e54aa18bb33c1fa834e, type: 2}
-  m_sharedMaterial: {fileID: 8790828843743859757, guid: 84bdc42b70bb5e54aa18bb33c1fa834e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1614,11 +1383,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3622927329472988510}
   - component: {fileID: 5991348004620327263}
-  - component: {fileID: 5667452768916900603}
   - component: {fileID: 8041278320679754122}
   - component: {fileID: 5496218648510851484}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Dodge mirage
+  m_Name: T_Dodgemirage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1651,26 +1419,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2517296037162512439}
   m_CullTransparentMesh: 1
---- !u!114 &5667452768916900603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2517296037162512439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Dodge mirage
-  skillDescription: You can create mirage on dodge.
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 7127528634354017186}
-  shouldBeLocked: []
 --- !u!114 &8041278320679754122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1889,11 +1637,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7153406801779690037}
   - component: {fileID: 8244452177068593017}
-  - component: {fileID: 2758299733504455841}
   - component: {fileID: 8409282067561916884}
   - component: {fileID: 7555480013027227596}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Restore with parry
+  m_Name: T_Restorewithparry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1926,26 +1673,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2744276233604454201}
   m_CullTransparentMesh: 1
---- !u!114 &2758299733504455841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2744276233604454201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Restore with parry
-  skillDescription: You restore a bit of health with succsesful parry.
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 9199336195256266486}
-  shouldBeLocked: []
 --- !u!114 &8409282067561916884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2030,11 +1757,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2560131002711763186}
   - component: {fileID: 8185393744004480369}
-  - component: {fileID: 7116928103185830453}
   - component: {fileID: 2965652173495799889}
   - component: {fileID: 3013975177977157121}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Mirage blink
+  m_Name: T_Mirageblink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2067,30 +1793,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3354506475674966980}
   m_CullTransparentMesh: 1
---- !u!114 &7116928103185830453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3354506475674966980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Mirage blink
-  skillDescription: 'You leave your mirage instead of you when you blink.
-
-    [Only
-    one crystal upgrade can be choosen]'
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 7598594152271936321}
-  shouldBeLocked:
-  - {fileID: 7514915610514629457}
 --- !u!114 &2965652173495799889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2176,8 +1878,8 @@ GameObject:
   - component: {fileID: 1831281550159734684}
   - component: {fileID: 1035021669517771616}
   - component: {fileID: 5473539327651063393}
-  - component: {fileID: 6911357653012783348}
   - component: {fileID: 4307796172970066557}
+  - component: {fileID: 4045969862774830690}
   m_Layer: 5
   m_Name: T_SkillToolTip
   m_TagString: Untagged
@@ -2245,26 +1947,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6911357653012783348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3721856044111710531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e107aede6b6f6664e9a42425ec2541f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xLimit: 960
-  yLimit: 540
-  xOffset: 150
-  yOffset: 150
-  skillText: {fileID: 6976621999473952378}
-  skillName: {fileID: 3643837203848341635}
-  skillCost: {fileID: 5608599412810577853}
-  defaultNameFontSize: 34
 --- !u!225 &4307796172970066557
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2277,6 +1959,26 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &4045969862774830690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721856044111710531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e55bbee6654e6fe478cf7deebc4f63ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xLimit: 960
+  yLimit: 540
+  xOffset: 150
+  yOffset: 150
+  skillText: {fileID: 6976621999473952378}
+  skillName: {fileID: 3643837203848341635}
+  skillCost: {fileID: 5608599412810577853}
+  defaultNameFontSize: 34
 --- !u!1 &3857587017916272390
 GameObject:
   m_ObjectHideFlags: 0
@@ -2287,11 +1989,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3088057087687452225}
   - component: {fileID: 3418535874644973651}
-  - component: {fileID: 8205308774289465935}
   - component: {fileID: 7827128895782614914}
   - component: {fileID: 5575898444859992302}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Dash
+  m_Name: T_Dash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2324,28 +2025,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3857587017916272390}
   m_CullTransparentMesh: 1
---- !u!114 &8205308774289465935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3857587017916272390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Dash
-  skillDescription: 'You can dash to avoid attacks.
-
-    You are invincible in the
-    time of dash.'
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked: []
-  shouldBeLocked: []
 --- !u!114 &7827128895782614914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2431,7 +2110,6 @@ GameObject:
   - component: {fileID: 5923971195275583319}
   - component: {fileID: 6042525874357410740}
   - component: {fileID: 8941933653247422260}
-  - component: {fileID: 8598564455162870325}
   m_Layer: 5
   m_Name: T_Craft
   m_TagString: Untagged
@@ -2497,50 +2175,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8598564455162870325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4188762145583171070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 8941933653247422260}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4481470662290582611
 GameObject:
   m_ObjectHideFlags: 0
@@ -2655,11 +2289,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1405424126016282961}
   - component: {fileID: 887361022632922312}
-  - component: {fileID: 1586476501502708736}
   - component: {fileID: 8402423941173398553}
   - component: {fileID: 5552678128470930491}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Dash - "Actually here I am"
+  m_Name: T_DashActuallyhereIam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2692,26 +2325,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4489516318532585138}
   m_CullTransparentMesh: 1
---- !u!114 &1586476501502708736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4489516318532585138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Dash - "Actually here I am"
-  skillDescription: You create mirage at your arrival.
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 9196062653036381993}
-  shouldBeLocked: []
 --- !u!114 &8402423941173398553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2930,11 +2543,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3251157474515418775}
   - component: {fileID: 3967923692740682535}
-  - component: {fileID: 547701907538000345}
   - component: {fileID: 1844062438814438922}
   - component: {fileID: 6405185055349958379}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Time mirage
+  m_Name: T_Timemirage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2967,28 +2579,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4707379468165059794}
   m_CullTransparentMesh: 1
---- !u!114 &547701907538000345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4707379468165059794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Time mirage
-  skillDescription: 'Your mirage can attack targets.
-
-    Your mirage has 30% of
-    your damage.'
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked: []
-  shouldBeLocked: []
 --- !u!114 &1844062438814438922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3073,11 +2663,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4317381965758179623}
   - component: {fileID: 6929319264782944698}
-  - component: {fileID: 7514915610514629457}
   - component: {fileID: 3953214765911575002}
   - component: {fileID: 5238483840202948256}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Explosion
+  m_Name: T_Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3110,29 +2699,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5515240244567181200}
   m_CullTransparentMesh: 1
---- !u!114 &7514915610514629457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5515240244567181200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Explosion
-  skillDescription: 'Crystal can explode.
-
-    [Only one crystal upgrade can be choosen]'
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 7598594152271936321}
-  shouldBeLocked:
-  - {fileID: 7116928103185830453}
 --- !u!114 &3953214765911575002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3217,11 +2783,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4897465230397183269}
   - component: {fileID: 4085438907863624213}
-  - component: {fileID: 9196062653036381993}
   - component: {fileID: 4416336721951697575}
   - component: {fileID: 1780362218624275249}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Dash - "Here I am"
+  m_Name: T_DashHereIam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3254,26 +2819,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5576884061022421448}
   m_CullTransparentMesh: 1
---- !u!114 &9196062653036381993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5576884061022421448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Dash - "Here I am"
-  skillDescription: You leave mirage when you dash.
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 8205308774289465935}
-  shouldBeLocked: []
 --- !u!114 &4416336721951697575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3358,11 +2903,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3370936135188477640}
   - component: {fileID: 1724194916406636204}
-  - component: {fileID: 4242708420330080502}
   - component: {fileID: 3229798407562514802}
   - component: {fileID: 2969760543459072594}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Multiple mirage
+  m_Name: T_Multiplemirage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3395,32 +2939,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5623133089535706361}
   m_CullTransparentMesh: 1
---- !u!114 &4242708420330080502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5623133089535706361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Multiple mirage
-  skillDescription: 'Your  mirage has 30% of your attack.
-
-    Your mirgae can spawn
-    another mirage.
-
-    [Only one upgrade can be choosen]'
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 7987256595925538511}
-  shouldBeLocked:
-  - {fileID: 2648937963175431566}
 --- !u!114 &3229798407562514802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3505,11 +3023,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7252441542854999148}
   - component: {fileID: 6238185830458151108}
-  - component: {fileID: 7598594152271936321}
   - component: {fileID: 1384796047648061817}
   - component: {fileID: 7990045937769802652}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Crystal
+  m_Name: T_Crystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3542,28 +3059,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5651067008776746100}
   m_CullTransparentMesh: 1
---- !u!114 &7598594152271936321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5651067008776746100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Crystal
-  skillDescription: 'You create magic crystal that does magic damage.
-
-    By clickinb
-    ability again , you can teleport to your crystal.'
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked: []
-  shouldBeLocked: []
 --- !u!114 &1384796047648061817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3738,56 +3233,56 @@ MonoBehaviour:
     gameObject: {fileID: 4188762145583171070}
   - key: T_Options
     gameObject: {fileID: 1394846112272777183}
+  - key: T_SwordThrow
+    gameObject: {fileID: 8080269860705207362}
+  - key: T_Timestop
+    gameObject: {fileID: 8286922927408955501}
+  - key: T_Vulnerability
+    gameObject: {fileID: 8114117042939364206}
+  - key: T_Bouncysword
+    gameObject: {fileID: 1216620411797731191}
+  - key: T_Bulletsword
+    gameObject: {fileID: 1704620908266698954}
+  - key: T_Chainsawsword
+    gameObject: {fileID: 5844217868138100157}
+  - key: T_Timemirage
+    gameObject: {fileID: 4707379468165059794}
+  - key: T_Aggresivemirage
+    gameObject: {fileID: 728406365796616821}
+  - key: T_Multiplemirage
+    gameObject: {fileID: 5623133089535706361}
+  - key: T_Crystalmirage
+    gameObject: {fileID: 7806755345219591974}
+  - key: T_Blackhole
+    gameObject: {fileID: 6283122105168129331}
+  - key: T_Crystal
+    gameObject: {fileID: 5651067008776746100}
+  - key: T_Mirageblink
+    gameObject: {fileID: 3354506475674966980}
+  - key: T_Explosion
+    gameObject: {fileID: 5515240244567181200}
+  - key: T_Controlleddestruction
+    gameObject: {fileID: 1980396279755353728}
+  - key: T_Multipledistruction
+    gameObject: {fileID: 1661853919135154631}
+  - key: T_Dodge
+    gameObject: {fileID: 6038125242552019075}
+  - key: T_Dodgemirage
+    gameObject: {fileID: 2517296037162512439}
+  - key: T_Dash
+    gameObject: {fileID: 3857587017916272390}
+  - key: T_DashHereIam
+    gameObject: {fileID: 5576884061022421448}
+  - key: T_DashActuallyhereIam
+    gameObject: {fileID: 4489516318532585138}
+  - key: T_Parry
+    gameObject: {fileID: 604577326069216974}
+  - key: T_Restorewithparry
+    gameObject: {fileID: 2744276233604454201}
+  - key: T_Parrywithamirage
+    gameObject: {fileID: 7385792426980034438}
   - key: T_SkillToolTip
     gameObject: {fileID: 3721856044111710531}
-  - key: SkillTreeSlot_UI - Sword Throw
-    gameObject: {fileID: 8080269860705207362}
-  - key: SkillTreeSlot_UI - Time stop
-    gameObject: {fileID: 8286922927408955501}
-  - key: SkillTreeSlot_UI - Vulnerability
-    gameObject: {fileID: 8114117042939364206}
-  - key: SkillTreeSlot_UI - Bouncy sword
-    gameObject: {fileID: 1216620411797731191}
-  - key: SkillTreeSlot_UI - Bullet sword
-    gameObject: {fileID: 1704620908266698954}
-  - key: SkillTreeSlot_UI - Chain saw sword
-    gameObject: {fileID: 5844217868138100157}
-  - key: SkillTreeSlot_UI - Time mirage
-    gameObject: {fileID: 4707379468165059794}
-  - key: SkillTreeSlot_UI - Aggresive mirage
-    gameObject: {fileID: 728406365796616821}
-  - key: SkillTreeSlot_UI - Multiple mirage
-    gameObject: {fileID: 5623133089535706361}
-  - key: SkillTreeSlot_UI - Crystal mirage
-    gameObject: {fileID: 7806755345219591974}
-  - key: SkillTreeSlot_UI - Blackhole
-    gameObject: {fileID: 6283122105168129331}
-  - key: SkillTreeSlot_UI - Crystal
-    gameObject: {fileID: 5651067008776746100}
-  - key: SkillTreeSlot_UI - Mirage blink
-    gameObject: {fileID: 3354506475674966980}
-  - key: SkillTreeSlot_UI - Explosion
-    gameObject: {fileID: 5515240244567181200}
-  - key: SkillTreeSlot_UI - Controlled destruction
-    gameObject: {fileID: 1980396279755353728}
-  - key: SkillTreeSlot_UI - Multiple distruction
-    gameObject: {fileID: 1661853919135154631}
-  - key: SkillTreeSlot_UI - Dodge
-    gameObject: {fileID: 6038125242552019075}
-  - key: SkillTreeSlot_UI - Dodge mirage
-    gameObject: {fileID: 2517296037162512439}
-  - key: SkillTreeSlot_UI - Dash
-    gameObject: {fileID: 3857587017916272390}
-  - key: SkillTreeSlot_UI - Dash - "Here I am"
-    gameObject: {fileID: 5576884061022421448}
-  - key: SkillTreeSlot_UI - Dash - "Actually here I am"
-    gameObject: {fileID: 4489516318532585138}
-  - key: SkillTreeSlot_UI - Parry
-    gameObject: {fileID: 604577326069216974}
-  - key: SkillTreeSlot_UI - Restore with parry
-    gameObject: {fileID: 2744276233604454201}
-  - key: SkillTreeSlot_UI - Parry with a mirage
-    gameObject: {fileID: 7385792426980034438}
 --- !u!1 &5844217868138100157
 GameObject:
   m_ObjectHideFlags: 0
@@ -3798,11 +3293,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5008767037881885710}
   - component: {fileID: 5807022802496521866}
-  - component: {fileID: 75498707940573015}
   - component: {fileID: 2791108232487047725}
   - component: {fileID: 2823337197862152012}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Chain saw sword
+  m_Name: T_Chainsawsword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3835,31 +3329,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5844217868138100157}
   m_CullTransparentMesh: 1
---- !u!114 &75498707940573015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5844217868138100157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Chain saw sword
-  skillDescription: 'Sword will spin like a chain saw.
-
-    [Only one sword upgrade
-    can be choose]'
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 2847295612812500684}
-  shouldBeLocked:
-  - {fileID: 6518531716347003701}
-  - {fileID: 3301473107397003272}
 --- !u!114 &2791108232487047725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4022,11 +3491,10 @@ GameObject:
   m_Component:
   - component: {fileID: 51011085611032415}
   - component: {fileID: 7737524945263279598}
-  - component: {fileID: 7127528634354017186}
   - component: {fileID: 8877936050984798728}
   - component: {fileID: 2540320001330030061}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Dodge
+  m_Name: T_Dodge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4059,25 +3527,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6038125242552019075}
   m_CullTransparentMesh: 1
---- !u!114 &7127528634354017186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6038125242552019075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Dodge
-  skillDescription: You getting 10% of a evasion.
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked: []
-  shouldBeLocked: []
 --- !u!114 &8877936050984798728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4162,11 +3611,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3293523804754378612}
   - component: {fileID: 2255017229029216791}
-  - component: {fileID: 7530374113733760992}
   - component: {fileID: 2169424585549008212}
   - component: {fileID: 9141425437559381228}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Blackhole
+  m_Name: T_Blackhole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4199,29 +3647,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6283122105168129331}
   m_CullTransparentMesh: 1
---- !u!114 &7530374113733760992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6283122105168129331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Blackhole
-  skillDescription: 'You trap enemies in a blackhole which allows you to do tons
-    of damage.
-
-'
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 547701907538000345}
-  shouldBeLocked: []
 --- !u!114 &2169424585549008212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4440,11 +3865,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1234837272461173579}
   - component: {fileID: 7946709202668801490}
-  - component: {fileID: 2261781522838696275}
   - component: {fileID: 7583462548479252394}
   - component: {fileID: 5602550339739102235}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Parry with a mirage
+  m_Name: T_Parrywithamirage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4477,26 +3901,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7385792426980034438}
   m_CullTransparentMesh: 1
---- !u!114 &2261781522838696275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7385792426980034438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Parry with a mirage
-  skillDescription: You create a clone with succsesful parry.
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 2758299733504455841}
-  shouldBeLocked: []
 --- !u!114 &7583462548479252394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4581,11 +3985,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8949773134163490081}
   - component: {fileID: 3994948129178454735}
-  - component: {fileID: 2648937963175431566}
   - component: {fileID: 5161066818724244899}
   - component: {fileID: 7724807034440472004}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Crystal mirage
+  m_Name: T_Crystalmirage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4618,28 +4021,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7806755345219591974}
   m_CullTransparentMesh: 1
---- !u!114 &2648937963175431566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7806755345219591974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 0
-  skillName: Crystal mirage
-  skillDescription: "You create crystal instead of mirage. \nWith all it's qualites.\n[Only
-    one upgrade can be choosen]"
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 7987256595925538511}
-  shouldBeLocked:
-  - {fileID: 4242708420330080502}
 --- !u!114 &5161066818724244899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4724,11 +4105,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7685542606768223607}
   - component: {fileID: 1287043111402863497}
-  - component: {fileID: 2847295612812500684}
   - component: {fileID: 5075255447024520455}
-  - component: {fileID: 5366130049083864228}
+  - component: {fileID: 9112719572616263155}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Sword Throw
+  m_Name: T_SwordThrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4761,25 +4141,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8080269860705207362}
   m_CullTransparentMesh: 1
---- !u!114 &2847295612812500684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8080269860705207362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 100
-  skillName: Sword Throw
-  skillDescription: Throws sword into the enemy.
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked: []
-  shouldBeLocked: []
 --- !u!114 &5075255447024520455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4810,7 +4171,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5366130049083864228
+--- !u!114 &9112719572616263155
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4819,65 +4180,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8080269860705207362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 5075255447024520455}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2847295612812500684}
-        m_TargetAssemblyTypeName: UI_SkillTreeSlot, Assembly-CSharp
-        m_MethodName: UnlockSkillSlot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2847295612812500684}
-        m_TargetAssemblyTypeName: UI_SkillTreeSlot, Assembly-CSharp
-        m_MethodName: CheckSomethin
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  skillID: 0
+  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  unlocked: 0
+  skillCost: 100
+  skillName: SwordThrow
+  skillDescription: "\u5411\u654C\u4EBA\u6295\u63B7\u5251\u3002"
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &8114117042939364206
 GameObject:
   m_ObjectHideFlags: 0
@@ -4888,11 +4201,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5694262893663126639}
   - component: {fileID: 277978390308500409}
-  - component: {fileID: 8558086138338985291}
   - component: {fileID: 6339356212452824286}
   - component: {fileID: 2164902991823638746}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Vulnerability
+  m_Name: T_Vulnerability
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4925,27 +4237,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8114117042939364206}
   m_CullTransparentMesh: 1
---- !u!114 &8558086138338985291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8114117042939364206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 1500
-  skillName: Vulnerability
-  skillDescription: Enemy hit by sword , takes 10% more damage.
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 1757799571392976462}
-  - {fileID: 2847295612812500684}
-  shouldBeLocked: []
 --- !u!114 &6339356212452824286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5165,7 +4456,6 @@ GameObject:
   - component: {fileID: 3442999005475649868}
   - component: {fileID: 2736101491854471249}
   - component: {fileID: 7159595630062274356}
-  - component: {fileID: 4105777901412695049}
   m_Layer: 5
   m_Name: T_Character
   m_TagString: Untagged
@@ -5231,50 +4521,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4105777901412695049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8276381786360310152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 7159595630062274356}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &8286922927408955501
 GameObject:
   m_ObjectHideFlags: 0
@@ -5285,11 +4531,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1271764447328466370}
   - component: {fileID: 2522724197736315759}
-  - component: {fileID: 1757799571392976462}
   - component: {fileID: 2927816079450289870}
-  - component: {fileID: 8664834010567283184}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Time stop
+  m_Name: T_Timestop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5322,26 +4566,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8286922927408955501}
   m_CullTransparentMesh: 1
---- !u!114 &1757799571392976462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8286922927408955501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 731de3a9ae1e25741a08d7a723bd61bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 500
-  skillName: Time stop
-  skillDescription: When enemy hit by sword, his time stops.
-  lockedSkillColor: {r: 0.49056602, g: 0.40957633, b: 0.40957633, a: 1}
-  unlocked: 0
-  shouldBeUnlocked:
-  - {fileID: 2847295612812500684}
-  shouldBeLocked: []
 --- !u!114 &2927816079450289870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5372,71 +4596,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8664834010567283184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8286922927408955501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 2927816079450289870}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1757799571392976462}
-        m_TargetAssemblyTypeName: UI_SkillTreeSlot, Assembly-CSharp
-        m_MethodName: UnlockSkillSlot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2847295612812500684}
-        m_TargetAssemblyTypeName: UI_SkillTreeSlot, Assembly-CSharp
-        m_MethodName: CheckSomethin
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2

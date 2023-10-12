@@ -1,6 +1,7 @@
 ﻿using Core;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
+using Debug = Core.Debug;
 
 
 /*--------脚本描述-----------
@@ -19,53 +20,69 @@ namespace RPGGame
     public class ModelSkill : IModelInit, ISaveManager
     {
         public static ModelSkill Instance;
-        private Dictionary<string, Skill> skillDataDic;
+        private Dictionary<string, Skill> skillDataDic; //技能
+        private Dictionary<int, SkillInfo> skilDinfoDic; //技能
 
 
         public async UniTask Init()
         {
             Instance = this;
-            skillDataDic = new Dictionary<string, Skill>();
-
-            //TODO 加载数据
-            //黑洞
-            Blackhole_Skill blackhole_Skill = new Blackhole_Skill();
-            skillDataDic.Add(typeof(Blackhole_Skill).Name, blackhole_Skill);
-
-            //克隆
-            Clone_Skill clone_Skill = new Clone_Skill();
-            skillDataDic.Add(typeof(Clone_Skill).Name, clone_Skill);
-
-            //克隆
-            Crystal_Skill crystal_Skill = new Crystal_Skill();
-            skillDataDic.Add(typeof(Crystal_Skill).Name, crystal_Skill);
-
-            //克隆
-            Dash_Skill dash_Skill = new Dash_Skill();
-            skillDataDic.Add(typeof(Dash_Skill).Name, dash_Skill);
-
-            //克隆
-            Dodge_Skill dodge_Skill = new Dodge_Skill();
-            skillDataDic.Add(typeof(Dodge_Skill).Name, dodge_Skill);
-
-            //克隆
-            Parry_Skill parry_Skill = new Parry_Skill();
-            skillDataDic.Add(typeof(Parry_Skill).Name, parry_Skill);
-
-            //克隆
-            Sword_Skill sword_Skill = new Sword_Skill();
-            skillDataDic.Add(typeof(Sword_Skill).Name, sword_Skill);
-
-            //每个技能的初始化检查和生命周期监听
-            foreach (Skill item in skillDataDic.Values)
+            //技能信息描述
+            skilDinfoDic = new Dictionary<int, SkillInfo>();
+            DataExpansion.InitData<SkillInfoData>(ConfigExcelData.skillInfoData);
+            List<SkillInfoData> skillInfoDatasList = this.GetData<SkillInfoData>();
+            foreach (SkillInfoData item in skillInfoDatasList)
             {
-                CoreMono.Instance.AwakeAddEvent(item.Awake);
-                CoreMono.Instance.UpdateAddEvent(item.Update);
-                item.CheckUnlock();//游戏加载检查技能是否解锁
+                SkillInfo skillInfo = new SkillInfo();
+                skillInfo.skillID = item.skillID;
+                skillInfo.name = item.name;
+                skillInfo.skillCost = item.skillCost;
+                skillInfo.shouldBeUnlocked = item.shouldBeUnlocked;
+                skillInfo.shouldBeLocked = item.shouldBeLocked;
+                skillInfo.isUnlocked = false;
+                skilDinfoDic.Add(item.skillID, skillInfo);
             }
+            //TODO 初始化完毕后续准备删除加载的数据
+
+            //技能
+            skillDataDic = new Dictionary<string, Skill>();
+            //skillDataDic.Add(typeof(Blackhole_Skill).Name, new Blackhole_Skill());
+            //skillDataDic.Add(typeof(Clone_Skill).Name, new Clone_Skill());
+            //skillDataDic.Add(typeof(Crystal_Skill).Name, new Crystal_Skill());
+            //skillDataDic.Add(typeof(Dash_Skill).Name, new Dash_Skill());
+            //skillDataDic.Add(typeof(Dodge_Skill).Name, new Dodge_Skill());
+            //skillDataDic.Add(typeof(Parry_Skill).Name, new Parry_Skill());
+            //skillDataDic.Add(typeof(Sword_Skill).Name, new Sword_Skill());
+            //foreach (Skill item in skillDataDic.Values)
+            //{
+            //    CoreMono.Instance.AwakeAddEvent(item.Awake);
+            //    CoreMono.Instance.UpdateAddEvent(item.Update);
+            //    item.CheckUnlock();//游戏加载检查技能是否解锁
+            //}
+
             await UniTask.Yield();
         }
 
+        /// <summary>
+        /// 添加可以使用的技能
+        /// </summary>
+        private void AddSkill<T>() where T : Skill, new()
+        {
+            T t = new T();
+            CoreMono.Instance.AwakeAddEvent(t.Awake);
+            CoreMono.Instance.UpdateAddEvent(t.Update);
+            skillDataDic.Add(typeof(T).Name, t);
+        }
+
+        /// <summary>
+        /// 获取数据信息
+        /// </summary>
+        public SkillInfo GetSkillInfoOne(int key)
+        {
+            if (skilDinfoDic.TryGetValue(key, out SkillInfo skillInfo))
+                return skillInfo;
+            return null;
+        }
 
         /// <summary>
         /// 解锁技能

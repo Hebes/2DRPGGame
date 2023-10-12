@@ -18,7 +18,6 @@ namespace RPGGame
     {
         public float cooldown;      //冷却
         public float cooldownTimer; //冷却计时器
-        //public bool isUnLook;       //是否解锁
 
         /// <summary>
         /// 第一次

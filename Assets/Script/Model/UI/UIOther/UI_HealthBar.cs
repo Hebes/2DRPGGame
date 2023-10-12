@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace RPGGame
 {
-    public class UI_HealthBar : MonoBehaviour
+    public class UI_HealthBar : MonoBehaviour 
     {
         private Entity entity;
         private RectTransform myTransform;

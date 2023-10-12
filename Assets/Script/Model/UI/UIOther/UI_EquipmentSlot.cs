@@ -1,5 +1,7 @@
 using Core;
+using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 
 /*--------脚本描述-----------
@@ -13,12 +15,17 @@ using UnityEngine.EventSystems;
 
 -----------------------*/
 
-namespace RPGGame
+namespace RPGGame 
 {
     public class UI_EquipmentSlot : UI_ItemSlot
     {
         public EquipmentType slotType;
 
+        private void Awake()
+        {
+            itemImage = transform.GetChildComponent<Image>("Background");
+            itemText = transform.GetChildComponent<TextMeshProUGUI>("ItemAmount");
+        }
         private void OnValidate()
         {
             gameObject.name = "装备格子 - " + slotType.ToString();

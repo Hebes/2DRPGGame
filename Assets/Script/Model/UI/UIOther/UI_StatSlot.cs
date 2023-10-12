@@ -27,7 +27,12 @@ namespace RPGGame
         [TextArea]
         [SerializeField] private string statDescription;
 
-       
+        private void Awake()
+        {
+            statValueText = GetComponent<TextMeshProUGUI>();
+            statNameText = GetComponentInChildren<TextMeshProUGUI>();
+        }
+
         private void OnValidate()
         {
             gameObject.name = "×´Ì¬ - " + statName;
@@ -65,7 +70,7 @@ namespace RPGGame
         }
 
 
-        
+
         //Êó±êÊÂ¼þ
         public void OnPointerEnter(PointerEventData eventData)
         {
