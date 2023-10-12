@@ -3899,7 +3899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e417494ec6fec8a468e3d199658b3c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data:
+  dataList:
   - key: T_Stash
     gameObject: {fileID: 1561778592674550122}
   - key: T_Character

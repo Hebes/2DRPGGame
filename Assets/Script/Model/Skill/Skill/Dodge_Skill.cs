@@ -58,7 +58,7 @@ namespace RPGGame
         public void CreateMirageOnDodge()
         {
             if (dodgeMirageUnlocked)
-                ModelSkillManager.Instance.GetSkill<Clone_Skill>().CreateClone(Player.Instance.transform, new Vector3(2 * Player.Instance.facingDir, 0));
+                ModelSkill.Instance.GetSkill<Clone_Skill>().CreateClone(Player.Instance.transform, new Vector3(2 * Player.Instance.facingDir, 0));
         }
     }
 }

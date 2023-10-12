@@ -1520,7 +1520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e417494ec6fec8a468e3d199658b3c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data:
+  dataList:
   - key: T_Character
     gameObject: {fileID: 8150944881957002989}
   - key: T_Skill tree

@@ -33,7 +33,7 @@ namespace RPGGame
         {
             base.Enter();
             //玩家死亡触发
-            ModelUIManager.Instance.SwitchOnEndScreen().Forget();
+            ModelUI.Instance.SwitchOnEndScreen().Forget();
         }
 
         public override void Exit()

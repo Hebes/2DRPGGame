@@ -50,7 +50,7 @@ namespace RPGGame
             blackholeTimer = _blackholeDuration;
 
 
-            if (ModelSkillManager.Instance.GetSkill<Clone_Skill>().crystalInseadOfClone)
+            if (ModelSkill.Instance.GetSkill<Clone_Skill>().crystalInseadOfClone)
                 playerCanDisapear = false;
         }
 
@@ -126,14 +126,14 @@ namespace RPGGame
                 else
                     xOffset = -2;
 
-                if (ModelSkillManager.Instance.GetSkill<Clone_Skill>().crystalInseadOfClone)
+                if (ModelSkill.Instance.GetSkill<Clone_Skill>().crystalInseadOfClone)
                 {
-                    ModelSkillManager.Instance.GetSkill<Crystal_Skill>().CreateCrystal();
-                    ModelSkillManager.Instance.GetSkill<Crystal_Skill>().CurrentCrystalChooseRandomTarget();
+                    ModelSkill.Instance.GetSkill<Crystal_Skill>().CreateCrystal();
+                    ModelSkill.Instance.GetSkill<Crystal_Skill>().CurrentCrystalChooseRandomTarget();
                 }
                 else
                 {
-                    ModelSkillManager.Instance.GetSkill<Clone_Skill>().CreateClone(targets[randomIndex], new Vector3(xOffset, 0));
+                    ModelSkill.Instance.GetSkill<Clone_Skill>().CreateClone(targets[randomIndex], new Vector3(xOffset, 0));
                 }
 
                 amountOfAttacks--;

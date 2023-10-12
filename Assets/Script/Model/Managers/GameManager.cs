@@ -46,7 +46,7 @@ namespace RPGGame
         }
         public void RestartScene()
         {
-            SaveManager.Instance.SaveGame();
+            ModelSave.Instance.SaveGame();
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
         }

@@ -17,17 +17,17 @@ namespace Core
     {
         public static T GetDataOne<T>(this int id) where T : class, IData
         {
-            return CoreDataManager.Instance.GetDataOne<T>(id);
+            return CoreData.Instance.GetDataOne<T>(id);
         }
         public static List<IData> GetDataList<T>(this object obj) where T : class, IData
         {
-            return CoreDataManager.Instance.GetDataList<T>();
+            return CoreData.Instance.GetDataList<T>();
         }
 
         public static List<T> GetDataList<T>() where T : class, IData
         {
             List<T> list = new List<T>();
-            List<IData> tempList = CoreDataManager.Instance.GetDataList<T>();
+            List<IData> tempList = CoreData.Instance.GetDataList<T>();
             for (int i = 0; i < tempList.Count; i++)
                 list.Add(tempList[i] as T);
             return list;
@@ -36,11 +36,11 @@ namespace Core
         public static List<T> GetDataListThis<T>(this object obj) where T : class, IData
         {
             List<T> list = new List<T>();
-            if (CoreDataManager.Instance == null)
+            if (CoreData.Instance == null)
             {
                 Debug.Log($"是空的");
             }
-            List<IData> tempList = CoreDataManager.Instance.GetDataList<T>();
+            List<IData> tempList = CoreData.Instance.GetDataList<T>();
             if (tempList == null || tempList.Count == 0)
                 Debug.Error($"请先初始化数据{typeof(T).FullName}");
             for (int i = 0; i < tempList.Count; i++)

@@ -24,7 +24,7 @@ namespace RPGGame
         public override void Enter()
         {
             base.Enter();
-            ConfigEvent.EventPlayAudioSource.EventTriggerUniTask(ConfigAudio.mp3sfx_footsteps, EAudioSourceType.SFX, false).Forget();
+            ConfigEvent.EventPlayAudioSource.EventTrigger(ConfigAudio.mp3sfx_footsteps, EAudioSourceType.SFX, false);
         }
 
         public override void Exit()

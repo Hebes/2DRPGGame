@@ -28,7 +28,7 @@ namespace RPGGame
 
         private void AttackTrigger()
         {
-            ConfigEvent.EventPlayAudioSource.EventTriggerUniTask(ConfigAudio.mp3sfx_attack3, EAudioSourceType.SFX, false).Forget();
+            ConfigEvent.EventPlayAudioSource.EventTrigger(ConfigAudio.mp3sfx_attack3, EAudioSourceType.SFX, false);
             Collider2D[] colliders = Physics2D.OverlapCircleAll(player.attackCheck.position, player.attackCheckRadius);
             foreach (var hit in colliders)
             {
@@ -46,7 +46,7 @@ namespace RPGGame
 
         private void ThrowSword()
         {
-            ModelSkillManager.Instance.GetSkill<Sword_Skill>().CreateSword();
+            ModelSkill.Instance.GetSkill<Sword_Skill>().CreateSword();
         }
     }
 

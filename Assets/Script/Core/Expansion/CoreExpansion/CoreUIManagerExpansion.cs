@@ -21,7 +21,7 @@ namespace Core
         /// <returns></returns>
         public static T ShwoUIPanel<T>(this string uiFormName) where T : UIBase, new()
         {
-            return CroeUIManager.Instance.ShwoUIPanel<T>(uiFormName);
+            return CroeUI.Instance.ShwoUIPanel<T>(uiFormName);
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace Core
         /// <param name="uiFormName">面板的名称</param>
         public static void CloseUIPanel(this string uiFormName)
         {
-            CroeUIManager.Instance.CloseUIForms(uiFormName);
+            CroeUI.Instance.CloseUIForms(uiFormName);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace Core
         /// <returns></returns>
         public static T GetUIPanl<T>(this string uiFormName) where T : UIBase
         {
-            return CroeUIManager.Instance.GetUIPanl<T>(uiFormName);
+            return CroeUI.Instance.GetUIPanl<T>(uiFormName);
         }
     }
 }

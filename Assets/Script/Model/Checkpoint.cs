@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Core;
+using UnityEngine;
 
 
 /*--------脚本描述-----------
@@ -45,8 +46,7 @@ namespace RPGGame
         public void ActivateCheckpoint()
         {
             if (activationStatus == false)
-                ModelAudioManager.Instance.PlaySFX(4, transform);
-
+                ConfigEvent.EventPlayAudioSource.EventTrigger(ConfigAudio.mp3sfx_checkpoint, EAudioSourceType.SFX, false);
 
             activationStatus = true;
             anim.SetBool("active", true);

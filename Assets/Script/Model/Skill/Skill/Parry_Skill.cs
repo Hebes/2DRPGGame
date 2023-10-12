@@ -79,7 +79,7 @@ namespace RPGGame
         public void MakeMirageOnParry(Transform _respawnTransform)
         {
             if (parryWithMirageUnlocked)
-                ModelSkillManager.Instance.GetSkill<Clone_Skill>().CreateCloneWithDelay(_respawnTransform);
+                ModelSkill.Instance.GetSkill<Clone_Skill>().CreateCloneWithDelay(_respawnTransform);
         }
     }
 }

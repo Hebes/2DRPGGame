@@ -97,7 +97,7 @@ namespace RPGGame
         {
             if (crystalInseadOfClone)
             {
-                ModelSkillManager.Instance.GetSkill<Crystal_Skill>().CreateCrystal();
+                ModelSkill.Instance.GetSkill<Crystal_Skill>().CreateCrystal();
                 return;
             }
 

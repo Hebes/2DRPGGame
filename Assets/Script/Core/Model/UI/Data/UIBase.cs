@@ -107,7 +107,7 @@ namespace Core
         /// <param name="uiFormName"></param>
         protected void OpenUIForm<T>(string uiFormName) where T : UIBase, new()
         {
-            CroeUIManager.Instance.ShwoUIPanel<T>(uiFormName);
+            CroeUI.Instance.ShwoUIPanel<T>(uiFormName);
         }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace Core
         /// <returns></returns>
         protected T GetUIForm<T>(string uiFormName) where T : UIBase, new()
         {
-            return CroeUIManager.Instance.GetUIPanl<T>(uiFormName);
+            return CroeUI.Instance.GetUIPanl<T>(uiFormName);
         }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace Core
             intPosition = strUIFromName.IndexOf('.');
             if (intPosition != -1)
                 strUIFromName = strUIFromName.Substring(intPosition + 1);//剪切字符串中“.”之间的部分
-            CroeUIManager.Instance.CloseUIForms(strUIFromName);
+            CroeUI.Instance.CloseUIForms(strUIFromName);
         }
 
         /// <summary>
@@ -140,7 +140,7 @@ namespace Core
         /// <param name="uiFormName"></param>
         protected void CloseOtherUIForm(string uiFormName)
         {
-            CroeUIManager.Instance.CloseUIForms(uiFormName);
+            CroeUI.Instance.CloseUIForms(uiFormName);
         }
 
 

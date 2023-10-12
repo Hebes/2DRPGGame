@@ -1,11 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEditorInternal;
-
-
-/*--------脚本描述-----------
+﻿/*--------脚本描述-----------
 
 电子邮箱：
     1607388033@qq.com

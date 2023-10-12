@@ -73,7 +73,7 @@ namespace RPGGame
         public void CloneOnDash()
         {
             if (cloneOnDashUnlocked)
-                ModelSkillManager.Instance.GetSkill<Clone_Skill>().CreateClone(Player.Instance.transform, Vector3.zero);
+                ModelSkill.Instance.GetSkill<Clone_Skill>().CreateClone(Player.Instance.transform, Vector3.zero);
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace RPGGame
         public void CloneOnArrival()
         {
             if (cloneOnArrivalUnlocked)
-                ModelSkillManager.Instance.GetSkill<Clone_Skill>().CreateClone(Player.Instance.transform, Vector3.zero);
+                ModelSkill.Instance.GetSkill<Clone_Skill>().CreateClone(Player.Instance.transform, Vector3.zero);
         }
     }
 }

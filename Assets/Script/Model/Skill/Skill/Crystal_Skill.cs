@@ -122,7 +122,7 @@ namespace RPGGame
 
                 if (cloneInsteadOfCrystal)
                 {
-                    ModelSkillManager.Instance.GetSkill<Clone_Skill>().CreateClone(currentCrystal.transform, Vector3.zero);
+                    ModelSkill.Instance.GetSkill<Clone_Skill>().CreateClone(currentCrystal.transform, Vector3.zero);
                     GameObject.Destroy(currentCrystal);
                 }
                 else

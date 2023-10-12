@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Core;
+using UnityEngine;
 
 namespace RPGGame
 {
@@ -26,8 +27,8 @@ namespace RPGGame
             base.Die();
             player.Die();
 
-            GameManager.Instance.lostCurrencyAmount = ModelDataManager.Instance.currency;
-            ModelDataManager.Instance.currency = 0;
+            GameManager.Instance.lostCurrencyAmount = ModelData.Instance.currency;
+            ModelData.Instance.currency = 0;
 
             GetComponent<PlayerItemDrop>()?.GenerateDrop();
         }
@@ -48,16 +49,14 @@ namespace RPGGame
                 player.SetupKnockbackPower(new Vector2(10, 6));
                 player.fx.ScreenShake(player.fx.shakeHighDamage);
 
-
+                //播放音效
                 int randomSound = Random.Range(34, 35);
-                ModelAudioManager.Instance.PlaySFX(randomSound, null);
-
+                string audioName = randomSound == 34 ? ConfigAudio.mp3sfx_womanstruggle2 : ConfigAudio.mp3sfx_womanstruggle;
+                ConfigEvent.EventPlayAudioSource.EventTrigger(audioName, EAudioSourceType.SFX, false);
             }
 
             ItemData_Equipment currentArmor = Inventory.Instance.GetEquipment(EquipmentType.Armor);
-
-            if (currentArmor != null)
-                currentArmor.Effect(player.transform);
+            currentArmor?.Effect(player.transform);
         }
 
         public override void OnEvasion()

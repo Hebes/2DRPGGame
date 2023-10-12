@@ -40,7 +40,7 @@ namespace RPGGame
         private float defaultDashSpeed;         //默认冲刺速度
         [HideInInspector] public float dashDir;                   //冲刺方向
 
-        [HideInInspector] public ModelSkillManager skill;
+        [HideInInspector] public ModelSkill skill;
         [HideInInspector] public GameObject sword;
         [HideInInspector] public PlayerFX fx;
 
@@ -101,7 +101,7 @@ namespace RPGGame
             defaultJumpForce = jumpForce;
             defaultDashSpeed = dashSpeed;
 
-            skill = ModelSkillManager.Instance;
+            skill = ModelSkill.Instance;
         }
         
 

@@ -120,7 +120,7 @@ namespace RPGGame
                 {
                     if (Random.Range(0, 100) < chanceToDuplicate)
                     {
-                        ModelSkillManager.Instance.GetSkill<Clone_Skill>().CreateClone(hit.transform, new Vector3(.5f * facingDir, 0));
+                        ModelSkill.Instance.GetSkill<Clone_Skill>().CreateClone(hit.transform, new Vector3(.5f * facingDir, 0));
                     }
                 }
             }

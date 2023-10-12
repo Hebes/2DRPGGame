@@ -23,7 +23,7 @@ namespace RPGGame
         public override void Enter()
         {
             base.Enter();
-            ModelSkillManager.Instance.GetSkill<Sword_Skill>().DotsActive(true);
+            ModelSkill.Instance.GetSkill<Sword_Skill>().DotsActive(true);
         }
 
         public override void Exit()

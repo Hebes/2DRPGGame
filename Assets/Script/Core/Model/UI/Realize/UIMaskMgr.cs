@@ -44,12 +44,12 @@ namespace Core
         private void Init()
         {
             //得到UI根节点对象、脚本节点对象
-            _GoCanvasRoot = CroeUIManager.Instance.CanvasTransfrom; 
+            _GoCanvasRoot = CroeUI.Instance.CanvasTransfrom; 
             //得到“顶层面板”、“遮罩面板”
             _GoTopPanel = _GoCanvasRoot;
             _GoMaskPanel = _GoCanvasRoot.GetChild("_UIMaskPanel").gameObject;
             //得到UI摄像机原始的“层深”
-            _UICamera = CroeUIManager.Instance.UICamera; 
+            _UICamera = CroeUI.Instance.UICamera; 
             if (_UICamera != null)
             {
                 //得到UI摄像机原始“层深”

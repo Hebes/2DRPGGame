@@ -17,15 +17,15 @@ namespace Core
     {
         public static async UniTask LoadSceneAsync(this string sceneName, ELoadSceneModel loadSceneModel = ELoadSceneModel.Additive)
         {
-            await CoreSceneManager.Instance.LoadSceneAsync(sceneName, loadSceneModel);
+            await CoreScene.Instance.LoadSceneAsync(sceneName, loadSceneModel);
         }
         public static async UniTask UnloadSceneAsync(this string sceneName)
         {
-            await CoreSceneManager.Instance.UnloadSceneAsync(sceneName);
+            await CoreScene.Instance.UnloadSceneAsync(sceneName);
         }
         public static async UniTask ChangeSceneAsync(this string oldSceneName, string newSceneName, ELoadSceneModel loadSceneModel = ELoadSceneModel.Additive)
         {
-            await CoreSceneManager.Instance.ChangeSceneAsync(oldSceneName, newSceneName, loadSceneModel);
+            await CoreScene.Instance.ChangeSceneAsync(oldSceneName, newSceneName, loadSceneModel);
         }
     }
 }

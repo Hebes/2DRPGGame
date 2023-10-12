@@ -17,25 +17,25 @@ namespace Core
     {
         public static T Load<T>(this string assetName) where T : UnityEngine.Object
         {
-            return CoreLoadResManager.Instance.Load<T>(assetName);
+            return CoreLoadRes.Instance.Load<T>(assetName);
         }
         public static UniTask<T> LoadAsync<T>(this string assetName) where T : UnityEngine.Object
         {
-            return CoreLoadResManager.Instance.LoadAsync<T>(assetName);
+            return CoreLoadRes.Instance.LoadAsync<T>(assetName);
         }
         public static T LoadSub<T>(string location, string ResName) where T : UnityEngine.Object
         {
-            return CoreLoadResManager.Instance.LoadSub<T>(location, ResName);
+            return CoreLoadRes.Instance.LoadSub<T>(location, ResName);
         }
         public static T[] LoadAll<T>(string AssetPath) where T : UnityEngine.Object
         {
-            return CoreLoadResManager.Instance.LoadAll<T>(AssetPath);
+            return CoreLoadRes.Instance.LoadAll<T>(AssetPath);
         }
 
         //资源释放
         public static void UnloadAssets()
         {
-            CoreLoadResManager.Instance.UnloadAssets();
+            CoreLoadRes.Instance.UnloadAssets();
         }
 
 

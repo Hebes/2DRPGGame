@@ -36,7 +36,7 @@ namespace RPGGame
                 return;
             }
 
-            ModelAudioManager.Instance.PlaySFX(9, transform);
+             ConfigEvent.EventPlayAudioSource.EventTrigger(ConfigAudio.wavsfx_itempickup, EAudioSourceType.SFX, false);
             Inventory.Instance.AddItem(itemData);
             Destroy(gameObject);
         }

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
-namespace ACFrameworkCore
+namespace Core
 {
     public class Debugger : MonoBehaviour
     {

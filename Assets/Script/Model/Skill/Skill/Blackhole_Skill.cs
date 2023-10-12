@@ -72,8 +72,8 @@ namespace RPGGame
             currentBlackhole.SetupBlackhole(maxSize, growSpeed, shrinkSpeed, amountOfAttacks, cloneCooldown, blackholeDuration);
 
             //…Ë÷√“Ù–ß
-            ModelAudioManager.Instance.PlaySFX(18, Player.Instance.transform);
-            ModelAudioManager.Instance.PlaySFX(19, Player.Instance.transform);
+            ConfigEvent.EventPlayAudioSource.EventTrigger(ConfigAudio.mp3sfx_bankai, EAudioSourceType.SFX, false);
+            ConfigEvent.EventPlayAudioSource.EventTrigger(ConfigAudio.mp3sfx_chronosphere, EAudioSourceType.SFX, false);
         }
 
 
