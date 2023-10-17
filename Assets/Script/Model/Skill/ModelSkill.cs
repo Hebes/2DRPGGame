@@ -46,32 +46,37 @@ namespace RPGGame
 
             //技能
             skillDataDic = new Dictionary<string, Skill>();
-            //skillDataDic.Add(typeof(Blackhole_Skill).Name, new Blackhole_Skill());
-            //skillDataDic.Add(typeof(Clone_Skill).Name, new Clone_Skill());
-            //skillDataDic.Add(typeof(Crystal_Skill).Name, new Crystal_Skill());
-            //skillDataDic.Add(typeof(Dash_Skill).Name, new Dash_Skill());
-            //skillDataDic.Add(typeof(Dodge_Skill).Name, new Dodge_Skill());
-            //skillDataDic.Add(typeof(Parry_Skill).Name, new Parry_Skill());
-            //skillDataDic.Add(typeof(Sword_Skill).Name, new Sword_Skill());
-            //foreach (Skill item in skillDataDic.Values)
-            //{
-            //    CoreMono.Instance.AwakeAddEvent(item.Awake);
-            //    CoreMono.Instance.UpdateAddEvent(item.Update);
-            //    item.CheckUnlock();//游戏加载检查技能是否解锁
-            //}
 
+            ConfigEvent.SkillUnLock.EventAdd<Skill, string>(SkillUnLock);
             await UniTask.Yield();
         }
 
         /// <summary>
-        /// 添加可以使用的技能
+        /// 技能解锁
         /// </summary>
-        private void AddSkill<T>() where T : Skill, new()
+        /// <param name="t"></param>
+        /// <param name="skillName"></param>
+        private void SkillUnLock(Skill t, string skillName)
         {
-            T t = new T();
-            CoreMono.Instance.AwakeAddEvent(t.Awake);
+            if (skillDataDic.TryGetValue(t.GetType().Name, out Skill skillTemp))
+                return;
+            t.Awake();
             CoreMono.Instance.UpdateAddEvent(t.Update);
-            skillDataDic.Add(typeof(T).Name, t);
+            skillDataDic.Add(t.GetType().Name, t);
+            t.UnLockSkill(skillName);
+            Debug.Log($"{skillName}技能解锁成功");
+        }
+
+
+        /// <summary>
+        /// 确认技能是否解锁
+        /// </summary>
+        /// <returns></returns>
+        public bool CheckSkillUnlock<T>()
+        {
+            if (skillDataDic.TryGetValue(typeof(T).Name, out Skill skillTemp))
+                return true;
+            return false;
         }
 
         /// <summary>
@@ -90,15 +95,16 @@ namespace RPGGame
         /// <typeparam name="T">技能类型</typeparam>
         /// <param name="skill">总技能名称</param>
         /// <param name="skillName">子技能名称</param>
-        public void UnLockSkill<T>(string skillName) where T : Skill
+        public void UnLockSkill<T>(string skillName) where T : Skill, new()
         {
             if (skillDataDic.TryGetValue(typeof(T).Name, out Skill skillTemp))
-            {
-                T t = skillTemp as T;
-                t.UnLockSkill(skillName);
                 return;
-            }
-            Debug.Error("没有此技能");
+            T t = new T();
+            t.Awake();
+            CoreMono.Instance.UpdateAddEvent(t.Update);
+            skillDataDic.Add(typeof(T).Name, t);
+            t.UnLockSkill(skillName);
+            Debug.Log("技能解锁成功");
         }
 
         /// <summary>
@@ -109,10 +115,9 @@ namespace RPGGame
         /// <returns>技能</returns>
         public T GetSkill<T>() where T : Skill
         {
-            Skill skillTemp = null;
-            if (skillDataDic.TryGetValue(typeof(T).Name, out skillTemp))
+            if (skillDataDic.TryGetValue(typeof(T).Name, out Skill skillTemp))
                 return skillTemp as T;
-            return skillTemp as T;
+            return null;
         }
 
 

@@ -31,7 +31,12 @@ namespace RPGGame
             gameObject.SetActive(false);
         }
 
-
+        /// <summary>
+        /// œ‘ æ
+        /// </summary>
+        /// <param name="_skillDescprtion"></param>
+        /// <param name="_skillName"></param>
+        /// <param name="_price"></param>
         public void ShowToolTip(string _skillDescprtion, string _skillName, int _price)
         {
             gameObject.SetActive(true);
@@ -44,6 +49,9 @@ namespace RPGGame
             AdjustFontSize(skillName);
         } 
 
+        /// <summary>
+        /// πÿ±’
+        /// </summary>
         public void HideToolTip()
         {
             skillName.fontSize = (int)defaultNameFontSize;

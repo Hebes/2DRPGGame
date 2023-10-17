@@ -66,7 +66,7 @@ namespace Core
             //是否存在UI类
             _DicALLUIForms.TryGetValue(uiFormName, out UIBase uIBase);
             T t = uIBase == null ? LoadUIPanel<T>(uiFormName) : uIBase as T;//UI类
-
+            CoreMono.Instance.UpdateAddEvent(t.UIUpdate);
             //是否清空“栈集合”中得数据
             if (t.IsClearStack)
                 ClearStackArray();
@@ -88,7 +88,7 @@ namespace Core
         public void CloseUIForms(string uiFormName)
         {
             //“所有UI窗体”集合中，如果没有记录，则直接返回
-            if (_DicALLUIForms.TryGetValue(uiFormName, out UIBase baseUiForm)==false)
+            if (_DicALLUIForms.TryGetValue(uiFormName, out UIBase baseUiForm) == false)
                 return;
             //DLog.Log($"当前的UI窗体的显示类型是:{baseUiForm.mode}");
             //DLog.Log(LogCoLor.Blue, $"当前的UI窗体的显示类型是:{baseUiForm.mode}");
@@ -116,8 +116,6 @@ namespace Core
         private T LoadUIPanel<T>(string uiFormName) where T : UIBase, new()
         {
             T t = new T();
-
-
             //创建的UI克隆体预设
             GameObject uiPanel = CoreLoadRes.Instance.Load<GameObject>(uiFormName);
             if (uiPanel == null) Debug.Error($"加载预制体失败,请检查资源路径{uiFormName}");
@@ -126,7 +124,7 @@ namespace Core
             t.panelGameObject = uiPanelInstantiate;
             t.UIName = uiFormName;
             t.UIAwake();
-            CoreMono.Instance.UpdateAddEvent(t.UIUpdate);
+            
 
             //设置父物体
             switch (t.type)

@@ -69,7 +69,7 @@ namespace RPGGame
         /// </summary>
         /// <param name="_delay"></param>
         /// <returns></returns>
-        private async UniTask LoadSceneWithFadeEffect(float _delay)
+        public async UniTask LoadSceneWithFadeEffect(float _delay)
         {
             ConfigEvent.EventFadeUI.EventTrigger(true);
             await UniTask.Delay(TimeSpan.FromSeconds(_delay), false);

@@ -22,12 +22,10 @@ namespace RPGGame
     public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISaveManager
     {
         private Image skillImage;
-
         public int skillID;
 
-
         [Header("下面数据仅仅用来观看")]
-        [SerializeField] private Color lockedSkillColor = new Color(0, 0, 0, 0);//未解锁的颜色
+        [SerializeField] private Color lockedSkillColor = new Color(125/255f, 104 / 255f, 104 / 255f, 1);//未解锁的颜色
         public bool unlocked;
         [SerializeField] private int skillCost;     //技能消耗
         [SerializeField] private string skillName;  //技能名称
@@ -93,13 +91,13 @@ namespace RPGGame
         }
 
 
-        //鼠标事件
         /// <summary>
         /// 鼠标进入事件
         /// </summary>
         /// <param name="eventData"></param>
         public void OnPointerEnter(PointerEventData eventData)
         {
+            Debug.Log("技能显示");
             ConfigEvent.EventSkillToolTipShow.EventTrigger(skillDescription, skillName, skillCost);
         }
 
@@ -112,23 +110,32 @@ namespace RPGGame
             ConfigEvent.EventSkillToolTipClose.EventTrigger();
         }
 
+
+        /// <summary>
+        /// 加载数据
+        /// </summary>
+        /// <param name="_data"></param>
         public void LoadData(GameData _data)
         {
-            if (_data.skillTree.TryGetValue(skillName, out bool value))
-            {
-                unlocked = value;
-            }
+            //if (_data.skillTree.TryGetValue(skillName, out bool value))
+            //{
+            //    unlocked = value;
+            //}
         }
 
+        /// <summary>
+        /// 保存数据
+        /// </summary>
+        /// <param name="_data"></param>
         public void SaveData(ref GameData _data)
         {
-            if (_data.skillTree.TryGetValue(skillName, out bool value))
-            {
-                _data.skillTree.Remove(skillName);
-                _data.skillTree.Add(skillName, unlocked);
-            }
-            else
-                _data.skillTree.Add(skillName, unlocked);
+            //if (_data.skillTree.TryGetValue(skillName, out bool value))
+            //{
+            //    _data.skillTree.Remove(skillName);
+            //    _data.skillTree.Add(skillName, unlocked);
+            //}
+            //else
+            //    _data.skillTree.Add(skillName, unlocked);
         }
     }
 }

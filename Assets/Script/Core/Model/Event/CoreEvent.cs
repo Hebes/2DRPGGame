@@ -18,6 +18,7 @@ namespace Core
     {
         public static CoreEvent Instance;
         private Dictionary<string, IEventInfo> eventDic;
+        
 
         public void ICroeInit()
         {
@@ -29,7 +30,7 @@ namespace Core
         public void EventAdd(string eventName, EventInfoCommon.CommonEvent commonAction)
         {
             if (eventDic.TryGetValue(eventName, out IEventInfo eventInfo))
-                (eventInfo as EventInfoCommon).commonAction += commonAction;
+                (eventInfo as EventInfoCommon).Add(commonAction);
             else
                 eventDic.Add(eventName, new EventInfoCommon(commonAction));
         }
@@ -142,7 +143,6 @@ namespace Core
         }
         #endregion
 
-
         #region 返回值
         public void EventAddReturn(string eventName, EventInfoReturn.EventReturn eventAsync)
         {
@@ -181,6 +181,13 @@ namespace Core
         }
         #endregion
 
+        //public void EventAdd<T,V>(string eventName, EventGenericity<V>.GenericityEvent<T> commonAction)
+        //{
+        //    if (eventDic.TryGetValue(eventName, out IEventInfo eventInfo))
+        //        (eventInfo as EventGenericity<V>).Add<T>(commonAction);
+        //    else
+        //        eventDic.Add(eventName, new EventInfoCommon(commonAction));
+        //}
 
         #region 等待
         public void EventAddAsync(string eventName, EventInfoAsync.EventAsync eventAsync)

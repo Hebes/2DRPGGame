@@ -10,14 +10,6 @@ namespace RPGGame
         public const string prefabShockStrike = "Prefab/ShockStrike";
         public const string prefabThunderStrike = "Prefab/ThunderStrike";
         public const string prefabCanvas = "UIPanel/Canvas";
-        public const string prefabUIPanel_Character = "UIPanel/UIPanel_Character";
-        public const string prefabUIPanel_Craft = "UIPanel/UIPanel_Craft";
-        public const string prefabUIPanel_DarkScreen = "UIPanel/UIPanel_DarkScreen";
-        public const string prefabUIPanel_InGame = "UIPanel/UIPanel_InGame";
-        public const string prefabUIPanel_MainMenu = "UIPanel/UIPanel_MainMenu";
-        public const string prefabUIPanel_Options = "UIPanel/UIPanel_Options";
-        public const string prefabUIPanel_RestartGame = "UIPanel/UIPanel_RestartGame";
-        public const string prefabUIPanel_SkillTree = "UIPanel/UIPanel_SkillTree";
         public const string prefabEnemy_Skeleton = "Prefab/Enemy/Enemy_Skeleton";
         public const string prefabAfterImageFX = "Prefab/FX/AfterImageFX";
         public const string prefabChillFX = "Prefab/FX/ChillFX";
@@ -42,5 +34,13 @@ namespace RPGGame
         public const string prefabTileMap = "Tilemap/TileMap/TileMap";
         public const string prefabTemplatePanel = "UIPanel/Global/TemplatePanel";
         public const string prefabUI = "UIPanel/Global/UI";
+        public const string prefabUIPanel_Character = "UIPanel/UIPanel/UIPanel_Character";
+        public const string prefabUIPanel_Craft = "UIPanel/UIPanel/UIPanel_Craft";
+        public const string prefabUIPanel_DarkScreen = "UIPanel/UIPanel/UIPanel_DarkScreen";
+        public const string prefabUIPanel_InGame = "UIPanel/UIPanel/UIPanel_InGame";
+        public const string prefabUIPanel_MainMenu = "UIPanel/UIPanel/UIPanel_MainMenu";
+        public const string prefabUIPanel_Options = "UIPanel/UIPanel/UIPanel_Options";
+        public const string prefabUIPanel_RestartGame = "UIPanel/UIPanel/UIPanel_RestartGame";
+        public const string prefabUIPanel_SkillTree = "UIPanel/UIPanel/UIPanel_SkillTree";
     }
 }

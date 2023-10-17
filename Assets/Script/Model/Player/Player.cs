@@ -103,7 +103,7 @@ namespace RPGGame
 
             skill = ModelSkill.Instance;
         }
-        
+
 
         protected override void Update()
         {
@@ -175,12 +175,15 @@ namespace RPGGame
         {
             if (IsWallDetected())
                 return;
+            if (skill.GetSkill<Dash_Skill>() == null)
+                return;
             if (skill.GetSkill<Dash_Skill>().dashUnlocked == false)
                 return;
-            if (skill.GetSkill<Dash_Skill>().CanUseSkill() == false)
-                Debug.Log("技能没有冷却,无法使用技能");
+            //if (skill.GetSkill<Dash_Skill>().CanUseSkill() == false)
+            //    Debug.Log("技能没有冷却,无法使用技能");
             if (Input.GetKeyDown(KeyCode.LeftShift) && skill.GetSkill<Dash_Skill>().CanUseSkill())
             {
+                Debug.Log("冲刺");
                 dashDir = Input.GetAxisRaw("Horizontal");//冲刺的方向
                 if (dashDir == 0)
                     dashDir = facingDir;

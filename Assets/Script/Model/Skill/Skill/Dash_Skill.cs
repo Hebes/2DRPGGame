@@ -28,7 +28,7 @@ namespace RPGGame
         public override void Awake()
         {
             base.Awake();
-            cooldown = 60;
+            cooldown = 3f;
         }
 
         public override void UnLockSkill(string skillName)

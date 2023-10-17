@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using Core;
 
 
 /*--------½Å±¾ÃèÊö-----------
@@ -41,10 +42,11 @@ namespace RPGGame
                 newXoffset = xOffset;
 
             if (mousePosition.y > yLimit)
-                newYoffset = -yOffset; 
+                newYoffset = -yOffset;
             else
                 newYoffset = yOffset;
 
+            //Vector2 vector2 = RectTransformUtility.WorldToScreenPoint(CroeUI.Instance.UICamera, transform.position);
             transform.position = new Vector2(mousePosition.x + newXoffset, mousePosition.y + newYoffset);
         }
 

@@ -1,6 +1,7 @@
 using Core;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 /*--------脚本描述-----------
 
@@ -33,6 +34,7 @@ namespace RPGGame
 
         void OnUpdate()
         {
+            Debug.Log("继续了");
             //角色界面
             if (Input.GetKeyDown(KeyCode.C))
                 SwitchWithKeyTo<UIPanel_Character>(ConfigPrefab.prefabUIPanel_Character);
@@ -51,7 +53,7 @@ namespace RPGGame
         }
 
 
-        
+
 
         /// <summary>
         /// 开启或关闭指定的界面
@@ -84,7 +86,6 @@ namespace RPGGame
         {
             ConfigEvent.EventPlayAudioSource.EventTrigger(ConfigAudio.mp3sfx_click, EAudioSourceType.SFX, false);
             CoreUIManagerExpansion.ShwoUIPanel<T>(UIPanelName);
-
             GameManager.Instance?.PauseGame(PauseGame);
         }
 

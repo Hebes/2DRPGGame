@@ -1,4 +1,6 @@
-﻿using Core;
+﻿using Codice.CM.SEIDInfo;
+using Core;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Text;
 using System;
 using UnityEngine;
 
@@ -68,162 +70,130 @@ namespace RPGGame
             ButtonOnClickAddListener(T_Blackhole.name, Blackhole);               //黑洞
 
             //Clone_Skill
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Timemirage.name, Timemirage);             //时间克隆
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Aggresivemirage.name, Aggresivemirage);   //攻击克隆
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Multiplemirage.name, Multiplemirage);   //攻击克隆
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Crystalmirage.name, Crystalmirage);   //水晶克隆
+            ButtonOnClickAddListener(T_Timemirage.name, Timemirage);             //时间克隆
+            ButtonOnClickAddListener(T_Aggresivemirage.name, Aggresivemirage);   //攻击克隆
+            ButtonOnClickAddListener(T_Multiplemirage.name, Multiplemirage);   //攻击克隆
+            ButtonOnClickAddListener(T_Crystalmirage.name, Crystalmirage);   //水晶克隆
 
-            ////Crystal_Skill
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Mirageblink.name, Mirageblink);
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Crystal.name, Crystal);
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Explosion.name, Explosion);
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Controlleddestruction.name, Controlleddestruction);
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Multipledistruction.name, Multipledistruction);
+            //Crystal_Skill
+            ButtonOnClickAddListener(T_Mirageblink.name, Mirageblink);
+            ButtonOnClickAddListener(T_Crystal.name, Crystal);
+            ButtonOnClickAddListener(T_Explosion.name, Explosion);
+            ButtonOnClickAddListener(T_Controlleddestruction.name, Controlleddestruction);
+            ButtonOnClickAddListener(T_Multipledistruction.name, Multipledistruction);
 
             //TODO 需要取消注释
-            ////Dash_Skill
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Dash.name, SkillDash);                    //解锁冲刺
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Dash_HereIam.name, SkillCloneOnDash);     //在冲刺上解锁克隆
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Dash_HereIam.name, SkillCloneOnArrival);  //到达后解锁克隆
 
-            ////Dodge_Skill
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Dodge.name, SkillDodge);                  //闪避
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Dodgemirage.name, SkillMirageDodge);      //闪避幻影
+            //Dash_Skill
+            ButtonOnClickAddListener(T_Dash.name, SkillDash);                    //解锁冲刺
+            ButtonOnClickAddListener(T_DashHereIam.name, SkillCloneOnDash);     //在冲刺上解锁克隆
+            ButtonOnClickAddListener(T_DashHereIam.name, SkillCloneOnArrival);  //到达后解锁克隆
 
-            ////Parry_Skill
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Parry.name, SkillParry);                  //格挡
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Parry.name, SkillParryRestore);           //格挡恢复
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Parry.name, SkillParryWithMirage);        //格挡幻影
+            //Dodge_Skill
+            ButtonOnClickAddListener(T_Dodge.name, SkillDodge);                  //闪避
+            ButtonOnClickAddListener(T_Dodgemirage.name, SkillMirageDodge);      //闪避幻影
 
-            ////Sword_Skill
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Bouncysword.name, SkillBounceSword);                  //反弹剑
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Bulletsword.name, SkillPierceSword);                  //刺穿剑
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Chainsawsword.name, SkillSpinSword);                  //旋转的剑
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_SwordThrow.name, SkillSword);                         //剑
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Timestop.name, SkillTimeStop);                        //时间停止
-            //ButtonOnClickAddListener(SkillTreeSlot_UI_Vulnerability.name, SkillVulnurable);                  //受伤
+            //Parry_Skill
+            ButtonOnClickAddListener(T_Parry.name, SkillParry);                  //格挡
+            ButtonOnClickAddListener(T_Parry.name, SkillParryRestore);           //格挡恢复
+            ButtonOnClickAddListener(T_Parry.name, SkillParryWithMirage);        //格挡幻影
 
+            //Sword_Skill
+            ButtonOnClickAddListener(T_Bouncysword.name, SkillBounceSword);                  //反弹剑
+            ButtonOnClickAddListener(T_Bulletsword.name, SkillPierceSword);                  //刺穿剑
+            ButtonOnClickAddListener(T_Chainsawsword.name, SkillSpinSword);                  //旋转的剑
+            ButtonOnClickAddListener(T_SwordThrow.name, SkillSword);                         //剑
+            ButtonOnClickAddListener(T_Timestop.name, SkillTimeStop);                        //时间停止
+            ButtonOnClickAddListener(T_Vulnerability.name, SkillVulnurable);                  //受伤
+
+            //技能介绍界面
+
+            
         }
 
-        private void SkillVulnurable(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Sword_Skill>(ConfigSkill.SkillVulnurable);
-        }
+        /// <summary>
+        /// 受伤
+        /// </summary>
+        /// <param name="go"></param>
+        private void SkillVulnurable(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Sword_Skill() as Skill, ConfigSkill.SkillVulnurable);
 
-        private void SkillTimeStop(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Sword_Skill>(ConfigSkill.SkillTimeStop);
-        }
+        /// <summary>
+        /// 时间停止
+        /// </summary>
+        /// <param name="go"></param>
+        private void SkillTimeStop(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Sword_Skill() as Skill, ConfigSkill.SkillTimeStop);
 
-        private void SkillSword(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Sword_Skill>(ConfigSkill.SkillSword);
-        }
+        /// <summary>
+        /// 剑
+        /// </summary>
+        /// <param name="go"></param>
+        private void SkillSword(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Sword_Skill() as Skill, ConfigSkill.SkillSword);
 
-        private void SkillSpinSword(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Sword_Skill>(ConfigSkill.SkillSpinSword);
-        }
+        /// <summary>
+        /// 旋转的剑
+        /// </summary>
+        /// <param name="go"></param>
+        private void SkillSpinSword(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Sword_Skill() as Skill, ConfigSkill.SkillSpinSword);
 
-        private void SkillPierceSword(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Sword_Skill>(ConfigSkill.SkillPierceSword);
-        }
+        /// <summary>
+        /// 刺穿剑
+        /// </summary>
+        /// <param name="go"></param>
+        private void SkillPierceSword(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Sword_Skill() as Skill, ConfigSkill.SkillPierceSword);
 
-        private void SkillBounceSword(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Sword_Skill>(ConfigSkill.SkillBounceSword);
-        }
+        /// <summary>
+        /// 反弹剑
+        /// </summary>
+        /// <param name="go"></param>
+        private void SkillBounceSword(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Sword_Skill() as Skill, ConfigSkill.SkillBounceSword);
 
-        private void SkillParryWithMirage(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Parry_Skill>(ConfigSkill.SkillParryWithMirage);
-        }
+        /// <summary>
+        /// 格挡幻影
+        /// </summary>
+        /// <param name="go"></param>
+        private void SkillParryWithMirage(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Parry_Skill() as Skill, ConfigSkill.SkillParryWithMirage);
 
-        private void SkillParryRestore(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Parry_Skill>(ConfigSkill.SkillParryRestore);
-        }
+        /// <summary>
+        /// 格挡恢复
+        /// </summary>
+        /// <param name="go"></param>
+        private void SkillParryRestore(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Parry_Skill() as Skill, ConfigSkill.SkillParryRestore);
 
-        private void SkillParry(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Parry_Skill>(ConfigSkill.SkillParry);
-        }
+        /// <summary>
+        /// 格挡
+        /// </summary>
+        /// <param name="go"></param>
+        private void SkillParry(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Parry_Skill() as Skill, ConfigSkill.SkillParry);
 
-        private void SkillMirageDodge(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Dodge_Skill>(ConfigSkill.SkillMirageDodge);
-        }
+        private void SkillMirageDodge(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Dodge_Skill() as Skill, ConfigSkill.SkillMirageDodge);
 
-        private void SkillDodge(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Dodge_Skill>(ConfigSkill.SkillDodge);
-        }
+        private void SkillDodge(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Dodge_Skill() as Skill, ConfigSkill.SkillDodge);
 
-        private void SkillCloneOnArrival(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Dash_Skill>(ConfigSkill.SkillCloneOnArrival);
-        }
+        private void SkillCloneOnArrival(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Dash_Skill() as Skill, ConfigSkill.SkillCloneOnArrival);
 
-        private void SkillCloneOnDash(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Dash_Skill>(ConfigSkill.SkillCloneOnDash);
-        }
+        private void SkillCloneOnDash(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Dash_Skill() as Skill, ConfigSkill.SkillCloneOnDash);
 
-        private void SkillDash(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Dash_Skill>(ConfigSkill.SkillDash);
-        }
+        private void SkillDash(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Dash_Skill() as Skill, ConfigSkill.SkillDash);
 
-        private void Crystalmirage(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Clone_Skill>(ConfigSkill.SkillCrystalInstead);
-        }
+        private void Crystalmirage(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Clone_Skill() as Skill, ConfigSkill.SkillCrystalInstead);
 
-        private void Multiplemirage(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Clone_Skill>(ConfigSkill.SkillMultiClone);
-        }
+        private void Multiplemirage(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Clone_Skill() as Skill, ConfigSkill.SkillMultiClone);
 
-        private void Aggresivemirage(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Clone_Skill>(ConfigSkill.SkillAggresiveClone);
-        }
+        private void Aggresivemirage(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Clone_Skill() as Skill, ConfigSkill.SkillAggresiveClone);
 
-        private void Timemirage(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Clone_Skill>(ConfigSkill.SkillCloneAttack);
-        }
+        private void Timemirage(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Clone_Skill() as Skill, ConfigSkill.SkillCloneAttack);
 
-        private void Blackhole(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Blackhole_Skill>(string.Empty);
-        }
+        private void Blackhole(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Blackhole_Skill() as Skill, ConfigSkill.SkillBlackholeSkill);
 
-        private void Multipledistruction(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Crystal_Skill>(ConfigSkill.SkillMultiStack);
-        }
+        private void Multipledistruction(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Crystal_Skill() as Skill, ConfigSkill.SkillMultiStack);
 
-        private void Controlleddestruction(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Crystal_Skill>(ConfigSkill.SkillMovingCrystal);
-        }
+        private void Controlleddestruction(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Crystal_Skill() as Skill, ConfigSkill.SkillMovingCrystal);
 
-        private void Explosion(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Crystal_Skill>(ConfigSkill.SkillExplosiveCrystal);
-        }
+        private void Explosion(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Crystal_Skill() as Skill, ConfigSkill.SkillExplosiveCrystal);
 
-        private void Crystal(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Crystal_Skill>(ConfigSkill.SkillCrystal);
-        }
+        private void Crystal(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Crystal_Skill() as Skill, ConfigSkill.SkillCrystal);
 
-        private void Mirageblink(GameObject go)
-        {
-            ModelSkill.Instance.UnLockSkill<Crystal_Skill>(ConfigSkill.SkillCrystalMirage);
-        }
+        private void Mirageblink(GameObject go) => ConfigEvent.SkillUnLock.EventTrigger(new Crystal_Skill() as Skill, ConfigSkill.SkillCrystalMirage);
 
         /// <summary>
         /// 技巧面板

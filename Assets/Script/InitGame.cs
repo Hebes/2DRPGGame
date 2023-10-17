@@ -84,7 +84,9 @@ namespace RPGGame
             ConfigPrefab.prefabUIPanel_Character.CloseUIPanel();        //角色
             ConfigPrefab.prefabUIPanel_Options.CloseUIPanel();            //设置
             ConfigPrefab.prefabUIPanel_Craft.CloseUIPanel();                //工艺界面
-            
+
+
+            await ConfigPrefab.prefabUIPanel_MainMenu.GetUIPanl<UIPanel_MainMenu>().LoadSceneWithFadeEffect(1.5f);
         }
 
         private async UniTask FSMInitCore()

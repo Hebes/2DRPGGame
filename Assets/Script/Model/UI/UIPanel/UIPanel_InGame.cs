@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Debug = UnityEngine.Debug;
 
 
 /*--------脚本描述-----------
@@ -72,32 +73,33 @@ namespace RPGGame
             base.UIUpdate();
             UpdateSoulsUI();
 
-            if (Input.GetKeyDown(KeyCode.LeftShift) && skills.GetSkill<Dash_Skill>().dashUnlocked)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && skills.GetSkill<Dash_Skill>() != null && skills.GetSkill<Dash_Skill>().dashUnlocked)
                 SetCooldownOf(dashImage);
 
-            if (Input.GetKeyDown(KeyCode.Q) && skills.GetSkill<Parry_Skill>() .parryUnlocked)
-                SetCooldownOf(parryImage);
+            //if (Input.GetKeyDown(KeyCode.Q) && skills.GetSkill<Parry_Skill>().parryUnlocked)
+            //    SetCooldownOf(parryImage);
 
-            if (Input.GetKeyDown(KeyCode.F) && skills.GetSkill<Crystal_Skill>() .crystalUnlocked)
-                SetCooldownOf(crystalImage);
+            //if (Input.GetKeyDown(KeyCode.F) && skills.GetSkill<Crystal_Skill>().crystalUnlocked)
+            //    SetCooldownOf(crystalImage);
 
-            if (Input.GetKeyDown(KeyCode.Mouse1) && skills.GetSkill<Sword_Skill>().swordUnlocked)
-                SetCooldownOf(swordImage);
+            //if (Input.GetKeyDown(KeyCode.Mouse1) && skills.GetSkill<Sword_Skill>().swordUnlocked)
+            //    SetCooldownOf(swordImage);
 
-            if (Input.GetKeyDown(KeyCode.R) && skills.GetSkill<Blackhole_Skill>().blackholeUnlocked)
-                SetCooldownOf(blackholeImage);
+            //if (Input.GetKeyDown(KeyCode.R) && skills.GetSkill<Blackhole_Skill>().blackholeUnlocked)
+            //    SetCooldownOf(blackholeImage);
 
 
-            if (Input.GetKeyDown(KeyCode.Alpha1) && Inventory.Instance.GetEquipment(EquipmentType.Flask) != null)
-                SetCooldownOf(flaskImage);
+            //if (Input.GetKeyDown(KeyCode.Alpha1) && Inventory.Instance.GetEquipment(EquipmentType.Flask) != null)
+            //    SetCooldownOf(flaskImage);
 
             //TODO 技能冷却需要修改
-            CheckCooldownOf(dashImage, skills.GetSkill<Dash_Skill>().cooldown);
-            CheckCooldownOf(parryImage, skills.GetSkill<Parry_Skill>().cooldown);
-            CheckCooldownOf(crystalImage, skills.GetSkill<Crystal_Skill>().cooldown);
-            CheckCooldownOf(swordImage, skills.GetSkill<Sword_Skill>().cooldown);
-            CheckCooldownOf(blackholeImage, skills.GetSkill<Blackhole_Skill>().cooldown);
-            CheckCooldownOf(flaskImage, Inventory.Instance.flaskCooldown);
+            if (skills.GetSkill<Dash_Skill>() != null)
+                CheckCooldownOf(dashImage, skills.GetSkill<Dash_Skill>().cooldown);
+            //CheckCooldownOf(parryImage, skills.GetSkill<Parry_Skill>().cooldown);
+            //CheckCooldownOf(crystalImage, skills.GetSkill<Crystal_Skill>().cooldown);
+            //CheckCooldownOf(swordImage, skills.GetSkill<Sword_Skill>().cooldown);
+            //CheckCooldownOf(blackholeImage, skills.GetSkill<Blackhole_Skill>().cooldown);
+            //CheckCooldownOf(flaskImage, Inventory.Instance.flaskCooldown);
         }
 
 

@@ -14,7 +14,7 @@ namespace RPGGame
     public class ConfigSkill
     {
         public const string Skill = "技能名称";
-        //public const string SkillBlackholeSkill = "黑洞";
+        public const string SkillBlackholeSkill = "黑洞";
 
         //CloneSkill
         public const string SkillCloneAttack = "克隆攻击";

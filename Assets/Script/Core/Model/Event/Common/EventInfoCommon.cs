@@ -15,10 +15,23 @@ namespace Core
     {
         public delegate void CommonEvent();
         public event CommonEvent commonAction;
+
         public EventInfoCommon(CommonEvent commonAction)
         {
             this.commonAction += commonAction;
         }
+
+        /// <summary>
+        /// 添加
+        /// </summary>
+        public void Add(CommonEvent commonAction)
+        {
+            this.commonAction += commonAction;
+        }
+
+        /// <summary>
+        /// 触发
+        /// </summary>
         public void Trigger()
         {
             commonAction?.Invoke();

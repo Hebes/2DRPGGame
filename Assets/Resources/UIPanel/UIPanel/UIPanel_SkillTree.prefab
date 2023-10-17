@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 4808822716764556360}
   - component: {fileID: 5440032922620974265}
   - component: {fileID: 4318627744210630613}
-  - component: {fileID: 5300717708604484210}
+  - component: {fileID: 9155966742196011388}
   m_Layer: 5
   m_Name: T_Parry
   m_TagString: Untagged
@@ -519,7 +519,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5300717708604484210
+--- !u!114 &9155966742196011388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -528,41 +528,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 604577326069216974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 4318627744210630613}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 22
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &728406365796616821
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +550,7 @@ GameObject:
   - component: {fileID: 4295107164301791635}
   - component: {fileID: 8373056086888635831}
   - component: {fileID: 3334667631366268944}
-  - component: {fileID: 6241370004133811969}
+  - component: {fileID: 7971716102865748476}
   m_Layer: 5
   m_Name: T_Aggresivemirage
   m_TagString: Untagged
@@ -639,7 +615,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6241370004133811969
+--- !u!114 &7971716102865748476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -648,41 +624,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 728406365796616821}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 3334667631366268944}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 8
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &1216620411797731191
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +646,7 @@ GameObject:
   - component: {fileID: 5458499514681456385}
   - component: {fileID: 7004419527009790956}
   - component: {fileID: 6702726670460627747}
-  - component: {fileID: 5737785305917035425}
+  - component: {fileID: 7844010111851597188}
   m_Layer: 5
   m_Name: T_Bouncysword
   m_TagString: Untagged
@@ -759,7 +711,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5737785305917035425
+--- !u!114 &7844010111851597188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -768,41 +720,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1216620411797731191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 6702726670460627747}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 4
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &1394846112272777183
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,7 +818,7 @@ GameObject:
   - component: {fileID: 5984098891933564029}
   - component: {fileID: 2719962826596804814}
   - component: {fileID: 6023964706616655582}
-  - component: {fileID: 7302969719145219776}
+  - component: {fileID: 2572951692656849295}
   m_Layer: 5
   m_Name: T_Multipledistruction
   m_TagString: Untagged
@@ -955,7 +883,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7302969719145219776
+--- !u!114 &2572951692656849295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -964,41 +892,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1661853919135154631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 6023964706616655582}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 16
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &1704620908266698954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +914,7 @@ GameObject:
   - component: {fileID: 842357559557194864}
   - component: {fileID: 1191050679489510010}
   - component: {fileID: 1901933514584676648}
-  - component: {fileID: 789661841780259202}
+  - component: {fileID: 5483279653693063296}
   m_Layer: 5
   m_Name: T_Bulletsword
   m_TagString: Untagged
@@ -1075,7 +979,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &789661841780259202
+--- !u!114 &5483279653693063296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1084,41 +988,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1704620908266698954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1901933514584676648}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 5
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &1980396279755353728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,7 +1010,7 @@ GameObject:
   - component: {fileID: 6851122183731652783}
   - component: {fileID: 1125427834566531962}
   - component: {fileID: 3370434735360465185}
-  - component: {fileID: 6482252073219732660}
+  - component: {fileID: 7022892731387629272}
   m_Layer: 5
   m_Name: T_Controlleddestruction
   m_TagString: Untagged
@@ -1195,7 +1075,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6482252073219732660
+--- !u!114 &7022892731387629272
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1204,41 +1084,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1980396279755353728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 3370434735360465185}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 15
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &2402432640252061087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,7 +1240,7 @@ GameObject:
   - component: {fileID: 3622927329472988510}
   - component: {fileID: 5991348004620327263}
   - component: {fileID: 8041278320679754122}
-  - component: {fileID: 5496218648510851484}
+  - component: {fileID: 5935805003376227769}
   m_Layer: 5
   m_Name: T_Dodgemirage
   m_TagString: Untagged
@@ -1449,7 +1305,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5496218648510851484
+--- !u!114 &5935805003376227769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1458,41 +1314,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2517296037162512439}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 8041278320679754122}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 18
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &2695231075997658165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,7 +1470,7 @@ GameObject:
   - component: {fileID: 7153406801779690037}
   - component: {fileID: 8244452177068593017}
   - component: {fileID: 8409282067561916884}
-  - component: {fileID: 7555480013027227596}
+  - component: {fileID: 1825330741333761478}
   m_Layer: 5
   m_Name: T_Restorewithparry
   m_TagString: Untagged
@@ -1703,7 +1535,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7555480013027227596
+--- !u!114 &1825330741333761478
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1712,41 +1544,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2744276233604454201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 8409282067561916884}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 23
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &3354506475674966980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,7 +1566,7 @@ GameObject:
   - component: {fileID: 2560131002711763186}
   - component: {fileID: 8185393744004480369}
   - component: {fileID: 2965652173495799889}
-  - component: {fileID: 3013975177977157121}
+  - component: {fileID: 1939141621877332148}
   m_Layer: 5
   m_Name: T_Mirageblink
   m_TagString: Untagged
@@ -1823,7 +1631,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3013975177977157121
+--- !u!114 &1939141621877332148
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1832,41 +1640,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3354506475674966980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 2965652173495799889}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 13
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &3721856044111710531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,7 +1690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 275.1006, y: -257.63623}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 350, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1035021669517771616
@@ -1990,7 +1774,7 @@ GameObject:
   - component: {fileID: 3088057087687452225}
   - component: {fileID: 3418535874644973651}
   - component: {fileID: 7827128895782614914}
-  - component: {fileID: 5575898444859992302}
+  - component: {fileID: 4807692238646721221}
   m_Layer: 5
   m_Name: T_Dash
   m_TagString: Untagged
@@ -2055,7 +1839,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5575898444859992302
+--- !u!114 &4807692238646721221
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2064,41 +1848,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3857587017916272390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 7827128895782614914}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 19
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &4188762145583171070
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,7 +2050,7 @@ GameObject:
   - component: {fileID: 1405424126016282961}
   - component: {fileID: 887361022632922312}
   - component: {fileID: 8402423941173398553}
-  - component: {fileID: 5552678128470930491}
+  - component: {fileID: 9171482153572961746}
   m_Layer: 5
   m_Name: T_DashActuallyhereIam
   m_TagString: Untagged
@@ -2355,7 +2115,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5552678128470930491
+--- !u!114 &9171482153572961746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2364,41 +2124,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4489516318532585138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 8402423941173398553}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 21
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &4633980156183773180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2544,7 +2280,7 @@ GameObject:
   - component: {fileID: 3251157474515418775}
   - component: {fileID: 3967923692740682535}
   - component: {fileID: 1844062438814438922}
-  - component: {fileID: 6405185055349958379}
+  - component: {fileID: 7865439074998136462}
   m_Layer: 5
   m_Name: T_Timemirage
   m_TagString: Untagged
@@ -2609,7 +2345,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6405185055349958379
+--- !u!114 &7865439074998136462
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2618,41 +2354,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4707379468165059794}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1844062438814438922}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 7
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &5515240244567181200
 GameObject:
   m_ObjectHideFlags: 0
@@ -2664,7 +2376,7 @@ GameObject:
   - component: {fileID: 4317381965758179623}
   - component: {fileID: 6929319264782944698}
   - component: {fileID: 3953214765911575002}
-  - component: {fileID: 5238483840202948256}
+  - component: {fileID: 1569526714620709884}
   m_Layer: 5
   m_Name: T_Explosion
   m_TagString: Untagged
@@ -2729,7 +2441,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5238483840202948256
+--- !u!114 &1569526714620709884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2738,41 +2450,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5515240244567181200}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 3953214765911575002}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 14
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &5576884061022421448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2784,7 +2472,7 @@ GameObject:
   - component: {fileID: 4897465230397183269}
   - component: {fileID: 4085438907863624213}
   - component: {fileID: 4416336721951697575}
-  - component: {fileID: 1780362218624275249}
+  - component: {fileID: 4213893051626254252}
   m_Layer: 5
   m_Name: T_DashHereIam
   m_TagString: Untagged
@@ -2849,7 +2537,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1780362218624275249
+--- !u!114 &4213893051626254252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2858,41 +2546,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5576884061022421448}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 4416336721951697575}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 20
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &5623133089535706361
 GameObject:
   m_ObjectHideFlags: 0
@@ -2904,7 +2568,7 @@ GameObject:
   - component: {fileID: 3370936135188477640}
   - component: {fileID: 1724194916406636204}
   - component: {fileID: 3229798407562514802}
-  - component: {fileID: 2969760543459072594}
+  - component: {fileID: 1287431443115079032}
   m_Layer: 5
   m_Name: T_Multiplemirage
   m_TagString: Untagged
@@ -2969,7 +2633,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2969760543459072594
+--- !u!114 &1287431443115079032
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2978,41 +2642,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5623133089535706361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 3229798407562514802}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 9
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &5651067008776746100
 GameObject:
   m_ObjectHideFlags: 0
@@ -3024,7 +2664,7 @@ GameObject:
   - component: {fileID: 7252441542854999148}
   - component: {fileID: 6238185830458151108}
   - component: {fileID: 1384796047648061817}
-  - component: {fileID: 7990045937769802652}
+  - component: {fileID: 8733384562214196840}
   m_Layer: 5
   m_Name: T_Crystal
   m_TagString: Untagged
@@ -3089,7 +2729,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7990045937769802652
+--- !u!114 &8733384562214196840
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3098,41 +2738,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5651067008776746100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1384796047648061817}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 12
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &5833641073571011538
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,7 +2910,7 @@ GameObject:
   - component: {fileID: 5008767037881885710}
   - component: {fileID: 5807022802496521866}
   - component: {fileID: 2791108232487047725}
-  - component: {fileID: 2823337197862152012}
+  - component: {fileID: 3046378310714609807}
   m_Layer: 5
   m_Name: T_Chainsawsword
   m_TagString: Untagged
@@ -3359,7 +2975,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2823337197862152012
+--- !u!114 &3046378310714609807
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3368,41 +2984,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5844217868138100157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 2791108232487047725}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 6
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &5859547404245161181
 GameObject:
   m_ObjectHideFlags: 0
@@ -3492,7 +3084,7 @@ GameObject:
   - component: {fileID: 51011085611032415}
   - component: {fileID: 7737524945263279598}
   - component: {fileID: 8877936050984798728}
-  - component: {fileID: 2540320001330030061}
+  - component: {fileID: 7076649903048340359}
   m_Layer: 5
   m_Name: T_Dodge
   m_TagString: Untagged
@@ -3557,7 +3149,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2540320001330030061
+--- !u!114 &7076649903048340359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3566,41 +3158,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 6038125242552019075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 8877936050984798728}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 17
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &6283122105168129331
 GameObject:
   m_ObjectHideFlags: 0
@@ -3612,7 +3180,7 @@ GameObject:
   - component: {fileID: 3293523804754378612}
   - component: {fileID: 2255017229029216791}
   - component: {fileID: 2169424585549008212}
-  - component: {fileID: 9141425437559381228}
+  - component: {fileID: 5757301376029755048}
   m_Layer: 5
   m_Name: T_Blackhole
   m_TagString: Untagged
@@ -3677,7 +3245,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &9141425437559381228
+--- !u!114 &5757301376029755048
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3686,41 +3254,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 6283122105168129331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 2169424585549008212}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 11
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &6776238536784279893
 GameObject:
   m_ObjectHideFlags: 0
@@ -3866,7 +3410,7 @@ GameObject:
   - component: {fileID: 1234837272461173579}
   - component: {fileID: 7946709202668801490}
   - component: {fileID: 7583462548479252394}
-  - component: {fileID: 5602550339739102235}
+  - component: {fileID: 1846150176238902307}
   m_Layer: 5
   m_Name: T_Parrywithamirage
   m_TagString: Untagged
@@ -3931,7 +3475,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5602550339739102235
+--- !u!114 &1846150176238902307
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3940,41 +3484,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7385792426980034438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 7583462548479252394}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 24
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &7806755345219591974
 GameObject:
   m_ObjectHideFlags: 0
@@ -3986,7 +3506,7 @@ GameObject:
   - component: {fileID: 8949773134163490081}
   - component: {fileID: 3994948129178454735}
   - component: {fileID: 5161066818724244899}
-  - component: {fileID: 7724807034440472004}
+  - component: {fileID: 7530238785066739786}
   m_Layer: 5
   m_Name: T_Crystalmirage
   m_TagString: Untagged
@@ -4051,7 +3571,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7724807034440472004
+--- !u!114 &7530238785066739786
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4060,41 +3580,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7806755345219591974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 5161066818724244899}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 10
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &8080269860705207362
 GameObject:
   m_ObjectHideFlags: 0
@@ -4183,8 +3679,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillID: 0
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  skillID: 1
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
   unlocked: 0
   skillCost: 100
   skillName: SwordThrow
@@ -4202,7 +3698,7 @@ GameObject:
   - component: {fileID: 5694262893663126639}
   - component: {fileID: 277978390308500409}
   - component: {fileID: 6339356212452824286}
-  - component: {fileID: 2164902991823638746}
+  - component: {fileID: 8426936591521321482}
   m_Layer: 5
   m_Name: T_Vulnerability
   m_TagString: Untagged
@@ -4267,7 +3763,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2164902991823638746
+--- !u!114 &8426936591521321482
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4276,41 +3772,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8114117042939364206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 6339356212452824286}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  skillID: 3
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
 --- !u!1 &8249888885547773995
 GameObject:
   m_ObjectHideFlags: 0
@@ -4532,6 +4004,7 @@ GameObject:
   - component: {fileID: 1271764447328466370}
   - component: {fileID: 2522724197736315759}
   - component: {fileID: 2927816079450289870}
+  - component: {fileID: 1876479503972056521}
   m_Layer: 5
   m_Name: T_Timestop
   m_TagString: Untagged
@@ -4596,3 +4069,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1876479503972056521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8286922927408955501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699f75bd21195c641be59f783ffefeec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillID: 2
+  lockedSkillColor: {r: 0.49019608, g: 0.40784314, b: 0.40784314, a: 1}
+  unlocked: 0
+  skillCost: 0
+  skillName: 
+  skillDescription: 
+  shouldBeUnlocked: []
+  shouldBeLocked: []
